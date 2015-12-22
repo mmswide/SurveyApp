@@ -47,6 +47,11 @@ class UsersController < ApplicationController
     flash[:success] = "User deleted"
     redirect_to users_url
   end
+  
+  # Returns true if a password reset has expired.
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
+  end
 
   private
 
