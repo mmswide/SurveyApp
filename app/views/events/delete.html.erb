@@ -1,0 +1,18 @@
+<% provide(:title, "Delete Event") %>
+
+<%= link_to('<< back to event list',  {:action => 'index'} , :class => '')%>
+
+<h1>Delete Festival</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:event, :url => {:action => 'destroy', :id => @event.id})do |f| %>
+  		<center> 
+     		<p>Are you use you want to delete this event?</p>
+    		 <h3> <%= @event.event_name %> <h3>
+ 		</center>
+      <%= submit_tag("Delete Event", class: "btn btn-danger") %>
+    <% end %>
+  </div>
+</div>
+

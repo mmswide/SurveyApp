@@ -3,8 +3,8 @@
     <%= link_to "Logo", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Help", help_path %></li>
+        <li><%= link_to("Home", {:controller => 'static_pages', :action => 'home'}) %></li>
+        <li><%= link_to("Help", {:controller => 'static_pages', :action => 'help'}) %></li>
         <% if logged_in? %>
         <li><%= link_to "Users", users_path %></li>
           <li class="dropdown">

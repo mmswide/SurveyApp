@@ -1,0 +1,24 @@
+<% provide(:title, "Edit Event") %>
+
+<%= link_to('<< back to event list',  {:action => 'index'} , :class => '')%>
+
+<h1>Edit Festival</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:event, :url => {:action => 'update', :id => @event.id})do |f| %>
+
+      <%= f.label :event_name %>
+      <%= f.text_field :event_name, class: 'form-control' %>
+
+      <%= f.label :description_short %>
+      <%= f.text_field :description_short, class: 'form-control' %>
+
+      <%= f.label :description_long %>
+      <%= f.text_field :description_long, class: 'form-control' %>
+
+      <%= submit_tag("Edit Event", class: "btn btn-primary") %>
+    <% end %>
+  </div>
+</div>
+
