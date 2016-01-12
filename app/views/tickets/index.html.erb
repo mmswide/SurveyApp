@@ -1,10 +1,11 @@
 <h1>My Tickets</h1>
-<%= link_to('Create Ticket',  {:action => 'new'} , :class => 'btn btn-primary')%> <br>
+<%= link_to('Create Ticket',  {:action => 'new', :event_id => @event.id} , :class => 'btn btn-primary')%> <br>
 <% @tickets.each do |ticket| %>
-Ticket Name : <%= ticket.ticket_name %>
-	<%= link_to('Show', {:action => 'show', :id => ticket.id})%>
-	<%= link_to('edit', {:action => 'edit', :id => ticket.id}, :class => '')%>
-	<%= link_to('delete', {:action => 'delete', :id => ticket.id}, :class => '')%> <br>
+Ticket Name : <%= ticket.ticket_name %></br>
+Parent Event : <%= ticket.event_id %></br>
+	<%= link_to('Show', {:action => 'show', :id => ticket.id, :event_id => @event.id})%>
+	<%= link_to('edit', {:action => 'edit', :id => ticket.id, :event_id => @event.id}, :class => '')%>
+	<%= link_to('delete', {:action => 'delete', :id => ticket.id, :event_id => @event.id}, :class => '')%> <br>
 <% end %>
 
 </td>
