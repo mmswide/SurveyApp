@@ -4,4 +4,31 @@
 
 <h1> <%= @event.event_name %> </h1>
 
-Event_id: <%= @event.id %>
+<!-- Event dashboard navigation-->
+<%= render(:partial => 'shared/event_nav') %>
+
+	<div class="well col-md-8">
+		<!--Basic Event Information-->
+		<h4>Basic Details</h4>
+		<p>Event Name: <%= @event.event_name %> </p>
+		<p>Event ID: <%= @event.id %> </p>
+		<p>Event Description (short): <%= @event.description_short %> </p>
+		<p>Event Description (long): <%= @event.description_long %> </p>
+		<br>
+
+		<!--Contact Information-->
+		<h4>Contact</h4>
+		<p>Contact Name: <%= @event.contact_name %> </p>
+		<p>Contact Phone: <%= @event.contact_phone %> </p>
+		<p>Event Email: <%= @event.contact_email %> </p>
+		<br>
+		<!--Location Information-->
+		<h4>Location</h4>
+		<p>Venue Name: <%= @event.venue_name %></p>
+		<p>Venue Address: <%= @event.address_1 %></p>
+		<p>Venue City: <%= @event.city %></p>
+		<p>State, Zipcode: <%= @event.state %> , <%= @event.zip_code %></p>
+
+	</div>
+</div>
+

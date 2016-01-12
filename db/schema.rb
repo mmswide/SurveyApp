@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20160109015927) do
     t.integer  "event_id"
     t.string   "ticket_name"
     t.text     "ticket_decription"
-    t.integer  "ticket_price"
+    t.decimal  "ticket_price"
     t.integer  "quantity"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
