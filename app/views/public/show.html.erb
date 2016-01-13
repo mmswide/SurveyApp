@@ -1,14 +1,57 @@
 <h1> <%= @event.event_name %> </h1>
-<h1> Event id: <%= @event.id %> </h1>
-<h1> Event ticket count: <%= @event.tickets.count %> </h1>
 
-<!--Checking to make sure there are tickets before revealing the ticket div-->
-<% unless @event.tickets.blank? %>
-    <div class="well col-md-8">
-      <% @event.tickets.each do |ticket| %>
-		Ticket Name : <%= ticket.ticket_name %></br>
-		Ticket Price : <%= number_to_currency(ticket.ticket_price) %></br>
-		Ticket Description : <%= ticket.ticket_decription %> <br> 
-    </div>
-<% end %>
-<% end%>
+<div class="container">
+	<div class="row">
+		 <div class="col-md-10 col-md-offset-1">
+             <!-- Nav tabs -->
+             <div class="card">
+                 <ul class="nav nav-tabs" role="tablist">
+                   <li role="presentation" class="active"><a href="#basic" aria-controls="basic" role="tab" data-toggle="tab">Basic Info</a></li>
+                    <li role="presentation"><a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">Contact Info</a></li>
+                    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Details</a></li>
+                    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Tickets</a></li>
+                  </ul>
+                  <!-- Tab panes -->
+                <div class="tab-content">
+                	<!--Event Introduction Tab-->
+                    <div role="tabpanel" class="tab-pane active" id="basic">
+                    	<img src="http://placehold.it/900x400">
+                    	<center>
+                    		<p> add event date to model</p>
+                    		<span class="glyphicon glyphicon-map-marker" aria-hidden="true">
+                    		</span>
+							<p> <%= @event.venue_name %></p>
+							<p> <%= @event.address_1 %> <%= @event.city %>, <%= @event.state %><p>
+                    		<span class="glyphicon glyphicon-comment" aria-hidden="true">
+                    		</span><p><%= @event.description_short %></p>
+                    	</center>
+                    </div>
+                    <!-- Contact Information tab-->
+                     <div role="tabpanel" class="tab-pane" id="contact">
+                     	<p> Name: <%= @event.contact_name  %> </p>
+                     	<p> Email: <%= @event.contact_email %> </p>
+                     	<p> Phone: <%= @event.contact_phone %> </p>
+                     </div>
+                     <!--Event Description tab-->
+                     <div role="tabpanel" class="tab-pane" id="messages">
+						<p> <%= @event.description_long  %> </p>
+                     </div>
+                     <!--Ticket description tab-->
+                     <div role="tabpanel" class="tab-pane" id="settings">
+                     <!--Checking to make sure there are tickets before revealing the ticket div-->
+						<% unless @event.tickets.blank? %>
+						    <div class="">
+						      <% @event.tickets.each do |ticket| %>
+								Ticket Name : <%= ticket.ticket_name %></br>
+								Ticket Price : <%= number_to_currency(ticket.ticket_price) %></br>
+								Ticket Description : <%= ticket.ticket_decription %> <br>
+								Ticket Identification : <%= ticket.id %> <br>  <hr>
+						    </div>
+						<% end %>
+						<% end%>
+					</div>
+                </div>
+			</div>
+        </div>
+	</div>
+</div>
