@@ -1,6 +1,14 @@
-# Ruby on Rails Tutorial: sample application
+#DanceFest Application
+### An application that allows users to create events, tickets and a profile to promote their event. ###
 
-This is the sample application for the
-[*Ruby on Rails Tutorial:
-Learn Web Development with Rails*](http://www.railstutorial.org/)
-by [Michael Hartl](http://www.michaelhartl.com/).
+### Clone the application ###
+
+```
+#!ruby
+
+git clone https://frankavila00@bitbucket.org/frankavila00/sample_app.git event_app
+```
+
+### Run bundle install ###
+
+### rails server ###
