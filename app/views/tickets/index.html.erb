@@ -10,7 +10,7 @@
 <hr>
 </br>
 
-<% if @tickets.count.blank? %>
+<% if @tickets.present? %>
 <div class="well col-md-8">
 <% @tickets.each do |ticket| %>
 Ticket Name : <%= ticket.ticket_name %></br>
