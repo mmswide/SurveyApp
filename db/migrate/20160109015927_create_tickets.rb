@@ -4,7 +4,7 @@ class CreateTickets < ActiveRecord::Migration
       t.integer 'event_id' 
       t.string 	'ticket_name'
       t.text 	'ticket_decription'
-      t.integer 'ticket_price'
+      t.decimal 'ticket_price'
       t.integer 'quantity'
 
       t.timestamps null: false

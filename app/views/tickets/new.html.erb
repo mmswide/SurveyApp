@@ -1,12 +1,12 @@
 <% provide(:title, "New Ticket") %>
 
-<%= link_to('<< back to ticket list',  {:action => 'index'} , :class => '')%>
+<%= link_to('<< back to ticket list',  {:action => 'index', :event_id => @event.id} , :class => '')%>
 
 <h1>New Ticket</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:ticket, :url => {:action => 'create'})do |f| %>
+    <%= form_for(:ticket, :url => {:action => 'create', :event_id => @event.id})do |f| %>
       <!-- Loading the partial form and passing the local variables for the form-->
       <%= render(:partial => 'shared/ticket_form', :locals => {:foo => f}) %>
 
