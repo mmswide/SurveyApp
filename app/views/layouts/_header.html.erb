@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">DanceFest</a>
+      <a class="navbar-brand" href="/">DanceFest</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -33,6 +33,7 @@
           </li>
         <% else %>
           <li><%= link_to "Log in", login_path %></li>
+          <li><%= link_to "Sign up", :controller => 'users', :action => 'new' %></li>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
