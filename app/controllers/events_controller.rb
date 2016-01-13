@@ -1,9 +1,9 @@
 class EventsController < ApplicationController
-
   before_action :logged_in_user
+  #before_action :find_user
 
   def index
-    @events = Event.sorted
+   @events = Event.all.sorted
   end
 
   def show
@@ -11,7 +11,7 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new
+    @event = Event.new({:user_id => @user_id})
   end
 
   def create
@@ -53,6 +53,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:event_name, :description_short, :description_long, :contact_name, :contact_phone, :contact_email, :venue_name, :address_1, :city, :state, :zip_code)
+    params.require(:event).permit(:user_id, :event_url, :event_name, :description_short, :description_long, :contact_name, :contact_phone, :contact_email, :venue_name, :address_1, :city, :state, :zip_code)
   end
 end

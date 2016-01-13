@@ -15,11 +15,12 @@
       <%= f.label :event_name %>
       <%= f.text_field :event_name, class: 'form-control' %>
 
-      <%= f.label :description_short %>
-      <%= f.text_field :description_short, class: 'form-control' %>
+      <%= f.label :event_url %>
+      <%= f.text_field :event_url, class: 'form-control' %>
 
-      <%= f.label :description_long %>
-      <%= f.text_field :description_long, class: 'form-control' %>
+     <%= label_tag(:description_short, 'Quick Description') %>
+      <%= f.text_area(:description_short, class: 'form-control', rows: '3') %>
+
       <!--Edit Contact Information-->
       <center><h3>Edit Contact Information</h3></center>
 
@@ -50,15 +51,10 @@
        <%= f.label :zip_code %>
       <%= f.text_field :zip_code, class: 'form-control' %>
 
+      <%= label_tag(:description_long, 'Detailed Description') %>
+      <%= f.text_area(:description_long, class: 'form-control', rows: '6') %>
+
       <%= submit_tag("Edit Event", class: "btn btn-primary") %>
     <% end %>
   </div>
 </div>
-
-
-    <!--Location Information
-    <h4>Location</h4>
-    <p>Venue Name: <%= @event.venue_name %></p>
-    <p>Venue Address: <%= @event.address_1 %></p>
-    <p>Venue City: <%= @event.city %></p>
-    <p>State, Zipcode: <%= @event.state %> , <%= @event.zip_code %></p>

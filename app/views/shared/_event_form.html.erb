@@ -2,8 +2,14 @@
   <%= f.label :event_name %>
       <%= f.text_field :event_name, class: 'form-control' %>
 
-      <%= f.label :description_short %>
-      <%= f.text_field :description_short, class: 'form-control' %>
+      <%= label_tag(:event_url, 'Event URL') %>
+	  <%= highlight('example: www.dancefest.io/bachatafestival', 'bachatafestival') %>
+      <%= f.text_field :event_url, class: 'form-control' %>
 
-      <%= f.label :description_long %>
-      <%= f.text_field :description_long, class: 'form-control' %>
+      <%= label_tag(:description_short, 'Quick Description') %>
+      <%= f.text_area(:description_short, class: 'form-control', rows: '4') %>
+
+
+      <%= f.hidden_field :user_id, :value => @current_user.id %>
+
+

@@ -12,7 +12,7 @@ class TicketsController < ApplicationController
   end
 
   def new
-    @ticket = Ticket.new({:event_id => @event.id, :ticket_name => 'default'})
+    @ticket = Ticket.new({:event_id => @event.id})
   end
 
   def create
