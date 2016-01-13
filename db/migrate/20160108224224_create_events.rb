@@ -5,7 +5,8 @@ class CreateEvents < ActiveRecord::Migration
       t.string  'event_name', :limit => 100
       t.text    'description_short', :limit => 300 
       t.text    'description_long'
-      t.string  'profile image_url'
+      t.string  'profile_image_url'
+      t.string  'event_url'
       t.text    'other_images_url'
       t.string  'contact_name'
       t.text    'contact_phone'

@@ -1,0 +1,15 @@
+<!--This template is shared by the new and create action-->
+  <%= f.label :event_name %>
+      <%= f.text_field :event_name, class: 'form-control' %>
+
+      <%= label_tag(:event_url, 'Event URL') %>
+	  <%= highlight('example: www.dancefest.io/bachatafestival', 'bachatafestival') %>
+      <%= f.text_field :event_url, class: 'form-control' %>
+
+      <%= label_tag(:description_short, 'Quick Description') %>
+      <%= f.text_area(:description_short, class: 'form-control', rows: '4') %>
+
+
+      <%= f.hidden_field :user_id, :value => @current_user.id %>
+
+

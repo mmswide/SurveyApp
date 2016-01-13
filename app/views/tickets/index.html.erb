@@ -1,11 +1,29 @@
-<h1>My Tickets</h1>
-<%= link_to('Create Ticket',  {:action => 'new'} , :class => 'btn btn-primary')%> <br>
-<% @tickets.each do |ticket| %>
-Ticket Name : <%= ticket.ticket_name %>
-	<%= link_to('Show', {:action => 'show', :id => ticket.id})%>
-	<%= link_to('edit', {:action => 'edit', :id => ticket.id}, :class => '')%>
-	<%= link_to('delete', {:action => 'delete', :id => ticket.id}, :class => '')%> <br>
-<% end %>
+<%= link_to('<< back to event list',  { :controller => 'events', :action => 'index'} , :class => '')%>
 
-</td>
+<h1><%= @event.event_name %></h1>
+
+<%= render(:partial => 'shared/ticket_nav') %>
+
+
+
+<%= link_to('Create Ticket',  {:action => 'new', :event_id => @event.id} , :class => 'btn btn-primary')%> 
+<hr>
+</br>
+
+<% if @tickets.count.blank? %>
+<div class="well col-md-8">
+<% @tickets.each do |ticket| %>
+Ticket Name : <%= ticket.ticket_name %></br>
+Ticket Price : <%= number_to_currency(ticket.ticket_price) %></br>
+Ticket Description : <%= ticket.ticket_decription %> <br>
+	<%= link_to('edit', {:action => 'edit', :id => ticket.id, :event_id => @event.id}, :class => '')%>
+	<%= link_to('delete', {:action => 'delete', :id => ticket.id, :event_id => @event.id}, :class => '')%> <br><hr>
+<% end %>
+<% else %>
+<div class="well col-md-8">
+	<p>Click the "Create Ticket" button to create your first ticket!</p>
+</div>
+<% end %>
+</div>
+
 

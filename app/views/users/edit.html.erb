@@ -1,8 +1,17 @@
 <% provide(:title, "Edit user") %>
 <h1>Update your profile</h1>
 
+<div class ='container col-md-12'>
+  <div class="list-group col-md-4">
+    <%= link_to('Basic Profile', {}, :class =>'list-group-item active')%>
+    <%= link_to('Promotor', {}, :class =>'list-group-item')%>
+    <%= link_to('Artist', {}, :class =>'list-group-item')%>
+    <%= link_to('Instructor', {}, :class =>'list-group-item')%>
+    <%= link_to('DJ', {}, :class =>'list-group-item')%>
+</div>
+
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="well col-md-7">
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
 

@@ -6,3 +6,6 @@
 
 <%= foo.label :ticket_price %>
       <%= foo.text_field :ticket_price, class: 'form-control' %>
+
+
+      <%= foo.hidden_field :event_id, :value => @event.id %>

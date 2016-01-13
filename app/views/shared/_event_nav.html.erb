@@ -1,0 +1,6 @@
+<div class ='container col-md-12'>
+	<div class="list-group col-md-4">
+	  <%= link_to('Event Details', {:action => 'show', :id => @event.id}, :class =>'list-group-item active')%>
+	  <%= link_to('Edit Event', {:action => 'edit', :id => @event.id}, :class =>'list-group-item')%>
+	  <%= link_to('View Tickets', {:controller => 'tickets', :event_id => @event.id}, :class =>'list-group-item')%>
+</div>
