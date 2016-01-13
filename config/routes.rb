@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
- root   'static_pages#home'
+  
+  root 'public#index'
+
+  get 'show/:event_url', :to => 'public#show'
 
   get 'password_resets/new'
 

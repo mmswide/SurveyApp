@@ -1,0 +1,14 @@
+<h1> <%= @event.event_name %> </h1>
+<h1> Event id: <%= @event.id %> </h1>
+<h1> Event ticket count: <%= @event.tickets.count %> </h1>
+
+<!--Checking to make sure there are tickets before revealing the ticket div-->
+<% unless @event.tickets.blank? %>
+    <div class="well col-md-8">
+      <% @event.tickets.each do |ticket| %>
+		Ticket Name : <%= ticket.ticket_name %></br>
+		Ticket Price : <%= number_to_currency(ticket.ticket_price) %></br>
+		Ticket Description : <%= ticket.ticket_decription %> <br> 
+    </div>
+<% end %>
+<% end%>

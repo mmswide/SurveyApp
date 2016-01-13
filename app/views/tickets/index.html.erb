@@ -9,13 +9,20 @@
 <%= link_to('Create Ticket',  {:action => 'new', :event_id => @event.id} , :class => 'btn btn-primary')%> 
 <hr>
 </br>
+
+<% if @tickets.count.blank? %>
 <div class="well col-md-8">
 <% @tickets.each do |ticket| %>
 Ticket Name : <%= ticket.ticket_name %></br>
 Ticket Price : <%= number_to_currency(ticket.ticket_price) %></br>
 Ticket Description : <%= ticket.ticket_decription %> <br>
 	<%= link_to('edit', {:action => 'edit', :id => ticket.id, :event_id => @event.id}, :class => '')%>
-	<%= link_to('delete', {:action => 'delete', :id => ticket.id, :event_id => @event.id}, :class => '')%> <br>
+	<%= link_to('delete', {:action => 'delete', :id => ticket.id, :event_id => @event.id}, :class => '')%> <br><hr>
+<% end %>
+<% else %>
+<div class="well col-md-8">
+	<p>Click the "Create Ticket" button to create your first ticket!</p>
+</div>
 <% end %>
 </div>
 
