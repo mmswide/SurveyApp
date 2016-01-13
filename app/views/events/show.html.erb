@@ -12,8 +12,7 @@
 		<h4>Basic Details</h4>
 		<p>Event Name: <%= @event.event_name %> </p>
 		<p>Event ID: <%= @event.id %> </p>
-		<p>Event Description (short): <%= @event.description_short %> </p>
-		<p>Event Description (long): <%= @event.description_long %> </p>
+		<p>Quick Description: <%= @event.description_short %> </p>
 		<br>
 
 		<!--Contact Information-->
@@ -29,6 +28,8 @@
 		<p>Venue City: <%= @event.city %></p>
 		<p>State, Zipcode: <%= @event.state %> , <%= @event.zip_code %></p>
 
+		<h4>Details</h4>
+		<p>Detailed Description: <%= @event.description_long %> </p>
 	</div>
 </div>
 
