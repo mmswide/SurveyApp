@@ -1,10 +1,10 @@
 <div class="business-header">
-    
+
 </div><!-- Blog Entries Column -->
-<div class="col-md-8">
+<div class="col-md-8"  style="margin-bottom: 20px">
     <h1 class="page-header">Featured Video</h1>
     <p>A smooth NYC Bachata Project in the heart of the Big Apple. Bryon and Sammantha are one of the hottest bachata
-    couples in San Francisco. Visit the Lounge for more videos...</p>
+    couples in San Francisco. Visit the Lounge for more videos. <%= link_to('The Lounge', {:controller => 'static_pages',:action => 'lounge'})%>...</p>
     <div class="embed-responsive embed-responsive-16by9">
         <iframe allowfullscreen="" class='embed-responsive-item' frameborder="0" height="300" src=
         "https://www.youtube.com/embed/SlDhmMzIwig??modestbranding=1&autohide=1&showinfo=0&controls=1" width=
@@ -19,7 +19,8 @@
         <%@events.each do |event| %>
         <p>
         <%= event.event_name %>
-        <br></p><%= link_to('View Event', {:action => 'show', :event_url => event.event_url})%>
+        <br></p>
+        <%= link_to('View Event', {:action => 'show', :event_url => event.event_url})%>
         <hr>
         <%end %>
     </div>
