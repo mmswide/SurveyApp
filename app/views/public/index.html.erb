@@ -1,15 +1,27 @@
-<div class="jumbotron">
- <center> <h3>Welcome to DanceFest</h3> </center>
-  <h2>Dedicated to all the dancers in the world. View and purchase tickets to your favorite Festivals. </h2>
- <center> <p><a class="btn btn-primary btn-lg" href="#" role="button">Create Festivals</a></p> </center>
-</div>
-
-<div class='col-md-2'>
-	<h2><b>Upcoming Festivals</b></h2>
-<% @events.each do |event| %>
-<%= event.event_name %><br>
- <%= link_to('View Event', {:action => 'show', :event_url => event.event_url})%> 
- <hr>
-<% end %>
-</div>
-
+<div class="business-header">
+    
+</div><!-- Blog Entries Column -->
+<div class="col-md-8">
+    <h1 class="page-header">Featured Video</h1>
+    <p>A smooth NYC Bachata Project in the heart of the Big Apple. Bryon and Sammantha are one of the hottest bachata
+    couples in San Francisco. Visit the Lounge for more videos...</p>
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe allowfullscreen="" class='embed-responsive-item' frameborder="0" height="300" src=
+        "https://www.youtube.com/embed/SlDhmMzIwig??modestbranding=1&autohide=1&showinfo=0&controls=1" width=
+        "700"></iframe>
+    </div>
+</div><!-- Blog Sidebar Widgets Column -->
+<div class="col-md-4">
+    <!-- Blog Search Well -->
+    <!-- Side Widget Well -->
+    <div class="well">
+        <h4><b>Upcoming Festivals</b></h4>
+        <%@events.each do |event| %>
+        <p>
+        <%= event.event_name %>
+        <br></p><%= link_to('View Event', {:action => 'show', :event_url => event.event_url})%>
+        <hr>
+        <%end %>
+    </div>
+</div><!-- /.row -->
+<hr>

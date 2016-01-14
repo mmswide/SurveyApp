@@ -75,6 +75,10 @@ p {
   text-decoration: none;
 }
 
+.navbar {
+  margin-bottom: 0px;
+}
+
 /* footer */
 
 footer {
@@ -269,4 +273,20 @@ input {
 .input-group .input-group-addon + .form-control
 {
     border-left:none;
+}
+
+.business-header {
+    height: 500px;
+    background: url('banner.jpg') center center no-repeat scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    width: 100%;
+    margin-bottom: 25px;
+}
+.business-header > h1 {
+    color: white;
+    padding-top: 300px;
+    padding-right: 100px;
 }

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   root 'public#index'
 
-  get 'show/:event_url', :to => 'public#show'
+  get 'view/:event_url', :to => 'public#show'
 
   get 'password_resets/new'
 
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   get 'users/new'
-
+  get    'lounge'    => 'static_pages#lounge'
   get    'help'    => 'static_pages#help'
   get    'about'   => 'static_pages#about'
   get    'contact' => 'static_pages#contact'
