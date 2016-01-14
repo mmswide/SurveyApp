@@ -1,5 +1,8 @@
 class StaticPagesController < ApplicationController
 
+  def lounge
+  end
+  
   def help
   end
   
