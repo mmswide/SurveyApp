@@ -5,7 +5,9 @@
    <%= foo.text_field :ticket_decription, class: 'form-control' %>
 
 <%= foo.label :ticket_price %>
-      <%= foo.text_field :ticket_price, class: 'form-control' %>
+<div class="input-group">
+ 	<span class="input-group-addon">$</span>
+	<%= foo.text_field :ticket_price, class: 'form-control' %>
+</div>
 
-
-      <%= foo.hidden_field :event_id, :value => @event.id %>
+<%= foo.hidden_field :event_id, :value => @event.id %>
