@@ -1,9 +1,9 @@
 class PublicController < ApplicationController
- 
-#layout public
 
+  before_action :set_navigation
+ 
   def index
-  	#introductory text
+  	 @events = Event.sorted
   end
 
   def show
@@ -13,6 +13,12 @@ class PublicController < ApplicationController
    	else
    		render('show')
    		#show event content using show.html.erb
-	end
+	   end
+  end
+
+  private
+
+  def set_navigation
+    @events = Event.sorted
   end
 end

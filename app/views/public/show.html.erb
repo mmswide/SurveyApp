@@ -39,16 +39,12 @@
                      <!--Ticket description tab-->
                      <div role="tabpanel" class="tab-pane" id="settings">
                      <!--Checking to make sure there are tickets before revealing the ticket div-->
-						<% unless @event.tickets.blank? %>
-						    <div class="">
 						      <% @event.tickets.each do |ticket| %>
 								Ticket Name : <%= ticket.ticket_name %></br>
 								Ticket Price : <%= number_to_currency(ticket.ticket_price) %></br>
 								Ticket Description : <%= ticket.ticket_decription %> <br>
 								Ticket Identification : <%= ticket.id %> <br>  <hr>
-						    </div>
-						<% end %>
-						<% end%>
+						      <% end%>
 					</div>
                 </div>
 			</div>
