@@ -4,12 +4,13 @@
 
       <%= label_tag(:event_url, 'Event URL') %>
 	  <%= highlight('example: www.dancefest.io/bachatafestival', 'bachatafestival') %>
-      <%= f.text_field :event_url, class: 'form-control' %>
-
+      <div class="input-group">
+ 		<span class="input-group-addon">www.dancefest.io/</span>
+		<%= f.text_field :event_url, class: 'form-control' %>
+	  </div>
       <%= label_tag(:description_short, 'Quick Description') %>
       <%= f.text_area(:description_short, class: 'form-control', rows: '4') %>
 
 
       <%= f.hidden_field :user_id, :value => @current_user.id %>
-
 
