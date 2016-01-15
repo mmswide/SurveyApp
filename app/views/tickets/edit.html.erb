@@ -1,6 +1,9 @@
 <% provide(:title, "Edit Ticket") %>
 
-<%= link_to('<< back to ticket list',  {:action => 'index', :event_id => @event.id} , :class => '')%>
+<div class="btn-group pt25" role="group" aria-label="...">
+ <%= link_to('<< Back to Event List',  {:controller => 'events',:action => 'index'} , :class => 'btn btn-primary')%>
+ <%= link_to('View Event Profile >>', {:controller => 'public', :action => 'show', :event_url => @event.event_url}, :class => 'btn btn-success')%>
+</div>
 
 <h1>Edit Ticket</h1>
 

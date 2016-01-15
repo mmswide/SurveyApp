@@ -1,3 +1,4 @@
+<% provide(:title, "Event Details") %>
 <h1>My Festivals</h1>
 <%= link_to('Create Festival', {:action => 'new'} , :class => 'btn btn-primary col-md-offset-2')%> <br><br>
 
@@ -9,8 +10,9 @@
 	<div class="well col-md-8 col-md-offset-2">
 		<% @events.each do |event| %>
 		<h4><%= event.event_name %> </br> </h4>			
-		<%= link_to('Edit', {:action => 'show', :id => event.id})%>
+		<%= link_to('Edit Event', {:action => 'show', :id => event.id})%>
 		| <%= link_to('View Event', {:controller => 'public', :action => 'show', :event_url => event.event_url})%> 
+		| <%= link_to('Create Tickets', {:controller => 'tickets', :action => 'new', :event_id => event.id})%> 
 		<%= link_to('delete', {:action => 'delete', :id => event.id}, :class => 'pull-right')%> <br>
 		<hr>
 		<% end %>

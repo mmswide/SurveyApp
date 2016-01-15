@@ -1,6 +1,10 @@
+<% provide(:title, "Event Details") %>
 
-<%= link_to('<< back to event list',  {:action => 'index'} , :class => '')%>
-<br>
+<div class="btn-group pt25" role="group" aria-label="...">
+ <%= link_to('<< Back to Event List',  {:action => 'index'} , :class => 'btn btn-primary')%>
+ <%= link_to('View Event Profile >>', {:controller => 'public', :action => 'show', :event_url => @event.event_url}, :class => 'btn btn-success')%>
+ </div>
+
 
 <h1> <%= @event.event_name %> </h1>
 

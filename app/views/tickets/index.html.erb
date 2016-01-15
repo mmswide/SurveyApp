@@ -1,15 +1,16 @@
-<%= link_to('<< back to event list',  { :controller => 'events', :action => 'index'} , :class => '')%>
+<% provide(:title, "Ticket List") %>
+
+<div class="btn-group pt25" role="group" aria-label="...">
+ <%= link_to('<< Back to Event List',  { :controller => 'events',:action => 'index'} , :class => 'btn btn-primary')%>
+ <%= link_to('View Event Profile >>', {:controller => 'public', :action => 'show', :event_url => @event.event_url}, :class => 'btn btn-success')%>
+</div>
 
 <h1><%= @event.event_name %></h1>
 
 <%= render(:partial => 'shared/ticket_nav') %>
-<%= link_to('Create Ticket',  {:action => 'new', :event_id => @event.id} , :class => 'btn btn-primary')%> 
-
-<hr>
-</br>
 
 <% if @tickets.present? %>
-	<div class="well col-md-8">
+	<div class="well col-md-7">
 		<% @tickets.each do |ticket| %>
 			Ticket Name : <%= ticket.ticket_name %></br>
 			Ticket Price : <%= number_to_currency(ticket.ticket_price) %></br>
@@ -21,9 +22,7 @@
 	</div>	
 <% else %>
 	<div class="well col-md-8">
-		<p>Click the "Create Ticket" button to create your first ticket!</p>
+		<p> No Tickets created yet. Click the "Create Ticket" button to create your first ticket!</p>
 	</div>
 <% end %>
-
-
 
