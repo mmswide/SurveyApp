@@ -8,6 +8,8 @@
 
 <div class="row">
   <div class="well col-md-7">
+    <!--Rendering shared error template-->
+    <%= render 'shared/event_error_messages' %>
     <!--Edit Basic Information-->
     <center><h3>Edit Basic Information</h3></center>
     <%= form_for(:event, :url => {:action => 'update', :id => @event.id})do |f| %>
