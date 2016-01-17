@@ -13,6 +13,7 @@
 
 	<div class="well col-md-8">
 		<!--Basic Event Information-->
+		 <%= image_tag(@event.main_image.url, :class => "img-responsive") %>
 		<h4>Basic Details</h4>
 		<p>Event Name: <%= @event.event_name %> </p>
 		<p>Event ID: <%= @event.id %> </p>

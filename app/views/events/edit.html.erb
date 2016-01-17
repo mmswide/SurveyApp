@@ -15,13 +15,17 @@
     <%= render 'shared/event_error_messages' %>
     <!--Edit Basic Information-->
     <center><h3>Edit Basic Information</h3></center>
-    <%= form_for(:event, :url => {:action => 'update', :id => @event.id})do |f| %>
+    <%= form_for(:event, :url => {:action => 'update', :id => @event.id},  html: { multipart: true }) do |f| %>
 
       <%= f.label :event_name %>
       <%= f.text_field :event_name, class: 'form-control' %>
 
       <%= f.label :event_url %>
       <%= f.text_field :event_url, class: 'form-control' %>
+
+      <%= f.label :main_image %>
+      <%= image_tag(@event.main_image.url, :class => "img-responsive") %>
+      <%= f.file_field :main_image, as: :file %>
 
      <%= label_tag(:description_short, 'Quick Description') %>
       <%= f.text_area(:description_short, class: 'form-control', rows: '3') %>
