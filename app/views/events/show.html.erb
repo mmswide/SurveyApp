@@ -11,9 +11,13 @@
 <!-- Event dashboard navigation-->
 <%= render(:partial => 'shared/event_nav') %>
 
-	<div class="well col-md-8">
+	<div class="well col-md-7">
 		<!--Basic Event Information-->
-		 <%= image_tag(@event.main_image.url, :class => "img-responsive") %>
+		  <% if @event.main_image_file_name.nil? %>
+             <%= image_tag('https://s3.amazonaws.com/dancefestimages/static_images/placeholder.png', :class => "img-responsive") %>
+          <% else %>
+             <%= image_tag(@event.main_image.url, :class => "img-responsive") %>
+          <% end %>
 		<h4>Basic Details</h4>
 		<p>Event Name: <%= @event.event_name %> </p>
 		<p>Event ID: <%= @event.id %> </p>
@@ -34,7 +38,7 @@
 		<p>State, Zipcode: <%= @event.state %> , <%= @event.zip_code %></p>
 
 		<h4>Details</h4>
-		<p>Detailed Description: <%= @event.description_long %> </p>
+		<p>Detailed Description: <%= @event.description_long.try(:html_safe) %> </p>
 	</div>
 </div>
 

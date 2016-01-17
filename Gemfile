@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-ruby '2.2.1'
 gem 'bootstrap-sass',           '3.2.0.0'
 gem 'rails',                    '4.2.2'
 gem 'bcrypt',                   '3.1.7'
@@ -16,6 +15,7 @@ gem 'jbuilder',                 '2.2.3'
 gem 'paperclip',                '~> 4.3'
 gem 'sdoc',                     '0.4.0', group: :doc
 gem 'aws-sdk',                  '< 2.0'
+gem 'tinymce-rails'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

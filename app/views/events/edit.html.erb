@@ -1,4 +1,6 @@
 <% provide(:title, "Edit Event") %>
+<%= tinymce_assets %>
+<%= tinymce %>
 
 <div class="btn-group pt25" role="group" aria-label="...">
  <%= link_to('<< Back to Event List',  {:action => 'index'} , :class => 'btn btn-primary')%>
@@ -24,7 +26,11 @@
       <%= f.text_field :event_url, class: 'form-control' %>
 
       <%= f.label :main_image %>
-      <%= image_tag(@event.main_image.url, :class => "img-responsive") %>
+      <% if @event.main_image_file_name.nil? %>
+        <%= image_tag('https://s3.amazonaws.com/dancefestimages/static_images/placeholder.png', :class => "img-responsive") %>
+      <% else %>
+        <%= image_tag(@event.main_image.url, :class => "img-responsive") %>
+      <% end %>
       <%= f.file_field :main_image, as: :file %>
 
      <%= label_tag(:description_short, 'Quick Description') %>
@@ -61,7 +67,7 @@
       <%= f.text_field :zip_code, class: 'form-control' %>
 
       <%= label_tag(:description_long, 'Detailed Description') %>
-      <%= f.text_area(:description_long, class: 'form-control', rows: '6') %>
+      <%= f.text_area(:description_long, :class => 'tinymce') %>
 
       <%= submit_tag("Edit Event", class: "btn btn-primary") %>
     <% end %>

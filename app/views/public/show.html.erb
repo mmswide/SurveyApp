@@ -2,10 +2,10 @@
 
 <div class="container">
 	<div class="row">
-		 <div class="col-md-10 col-sm-12 col-md-offset-1">
+		 <div class="col-md-7 col-sm-12 col-md-offset-2">
              <!-- Nav tabs -->
              <div class="card">
-                 <ul class="nav nav-tabs" role="tablist">
+                 <ul class="nav nav-tabs center" role="tablist">
                    <li role="presentation" class="active"><a href="#basic" aria-controls="basic" role="tab" data-toggle="tab">Basic Info</a></li>
                     <li role="presentation"><a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">Contact Info</a></li>
                     <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Details</a></li>
@@ -16,15 +16,17 @@
                 	<!--Event Introduction Tab-->
                     <div role="tabpanel" class="tab-pane active" id="basic">
                     	   <div role="tabpanel" class="tab-pane active" id="basic">
-                        <%= image_tag(@event.main_image.url, :class => "img-responsive") %>
+                             <% if @event.main_image_file_name.nil? %>
+                                <%= image_tag('https://s3.amazonaws.com/dancefestimages/static_images/placeholder.png', :class => "img-responsive") %>
+
+                            <% else %>
+                                 <%= image_tag(@event.main_image.url, :class => "img-responsive") %>
+                             <% end %>
                         </div>
                     	<center>
-                    		<span class="glyphicon glyphicon-map-marker" aria-hidden="true">
-                    		</span>
-							<p> <%= @event.venue_name %></p>
-							<p> <%= @event.address_1 %> <%= @event.city %>, <%= @event.state %><p>
-                    		<span class="glyphicon glyphicon-comment" aria-hidden="true">
-                    		</span><p><%= @event.description_short %></p>
+							<p> Venue Name: <%= @event.venue_name %></p>
+							<p> Venue Address: <%= @event.address_1 %> <%= @event.city %>, <%= @event.state %><p>
+                    		<p> Introduction: <%= @event.description_short %></p>
                     	</center>
                     </div>
                     <!-- Contact Information tab-->
@@ -35,7 +37,7 @@
                      </div>
                      <!--Event Description tab-->
                      <div role="tabpanel" class="tab-pane" id="messages">
-						<p> <%= @event.description_long  %> </p>
+						<p> <%= @event.description_long.try(:html_safe)  %> </p>
                      </div>
                      <!--Ticket description tab-->
                      <div role="tabpanel" class="tab-pane" id="settings">
