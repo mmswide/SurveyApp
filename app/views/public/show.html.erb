@@ -15,9 +15,10 @@
                 <div class="tab-content">
                 	<!--Event Introduction Tab-->
                     <div role="tabpanel" class="tab-pane active" id="basic">
-                    	<img class="img-responsive" src="http://placehold.it/900x400">
+                    	   <div role="tabpanel" class="tab-pane active" id="basic">
+                        <%= image_tag(@event.main_image.url, :class => "img-responsive") %>
+                        </div>
                     	<center>
-                    		<p> add event date to model</p>
                     		<span class="glyphicon glyphicon-map-marker" aria-hidden="true">
                     		</span>
 							<p> <%= @event.venue_name %></p>

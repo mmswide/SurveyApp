@@ -15,12 +15,22 @@ ActiveRecord::Schema.define(version: 20160109015927) do
 
   create_table "events", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "event_name",        limit: 100
-    t.text     "description_short", limit: 300
+    t.string   "event_name",                limit: 100
+    t.text     "description_short",         limit: 300
     t.text     "description_long"
-    t.string   "profile_image_url"
     t.string   "event_url"
-    t.text     "other_images_url"
+    t.string   "main_image_file_name"
+    t.string   "main_image_content_type"
+    t.integer  "main_image_file_size"
+    t.datetime "main_image_updated_at"
+    t.string   "other_images_file_name"
+    t.string   "other_images_content_type"
+    t.integer  "other_images_file_size"
+    t.datetime "other_images_updated_at"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.time     "start_time"
+    t.time     "end_time"
     t.string   "contact_name"
     t.text     "contact_phone"
     t.string   "contact_email"
@@ -31,8 +41,8 @@ ActiveRecord::Schema.define(version: 20160109015927) do
     t.string   "city"
     t.string   "state"
     t.text     "zip_code"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   create_table "tickets", force: :cascade do |t|

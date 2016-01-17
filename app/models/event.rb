@@ -1,6 +1,9 @@
 class Event < ActiveRecord::Base
 	belongs_to :user
 	has_many :tickets
+	 #Paperclip gem Profile Image for events. The hash at the end of 150150 crops the image to that size
+	has_attached_file :main_image, styles: { medium: "300x300>", thumb: "100x100>" }
+	validates_attachment_content_type :main_image, content_type: /\Aimage\/.*\Z/
 
 	scope 	      :sorted, lambda { order("events.created_at DESC") }
 	before_save   :downcase_event_url
