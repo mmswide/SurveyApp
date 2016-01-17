@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
 	belongs_to :user
 	has_many :tickets
 	 #Paperclip gem Profile Image for events. The hash at the end of 150150 crops the image to that size
+	attr_accessible :main_image
 	has_attached_file :main_image, styles: { medium: "300x300>", thumb: "100x100>" }
 	validates_attachment_content_type :main_image, content_type: /\Aimage\/.*\Z/
 
