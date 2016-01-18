@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160109015927) do
+ActiveRecord::Schema.define(version: 20160117225500) do
 
   create_table "events", force: :cascade do |t|
     t.integer  "user_id"
@@ -68,6 +68,20 @@ ActiveRecord::Schema.define(version: 20160109015927) do
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
+    t.string   "contact_number"
+    t.string   "country_of_origin"
+    t.string   "current_location"
+    t.string   "facebook_link"
+    t.string   "instagram_link"
+    t.string   "twitter_link"
+    t.string   "youtube_link"
+    t.boolean  "is_promoter",       default: false
+    t.boolean  "is_dancer",         default: false
+    t.boolean  "is_performer",      default: false
+    t.boolean  "is_dj",             default: false
+    t.boolean  "is_instructor",     default: false
+    t.boolean  "is_team_manager",   default: false
+    t.boolean  "is_vendor",         default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
