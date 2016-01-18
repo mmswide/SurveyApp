@@ -1,13 +1,15 @@
 class EventsController < ApplicationController
   before_action :logged_in_user
-  #before_action :find_user
+  
 
   def index
-   @events = Event.all.sorted
+   @user = current_user
+   @events = @user.events
   end
 
   def show
     @event = Event.find(params[:id])
+    authorize! :update, @event
   end
 
   def new
@@ -15,7 +17,8 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
+    @user = current_user
+    @event = @user.events.build(event_params)
     if @event.save
       flash[:success] = "Event created successfully!!"
       #redirect to index
@@ -27,6 +30,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+    authorize! :update, @event
   end
 
   def update
@@ -42,6 +46,7 @@ class EventsController < ApplicationController
 
   def delete
      @event = Event.find(params[:id])
+     authorize! :update, @event
   end
 
   def destroy

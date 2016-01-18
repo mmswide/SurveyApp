@@ -17,6 +17,7 @@ gem 'sdoc',                     '0.4.0', group: :doc
 gem 'aws-sdk',                  '< 2.0'
 gem 'tinymce-rails'
 gem 'sprockets-rails',          '2.3.3'
+gem 'cancancan',                '~> 1.10'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
