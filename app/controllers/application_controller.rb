@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => 'Notice: You do not have permissions to view that page'
+  end
+
   private
 
       # Confirms a logged-in user.

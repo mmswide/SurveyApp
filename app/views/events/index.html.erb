@@ -1,7 +1,9 @@
+<!--Title of the event-->
 <% provide(:title, "Event Details") %>
 <h1>My Festivals</h1>
 <%= link_to('Create Festival', {:action => 'new'} , :class => 'btn btn-primary col-md-offset-2')%> <br><br>
 
+<!--Checking in the events are empty-->
 <% if @events.empty? %>
 	<div class="well col-md-8 col-md-offset-2">
 		<p>Click the "Create Event" button to create your first Event!</p>
@@ -9,12 +11,28 @@
 <% else %>
 	<div class="well col-md-8 col-md-offset-2">
 		<% @events.each do |event| %>
-		<h4><%= event.event_name %> </br> </h4>			
-		<%= link_to('Edit Event', {:action => 'show', :id => event.id})%>
-		| <%= link_to('View Event', {:controller => 'public', :action => 'show', :event_url => event.event_url})%> 
+		<h4><%= event.event_name %></br></h4>
+		<h4><%= event.user_id %></br></h4>
+
+	<!--Checking if the user has permission to update link if not remove link-->	
+		<% if can? :update, event %>			
+		<%= link_to('Edit Event', {:action => 'show', :id => event.id})%> |
+		<% end %>
+
+		<%= link_to('View Event', {:controller => 'public', :action => 'show', :event_url => event.event_url})%> 
+
+	<!--Checking if the user has permission to create tickets link if not remove link-->	
+	<% if can? :update, event %>
 		| <%= link_to('Create Tickets', {:controller => 'tickets', :action => 'new', :event_id => event.id})%> 
+		<% end %>
+
+
+	<!--Checking if the user has permission to delete the event. Ff not remove link-->
+		<% if can? :destroy, event %>
 		<%= link_to('delete', {:action => 'delete', :id => event.id}, :class => 'pull-right')%> <br>
+		<% end %>
 		<hr>
+
 		<% end %>
 	</div>
 <% end %>

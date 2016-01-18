@@ -29,26 +29,27 @@
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <%= f.label :is_promoter %>
+      <%= f.label(:is_promoter, 'Event Promoter') %>
       <%= f.check_box :is_promoter %>
       
-      <%= f.label :is_dancer %>
+      <%= f.label(:is_dancer, 'Dancer') %>
       <%= f.check_box :is_dancer %>
       
-      <%= f.label :is_performer %>
+      <%= f.label(:is_performer, 'Performer') %>
       <%= f.check_box :is_performer %>
       
-      <%= f.label :is_dj %>
+      <%= f.label( :is_dj, 'DJ') %>
       <%= f.check_box :is_dj %>
 
-      <%= f.label :is_instructor %>
+      <%= f.label(:is_instructor, 'Instructor') %>
       <%= f.check_box :is_instructor %>
 
-      <%= f.label :is_team_mananger %>
+      <%= f.label(:is_team_mananger, 'Team Manager') %>
       <%= f.check_box :is_team_manager %>
 
-      <%= f.label :is_vendor %>
+      <%= f.label(:is_vendor, 'Vendor') %>
       <%= f.check_box :is_vendor %>
+      
 </br>
 </br>
 

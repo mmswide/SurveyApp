@@ -5,6 +5,7 @@ class TicketsController < ApplicationController
   
   def index
     @tickets = @event.tickets.all 
+    authorize! :update, @event
   end
 
   def show
@@ -13,6 +14,7 @@ class TicketsController < ApplicationController
 
   def new
     @ticket = Ticket.new({:event_id => @event.id})
+    authorize! :update, @event
   end
 
   def create
@@ -28,6 +30,7 @@ class TicketsController < ApplicationController
 
   def edit
     @ticket = Ticket.find(params[:id])
+    authorize! :update, @event
   end
 
   def update
@@ -42,6 +45,7 @@ class TicketsController < ApplicationController
 
   def delete
     @ticket = Ticket.find(params[:id])
+    authorize! :update, @event
   end
 
   def destroy
