@@ -33,9 +33,9 @@ class Event < ActiveRecord::Base
 
  # 	def strip_number
   #   	self.contact_phone = self.contact_phone.gsub(/[^0-9]/, "")
-   #	end
+   #end
 
-  # 	def downcase_email
+  # def downcase_email
    # 	self.contact_email = self.contact_email.downcase
   	# end
 end

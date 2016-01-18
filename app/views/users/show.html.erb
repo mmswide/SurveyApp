@@ -1,11 +1,10 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
-</div>
+<h1><%= @user.name %></h1>
+<h3><u>My Different Roles </u></h3>
+Promoter: <%= @user.is_promoter %> </br>
+DJ: <%= @user.is_dj %> </br>
+Dancer: <%= @user.is_dancer %> </br>
+Performer: <%= @user.is_performer %> </br>
+Instructor: <%= @user.is_instructor %> </br>
+Team Manager: <%= @user.is_instructor %> </br>
+Vendor <%= @user.is_vendor %> </br>
