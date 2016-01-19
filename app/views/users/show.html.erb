@@ -1,57 +1,22 @@
 
 <% provide(:title, @user.name) %>
+<!--User Navigation-->
+<%= render(:partial => 'users/user_nav')%>
 
-<div class ='container col-md-12'>
-  <div class="list-group col-md-3 pt100">
-  	<%= link_to('dashboard', {}, :class =>'tq')%>
-    <%= link_to('Overview', {}, :class =>'list-group-item')%>
-    <%= link_to('Order History', {}, :class =>'list-group-item active')%>
-    <%= link_to('Tools', {}, :class =>'tq')%>
-    <%= link_to('Events', {}, :class =>'list-group-item')%>
-    <%= link_to('Roles', {}, :class =>'tq')%>
-    <%= link_to('Instructor', {}, :class =>'list-group-item')%>
-    <%= link_to('Performer', {}, :class =>'list-group-item')%>
+<div class="col-md-8">
+  <!-- Tab panes -->
+    <div class="tab-content">
+      <!-- Overview -->
+      <div class="tab-pane active" id="overview">
+        <%= render(:partial => 'users/user_overview')%>
+      </div>
+       <!-- Orders -->
+      <div class="tab-pane" id="order">
+        <%= render(:partial => 'users/user_orders')%>
+      </div>
+    </div>
 </div>
-<div class='pt50'>
-<h3 class='anw anx'>Order History</h3>
-</div>
-	<hr>
-<div class= 'col-md-8 '>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Order</th>
-        <th>Customer Name</th>
-        <th>Description</th>
-        <th>Date</th>
-        <th>Total</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>#123434</td>
-        <td>Doe Nazar</td>
-        <td>San Diego Salsa General Pass</td>
-        <td>12/10/16<td>
-        <td>$250.00<td>
-      </tr>
-      <tr>
-        <td>3434535</td>
-        <td>Moe Perez</td>
-        <td>San Diego Salsa Premium Pass</td>
-        <td>12/10/16<td>
-        <td>$250.00<td>
-      </tr>
-      <tr>
-        <td>776655</td>
-        <td>Dooley Smoth</td>
-        <td>Las Vegas Salsa Premium Pass</td>
-        <td>12/10/16<td>
-        <td>$250.00<td>	
-      </tr>
-    </tbody>
-  </table>
-</div>
-</div>
+
+
 
 

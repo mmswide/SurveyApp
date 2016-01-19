@@ -1,0 +1,16 @@
+<!--Find me at users/user_nav -->
+<div class ='container col-md-12'>
+  <div class="list-group col-md-3 pt100">
+    <%= image_tag('https://s3.amazonaws.com/dancefestimages/static_images/placeholder.png', :class => "img-responsive") %>
+      <h2><%= current_user.name %></h2>
+  	<h3 class ='tq'>Dashboard</h3>
+    <%= link_to('Overview', user_path( anchor: 'overview'), html_options = { :class =>'list-group-item active', "data-toggle" => "tab"})%>
+    <%= link_to('Order History', user_path( anchor: 'order'), html_options = { :class =>'list-group-item', "data-toggle" => "tab"})%>
+    <h3 class ='tq'>Tools</h3>
+    <%= link_to('Events',  {:controller => 'events', :action => 'index'}, :class =>'list-group-item')%>
+    <h3 class ='tq'>Roles</h3>
+    <%= link_to('Instructor', {}, :class =>'list-group-item')%>
+    <%= link_to('Performer', {}, :class =>'list-group-item')%>
+    <h3 class ='tq'>Settings</h3>
+    <%= link_to('Reset Password', {:action => :edit }, :class =>'list-group-item')%>
+</div>
