@@ -64,5 +64,5 @@ class TicketsController < ApplicationController
     if params[:event_id]
       @event = Event.find(params[:event_id])
     end
-end
+  end
 end
