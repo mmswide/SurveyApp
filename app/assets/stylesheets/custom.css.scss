@@ -33,6 +33,13 @@ textarea {
   margin-top: 25px;
 }
 
+.pt50 {
+  margin-top: 50px;
+}
+
+.pt100 {
+  margin-top: 100px;
+}
 
 /* typography */
 
@@ -293,4 +300,57 @@ input {
     color: white;
     padding-top: 300px;
     padding-right: 100px;
+}
+.list-group-item.active {
+  background-color: #1ca8dd; 
+}
+
+.tq {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 5px;
+    font-size: 85%;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #aeaeae;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.list-group-item {
+  border: none;
+}
+
+/* event buttons */
+.apn {
+    color: #1997c6;
+    background-color: transparent;
+    border-color: #1997c6;
+}
+.ame {
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+}
+.ce {
+    font-size: 17px;
+    text-transform: none;
+    letter-spacing: normal;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    border-radius: 4px;
+    text-decoration: none;
 }
