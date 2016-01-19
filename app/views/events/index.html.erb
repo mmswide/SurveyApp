@@ -12,7 +12,6 @@
 	<div class="well col-md-8 col-md-offset-2">
 		<% @events.each do |event| %>
 		<h4><%= event.event_name %></br></h4>
-		<h4><%= event.user_id %></br></h4>
 
 	<!--Checking if the user has permission to update link if not remove link-->	
 		<% if can? :update, event %>			
