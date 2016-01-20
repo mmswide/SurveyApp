@@ -8,7 +8,7 @@
 <% if @events.empty? %>
 	<div class="well col-md-8">
 		<h2>Your on your way to creating your first event!</h2>
- 		<center><%= link_to('Create Festival', {:action => 'new'}, :class =>'ce apn ame')%> </center>
+ 		<center><%= link_to('Create Festival', new_event_path , :class =>'ce apn ame')%> </center>
 	</div>
 <% else %>
 	<div class="well col-md-8">
@@ -30,7 +30,8 @@
 
 	<!--Checking if the user has permission to delete the event. Ff not remove link-->
 		<% if can? :destroy, event %>
-		<%= link_to('delete', {:action => 'delete', :id => event.id}, :class => 'pull-right')%> <br>
+		
+		| <%= link_to('Delete', event ,  :method => :delete,  data: {confirm: "Are you sure?"})%> <br>
 		<% end %>
 		<hr>
 

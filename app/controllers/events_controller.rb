@@ -44,14 +44,9 @@ class EventsController < ApplicationController
     end
   end
 
-  def delete
-     @event = Event.find(params[:id])
-     authorize! :update, @event
-  end
-
   def destroy
     event = Event.find(params[:id]).destroy
-     flash[:success] = "Event '#{event.event_name}' destroyed"
+    flash[:success] = "Event '#{event.event_name}' Has been deleted"
     redirect_to(:action => 'index')
   end
 

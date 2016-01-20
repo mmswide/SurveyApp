@@ -9,7 +9,7 @@
     <%= render 'shared/event_error_messages' %>
     <!--Edit Basic Information-->
     <center><h3>Edit Basic Information</h3></center>
-    <%= form_for(:event, :url => {:action => 'update', :id => @event.id},  html: { multipart: true }) do |f| %>
+    <%= form_for( @event ,  html: { multipart: true }) do |f| %>
 
       <%= f.label :event_name %>
       <%= f.text_field :event_name, class: 'form-control' %>

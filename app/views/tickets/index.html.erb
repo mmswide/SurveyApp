@@ -6,8 +6,8 @@
 			Ticket Name : <%= ticket.ticket_name %></br>
 			Ticket Price : <%= number_to_currency(ticket.ticket_price) %></br>
 			Ticket Description : <%= ticket.ticket_decription %> <br>			
-			<%= link_to('edit', {:action => 'edit', :id => ticket.id, :event_id => @event.id}, :class => '')%>
-			<%= link_to('delete', {:action => 'delete', :id => ticket.id, :event_id => @event.id}, :class => '')%> <br><hr>
+			<%= link_to('edit', edit_event_ticket_path(@event, ticket.id), :class => '')%>
+			<%=  link_to('Delete',{} ,  :method => :delete,  data: {confirm: "Are you sure?"})%>  <br><hr>
 		<% end %>
 	</div>	
 <% else %>
@@ -15,4 +15,5 @@
 		<p> No Tickets created yet. Click the "Create Ticket" button to create your first ticket!</p>
 	</div>
 <% end %>
+
 
