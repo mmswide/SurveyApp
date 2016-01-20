@@ -1,24 +1,9 @@
 <!--Title of the event-->
 <% provide(:title, "Event Details") %>
-
-<div class ='container col-md-12'>
-  <div class="list-group col-md-3 pt100">
-  	<%= link_to('event dashboard', {}, :class =>'tq')%>
-    <%= link_to('Overview', {}, :class =>'list-group-item active')%>
-    <%= link_to('Create Festival', {:action => 'new'}, :class =>'list-group-item')%>
-    <%= link_to('Stats', {}, :class =>'tq')%>
-    <%= link_to('Attendees', {}, :class =>'list-group-item')%>
-    <%= link_to('Revenue', {}, :class =>'list-group-item')%>
-    <%= link_to('Other', {}, :class =>'tq')%>
-    <%= link_to('Bank information', {}, :class =>'list-group-item')%>
-    <%= link_to('Settings', {}, :class =>'list-group-item')%>
- </div>   
-
-<div class='pt50'>
-<h3 class='anw anx'>Festival Overview</h3>
+<!--Find me in the layout/event_overview_nav-->  
+<%= render(:partial => 'layouts/event_overview_nav')%>
+<h3 class='anw anx pt50'>Festival Overview</h3>
 <hr>
-</div>
-
 <!--Checking in the events are empty-->
 <% if @events.empty? %>
 	<div class="well col-md-8">

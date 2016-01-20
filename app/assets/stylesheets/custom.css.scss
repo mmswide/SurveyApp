@@ -90,6 +90,11 @@ p {
   margin-bottom: 0px;
 }
 
+.navbar-default {
+   background-color: white; 
+   border-color: transparent;
+}
+
 /* footer */
 
 footer {
@@ -286,15 +291,14 @@ input {
     border-left:none;
 }
 
-.business-header {
-    height: 500px;
-    background: url('http://virtualvallarta.com/puertovallarta/bm.pix/a-salsa-2.jpg') center center no-repeat scroll;
+.banner {
+    height: 900px;
+    background: url('https://s3.amazonaws.com/dancefestimages/static_images/eddie2.jpg') center center no-repeat scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
     width: 100%;
-    margin-bottom: 25px;
 }
 .business-header > h1 {
     color: white;
@@ -354,3 +358,57 @@ input {
     border-radius: 4px;
     text-decoration: none;
 }
+/* search box */
+.ddd {
+  border-bottom: 1px solid #ccc;
+}
+.spo {
+    width: 100%;
+}
+
+.csp {
+      padding: 20px 50px;
+      border: none;
+      border-left: 1px solid #ccc;
+      border-radius: 0px;
+}
+.dsd {
+  height: 100%;
+  border-color: white;
+}
+.adc {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+}
+.blue{
+  color: #00A0FF !important;
+}
+.abc{
+  margin-top: 14px;
+  color: #878787;
+}
+/* event section */
+.event_section{
+  height: 496px;
+  background-color: #F7FAFA;
+  
+}
+.cds{
+  margin-top: 60px;
+  border-right: 1px solid #ccc;
+  list-style-type: none;
+}
+.lne {
+  color: #0f2105;
+  border-left: 3px solid transparent;
+  line-height: 2.2;
+}
+.alink{
+  color: #0f2105;
+}
+.hea{
+  margin-top: 40px;
+}
+
+

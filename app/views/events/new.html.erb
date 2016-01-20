@@ -1,9 +1,9 @@
 <% provide(:title, "New Event") %>
-
-<%= link_to('<< back to event list',  {:action => 'index'} , :class => '')%>
-<h1>New Festival</h1>
+<%= render(:partial => 'layouts/event_overview_nav')%>
+<h3 class='anw anx pt50'>New Festival</h3>
+<hr>
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-6">
   	<%= render 'shared/event_error_messages' %>
     <%= form_for(:event, :url => {:action => 'create'}) do |f| %>
     <!--This template is shared by the new and create action-->

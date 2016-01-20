@@ -1,0 +1,62 @@
+  <div class="row ddd">
+    <div class="col-lg-5">
+    <!-- Buttons -->
+    <div class="col-lg-offset-4">
+        <button type="button" class="btn btn-default dsd adc abc">Lounge</button>
+        <button type="button" class="btn btn-default dsd adc abc">Start a Festival</button>
+         <button type="button" class="btn btn-default dsd adc abc">About us</button>
+    </div>
+  </div><!-- /.col-lg-6 -->
+  <div class="col-lg-7">
+    <div class="input-group spo">
+      <input type="text" class="form-control csp" placeholder="Search Festivals">
+        <div class="input-group-btn">
+    <!-- Buttons -->
+        <button type="button" class="btn btn-default dsd adc blue">Sign up</button>
+        <button type="button" class="btn btn-default dsd adc blue">Log in</button>
+     </div>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+
+<!-- Another Navigation -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">DanceFest</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to("Lounge", {:controller => 'static_pages', :action => 'lounge'}) %></li>
+        <% if logged_in? %>
+         <li><%= link_to("My Events", {:controller => 'events', :action => 'index'}) %></li>
+         <li><%= link_to "Profile", current_user %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+             <%= current_user.name %> <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Log out", logout_path, method: "delete" %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to("Log in", login_path , :class => '') %></li>
+          <li><%= link_to "Sign up", :controller => 'users', :action => 'new' %></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

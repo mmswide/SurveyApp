@@ -1,21 +1,11 @@
 <% provide(:title, "Ticket List") %>
-
-<div class="btn-group pt25" role="group" aria-label="...">
- <%= link_to('<< Back to Event List',  { :controller => 'events',:action => 'index'} , :class => 'btn btn-primary')%>
- <%= link_to('View Event Profile >>', {:controller => 'public', :action => 'show', :event_url => @event.event_url}, :class => 'btn btn-success')%>
-</div>
-
-<h1><%= @event.event_name %></h1>
-
-<%= render(:partial => 'shared/ticket_nav') %>
-
+<%= render(:partial => 'shared/event_nav') %>
 <% if @tickets.present? %>
 	<div class="well col-md-7">
 		<% @tickets.each do |ticket| %>
 			Ticket Name : <%= ticket.ticket_name %></br>
 			Ticket Price : <%= number_to_currency(ticket.ticket_price) %></br>
-			Ticket Description : <%= ticket.ticket_decription %> <br>
-			
+			Ticket Description : <%= ticket.ticket_decription %> <br>			
 			<%= link_to('edit', {:action => 'edit', :id => ticket.id, :event_id => @event.id}, :class => '')%>
 			<%= link_to('delete', {:action => 'delete', :id => ticket.id, :event_id => @event.id}, :class => '')%> <br><hr>
 		<% end %>

@@ -1,13 +1,6 @@
 <% provide(:title, "Event Details") %>
-
-<!-- Event dashboard navigation-->
-<div class ='container col-md-12 '>
 <%= render(:partial => 'shared/event_nav') %>
-
-	<div class=''>
-<h3 class='anw anx pt50'><%= @event.event_name %></h3>
-<hr>
-</div>
+<!-- Event dashboard navigation-->
 	<div class="well col-md-7">
 		<!--Basic Event Information-->
 		  <% if @event.main_image_file_name.nil? %>

@@ -1,19 +1,10 @@
 <% provide(:title, "Edit Ticket") %>
-
-<div class="btn-group pt25" role="group" aria-label="...">
- <%= link_to('<< Back to Event List',  {:controller => 'events',:action => 'index'} , :class => 'btn btn-primary')%>
- <%= link_to('View Event Profile >>', {:controller => 'public', :action => 'show', :event_url => @event.event_url}, :class => 'btn btn-success')%>
-</div>
-
-<h1>Edit Ticket</h1>
-
+<%= render(:partial => 'shared/event_nav') %>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(:ticket, :url => {:action => 'update', :id => @ticket.id, :event_id => @event.id})do |f| %>
-
        <!-- Loading the partial form and passing the local variables for the form-->
       <%= render(:partial => 'shared/ticket_form', :locals => {:foo => f}) %>
-
       <%= submit_tag("Edit Ticket", class: "btn btn-primary") %>
     <% end %>
   </div>

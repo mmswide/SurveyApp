@@ -1,20 +1,10 @@
 <% provide(:title, "New Ticket") %>
-
-<div class="btn-group pt25" role="group" aria-label="...">
- <%= link_to('<< Back to Event List',  {:controller => 'events', :action => 'index'} , :class => 'btn btn-primary')%>
-  <%= link_to('View Event Profile >>', {:controller => 'public', :action => 'show', :event_url => @event.event_url}, :class => 'btn btn-success')%>
-</div>
-
-<h1><%= @event.event_name %></h1>
-
-<%= render(:partial => 'shared/ticket_nav') %>
-
+<%= render(:partial => 'shared/event_nav') %>
 <div class="row">
   <div class="well col-md-6">
     <%= form_for(:ticket, :url => {:action => 'create', :event_id => @event.id})do |f| %>
       <!-- Loading the partial form and passing the local variables for the form-->
       <%= render(:partial => 'shared/ticket_form', :locals => {:foo => f}) %>
-
       <%= submit_tag("Create Ticket", class: "btn btn-primary") %>
     <% end %>
   </div>
