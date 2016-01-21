@@ -1,0 +1,22 @@
+<%= form_for @order do |f| %>
+  <h1> Credit card info </h1>
+    <%= f.label "First name" %>  
+    <%= f.text_field :first_name, class:'form-control' %>
+    <%= f.label "Last name" %>  
+    <%= f.text_field :last_name, class:'form-control' %> 
+    <%= f.label "Card number" %>
+    <%= f.text_field :card_number, class:'form-control' %>
+    <%= f.label "Card type" %>
+    <%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
+    <%= f.label "Card Verification Value (CVV)" %>
+    <%= f.text_field :card_cvv, class:'form-control' %>
+    <%= f.label "Card expires on year" %>
+    <%= f.select :card_expires_year, Date.today.year..(Date.today.year+10) %>
+    <%= f.label "Card expires on month" %>
+    <%= f.select :card_expires_month, 1..12 %>
+    <%= f.label "Ticket amount" %>
+    <%= f.number_field :ticket_amount %>
+    <%= f.hidden_field(:ticket_id, value: params[:ticket_id]) %>
+
+    <%= f.submit "Submit" %>
+<% end %>

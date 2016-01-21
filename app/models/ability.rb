@@ -2,27 +2,17 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    user ||= User.new
     if user.admin?
-
+        #for the start let him manage all, otherwise you won't be able to do anything
+        can :manage, All
     else
-        can :update, Event do |event|
-            event.user == user
-        end
-
-        can :destroy, Event do |event|
-            event.user == user
-        end
-
-        can :update, Ticket do |ticket|
+        can [:update, :destroy], Event, user_id: user.id
+        #this thing would not work because you don't have proper dependency on your Ticket model, it doesn't know about the user at all
+        can [:update, :destroy], Ticket do |ticket|
             ticket.user == user
         end
-        can :destroy, Ticket do |ticket|
-            ticket.user == user
-        end
-
-        can :create, Ticket 
-        can :create, Event
-
+        can :create, [Ticket, Event]
     end
 
     # Define abilities for the passed in user here. For example:

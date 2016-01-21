@@ -49,8 +49,9 @@
 								Ticket Price : <%= number_to_currency(ticket.ticket_price) %></br>
 								Ticket Description : <%= ticket.ticket_decription %> <br>
 								Ticket Identification : <%= ticket.id %> <br>  <hr>
-						      <% end%>
-					</div>
+                                <button class='btn btn-default'><%= link_to 'Buy ticket', new_order_path(ticket_id: ticket.id) %></button>
+                              <% end%>
+                    </div>
                 </div>
 			</div>
         </div>
