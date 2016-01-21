@@ -2,7 +2,7 @@
 <%= render(:partial => 'shared/event_nav') %>
 <div class="row">
   <div class="well col-md-6">
-    <%= form_for(:ticket, :url => {:action => 'create', :event_id => @event.id})do |f| %>
+    <%= form_for [:event , @ticket], :url => {:action => 'create'} do |f| %>
       <!-- Loading the partial form and passing the local variables for the form-->
       <%= render(:partial => 'shared/ticket_form', :locals => {:foo => f}) %>
       <%= submit_tag("Create Ticket", class: "btn btn-primary") %>

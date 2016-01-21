@@ -1,8 +1,8 @@
 <div class ='container col-md-12'>
   <div class="list-group col-md-3 pt100">
   	<h3 class ='tq'>event dashboard</h3>
-    	<%= link_to('Overview', {:action => 'index'}, :class =>'list-group-item active')%>
-    	<%= link_to('Create Festival', {:action => 'new'}, :class =>'list-group-item')%>
+    	<%= link_to('Overview', events_path , :class =>'list-group-item active')%>
+    	<%= link_to('Create Festival', new_event_path , :class =>'list-group-item')%>
     <h3 class ='tq'>stats</h3>
     	<%= link_to('Revenue', {}, :class =>'list-group-item')%>
     	<%= link_to('Attendees', {}, :class =>'list-group-item')%>
