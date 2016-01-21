@@ -5,6 +5,7 @@ class Order < ActiveRecord::Base
   has_many :order_transactions
 
   attr_accessor :card_number, :card_cvv
+
   accepts_nested_attributes_for :order_tickets, reject_if: :all_blank, allow_destroy: true 
 
   validate :validate_credit_card, on: :create
@@ -15,6 +16,8 @@ class Order < ActiveRecord::Base
   def purchase_order
     response = GATEWAY.purchase(total_price, credit_card, purchase_options)
     order_transactions.create!(response: response)
+    ticket = Ticket.find_by(id: order_tickets.first.ticket_id)
+    ticket.recalculate(ticket_amount) if response.success?
     response.success?
   end
 

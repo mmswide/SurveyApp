@@ -1,24 +1,33 @@
 class OrdersController < ApplicationController
   def new
     @order = Order.new
-    #need to check if current amount is available and set variable for it 
-    #or redirect back with a flash[:warning]
-    @ticket_amount = 2
-    @ticket_amount.times { @order.order_tickets.build }
+    @ticket_amount = params[:ticket_amount].to_i
+    @ticket_id = params[:ticket_id]
+    ticket = Ticket.find_by(id: @ticket_id)
+    if ticket.quantity >= @ticket_amount
+      @ticket_amount.times { @order.order_tickets.build }
+    else
+      flash[:warning] = 'Not enough available tickets'
+      redirect_to(:back)
+    end
   end
+
   def create
     params[:order][:user_id] = current_user.id if current_user.present?
     params[:order][:ip_address] = request.remote_ip
     @order = Order.new(order_params)
-     if @order.save
+    if @order.save
       if @order.purchase_order
-        raise @order.order_transactions.inspect
+        flash[:success] = "Order successfully completed!"
+        redirect_to user_path(current_user)
       else
-        raise @order.order_transactions.inspect
+        flash[:error] = @order.order_transactions.first.message
+        render 'new', object: @order
       end
-     else
-      raise @order.errors.full_messages.inspect
-     end
+    else
+      flash[:error] = @order.errors.full_messages.to_sentence
+      render 'new', object: @order
+    end
   end
 
   private
