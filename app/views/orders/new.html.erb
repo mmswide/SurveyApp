@@ -1,9 +1,9 @@
 <%= form_for @order do |f| %>
   <h1> Credit card info </h1>
     <%= f.label "First name" %>  
-    <%= f.text_field :first_name, class:'form-control' %>
+    <%= f.text_field :buyer_first_name, class:'form-control' %>
     <%= f.label "Last name" %>  
-    <%= f.text_field :last_name, class:'form-control' %> 
+    <%= f.text_field :buyer_last_name, class:'form-control' %> 
     <%= f.label "Card number" %>
     <%= f.text_field :card_number, class:'form-control' %>
     <%= f.label "Card type" %>
@@ -11,12 +11,32 @@
     <%= f.label "Card Verification Value (CVV)" %>
     <%= f.text_field :card_cvv, class:'form-control' %>
     <%= f.label "Card expires on year" %>
-    <%= f.select :card_expires_year, Date.today.year..(Date.today.year+10) %>
+    <%= f.select :card_expires_year, Date.today.year..(Date.today.year+10), class:'form-control' %>
     <%= f.label "Card expires on month" %>
-    <%= f.select :card_expires_month, 1..12 %>
-    <%= f.label "Ticket amount" %>
-    <%= f.number_field :ticket_amount %>
-    <%= f.hidden_field(:ticket_id, value: params[:ticket_id]) %>
+    <%= f.select :card_expires_month, 1..12, class:'form-control' %>
 
-    <%= f.submit "Submit" %>
+    <h2> User info </h2>
+      <%= f.label "Adress" %>
+      <%= f.text_field :address1, class:'form-control' %>
+      <%= f.label "City" %>
+      <%= f.text_field :city, class:'form-control' %>
+      <%= f.label "State" %>
+      <%= f.text_field :state, class:'form-control' %>
+      <%= f.label "Zip code" %>
+      <%= f.number_field :zip, class:'form-control' %>
+
+    <h2> Tickets </h2><br>
+    <% @ticket_count.times do |t| %>
+      <h3> Ticket <%= (t+1) %> </h3>
+      <%= label_tag "First name" %>
+      <%= text_field_tag("tickets[first_name]") %>
+      <%= label_tag "Last name" %>
+      <%= text_field_tag("tickets[last_name]") %>
+      <%= label_tag"Email" %>
+      <%= text_field_tag("tickets[email]") %>
+    <% end %>
+
+    <%= f.hidden_field :ticket_amount, value: @ticket_count %>
+    <%= f.hidden_field :ticket_id, value: params[:ticket_id] %>
+    <%= f.submit "Submit", class:'btn btn-success' %>
 <% end %>

@@ -23,6 +23,11 @@ GEM
     activejob (4.2.2)
       activesupport (= 4.2.2)
       globalid (>= 0.3.0)
+    activemerchant (1.56.0)
+      activesupport (>= 3.2.14, < 5.1)
+      builder (>= 2.1.2, < 4.0.0)
+      i18n (>= 0.6.9)
+      nokogiri (~> 1.4)
     activemodel (4.2.2)
       activesupport (= 4.2.2)
       builder (~> 3.1)
@@ -224,6 +229,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activemerchant
   aws-sdk (< 2.0)
   bcrypt (= 3.1.7)
   bootstrap-sass (= 3.2.0.0)
@@ -254,4 +260,4 @@ DEPENDENCIES
   will_paginate (= 3.0.7)
 
 BUNDLED WITH
-   1.11.0
+   1.11.2

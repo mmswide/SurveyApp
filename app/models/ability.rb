@@ -10,11 +10,10 @@ class Ability
         can [:update, :destroy], Event, user_id: user.id
         #this thing would not work because you don't have proper dependency on your Ticket model, it doesn't know about the user at all
         can [:update, :destroy], Ticket do |ticket|
-            ticket.user == user
+           ticket.user == user
         end
         can :create, [Ticket, Event]
     end
-
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

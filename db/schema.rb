@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119194840) do
+ActiveRecord::Schema.define(version: 20160121085738) do
 
   create_table "events", force: :cascade do |t|
     t.integer  "user_id"
@@ -45,6 +45,35 @@ ActiveRecord::Schema.define(version: 20160119194840) do
     t.datetime "updated_at",                            null: false
   end
 
+  create_table "order_transactions", force: :cascade do |t|
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "success"
+    t.string   "authorization"
+    t.string   "message"
+    t.string   "params"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "ticket_id"
+    t.integer  "transaction_id"
+    t.integer  "amount"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "ticket_amount"
+    t.integer  "fee"
+    t.string   "buyer_first_name"
+    t.string   "buyer_last_name"
+    t.integer  "card_expires_year"
+    t.integer  "card_expires_month"
+    t.string   "card_type"
+    t.string   "address1"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+  end
+
   create_table "tickets", force: :cascade do |t|
     t.integer  "event_id"
     t.string   "ticket_name"
@@ -53,6 +82,11 @@ ActiveRecord::Schema.define(version: 20160119194840) do
     t.integer  "quantity"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
