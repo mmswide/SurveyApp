@@ -4,7 +4,7 @@
 <%= render(:partial => 'shared/event_nav') %>
 
 <div class="row">
-  <div class="well col-md-7">
+  <div class="well col-md-7 col-lg-offset-1">
     <!--Rendering shared error template-->
     <%= render 'shared/event_error_messages' %>
     <!--Edit Basic Information-->
@@ -57,8 +57,8 @@
 
        <%= f.label :zip_code %>
       <%= f.text_field :zip_code, class: 'form-control' %>
-
-      <%= label_tag(:description_long, 'Detailed Description') %>
+      <!--Description Information-->
+     <center><h3>Edit Event Description</h3></center>
       <%= f.text_area(:description_long, :class => 'tinymce') %>
 
       <%= submit_tag("Edit Event", class: "btn btn-primary") %>

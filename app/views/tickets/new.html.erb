@@ -1,11 +1,13 @@
 <% provide(:title, "New Ticket") %>
 <%= render(:partial => 'shared/event_nav') %>
 <div class="row">
-  <div class="well col-md-6">
+  <div class="panel-body col-md-6 col-lg-offset-1 well">
     <%= form_for [:event , @ticket], :url => {:action => 'create'} do |f| %>
       <!-- Loading the partial form and passing the local variables for the form-->
       <%= render(:partial => 'shared/ticket_form', :locals => {:foo => f}) %>
+       </br>
       <%= submit_tag("Create Ticket", class: "btn btn-primary") %>
+
     <% end %>
   </div>
 </div>
