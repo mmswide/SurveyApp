@@ -26,17 +26,17 @@
       <%= f.number_field :zip, class:'form-control' %>
 
     <h2> Tickets </h2><br>
-    <% @ticket_count.times do |t| %>
-      <h3> Ticket <%= (t+1) %> </h3>
-      <%= label_tag "First name" %>
-      <%= text_field_tag("tickets[first_name]") %>
-      <%= label_tag "Last name" %>
-      <%= text_field_tag("tickets[last_name]") %>
-      <%= label_tag"Email" %>
-      <%= text_field_tag("tickets[email]") %>
-    <% end %>
+      <%= f.fields_for :order_tickets do |ff| %>
+        <h3> Ticket <%=  %> </h3>
+        <%= ff.label "First name" %>
+        <%= ff.text_field :first_name %>
+        <%= ff.label "Last name" %>
+        <%= ff.text_field :last_name %>
+        <%= ff.label"Email" %>
+        <%= ff.text_field :email %>
+        <%= ff.hidden_field :ticket_id, value: params[:ticket_id] %>
+      <% end %>
 
-    <%= f.hidden_field :ticket_amount, value: @ticket_count %>
-    <%= f.hidden_field :ticket_id, value: params[:ticket_id] %>
+    <%= f.hidden_field :ticket_amount, value: @ticket_amount %>
     <%= f.submit "Submit", class:'btn btn-success' %>
 <% end %>
