@@ -17,12 +17,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-      	<td><%= link_to('order_id', {}) %></td>
-      	<td>event_name</td>
-        <td>ticket_name </td>
-        <td>first_name, last_name</td>
-      </tr>
+      <% @user.orders.each do |order|%>
+        <tr>
+        	<td><%= order.id %></td>
+        	<td><%= order.order_tickets.first.ticket.event.event_name %></td>
+          <td><%= order.order_tickets.first.ticket.ticket_name %></td>
+          <% order.order_tickets.each do |ticket| %>
+            <td><%= "#{ticket.first_name} #{ticket.last_name}" %></td>
+          <% end %>
+        </tr>
+      <% end %>
     </tbody>
   </table>
 </div>

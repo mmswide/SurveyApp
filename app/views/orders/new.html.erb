@@ -34,9 +34,8 @@
         <%= ff.text_field :last_name, class:'form-control' %>
         <%= ff.label"Email" %>
         <%= ff.text_field :email, class:'form-control' %>
-        <%= ff.hidden_field :ticket_id, value: @ticket_id %>
       <% end %>
 
-    <%= f.hidden_field :ticket_amount, value: @ticket_amount %>
+    <%= f.hidden_field(:ticket_amount, value: @all_tickets_count.present? ? @all_tickets_count : @order.ticket_amount) %>
     <%= f.submit "Submit", class:'btn btn-success' %>
 <% end %>

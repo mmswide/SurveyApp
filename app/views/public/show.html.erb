@@ -40,16 +40,16 @@
                      <!--Ticket description tab-->
                      <div role="tabpanel" class="tab-pane" id="settings">
                      <!--Checking to make sure there are tickets before revealing the ticket div-->
-    				    <% @event.tickets.each do |ticket| %>
-    				      Ticket Name : <%= ticket.ticket_name %></br>
-    					  Ticket Price : <%= number_to_currency(ticket.ticket_price) %></br>
-    				  	  Ticket Description : <%= ticket.ticket_decription %> <br>
-    					  Ticket Identification : <%= ticket.id %> <br>  <hr>
-                            <%= form_tag new_order_path, method: :get do %>
-                              <%= select_tag "ticket_amount", options_for_select(1..12), class: "selectpicker", prompt: "Select quantity" %>
-                              <%= number_field_tag "ticket_id", ticket.id, type: 'hidden' %> 
-                              <%= submit_tag "Buy tickets", class: "btn btn-default" %>
-                            <% end %>
+                        <%= form_tag new_order_path, method: :get do %>
+                          <% @event.tickets.each do |ticket| %>
+                            Ticket Name : <%= ticket.ticket_name %></br>
+                            Ticket Price : <%= number_to_currency(ticket.ticket_price) %></br>
+                            Ticket Description : <%= ticket.ticket_description %> <br>
+                            Ticket Identification : <%= ticket.id %><hr>
+                            <!--collects pairs of ticket ids and their quantities and sends them to orders#new action-->
+                            <%= select_tag "tickets[]#{ticket.id}", options_for_select(1..12), prompt: "Select amount" %>
+                          <% end %>
+                        <%= submit_tag "Buy tickets", class: "btn btn-default" %>
                         <% end%>
                     </div>
                 </div>

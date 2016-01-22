@@ -6,7 +6,7 @@ class Order < ActiveRecord::Base
 
   attr_accessor :card_number, :card_cvv
 
-  accepts_nested_attributes_for :order_tickets, reject_if: :all_blank, allow_destroy: true 
+  accepts_nested_attributes_for :order_tickets
 
   validate :validate_credit_card, on: :create
   validates :buyer_first_name, :buyer_last_name, :address1, :city, :state, :zip, presence: true
@@ -35,6 +35,14 @@ class Order < ActiveRecord::Base
     }}
   end
 
+  def validate_credit_card
+    unless credit_card.valid?
+      credit_card.errors.full_messages.each do |message|
+        errors[:base] << message
+      end
+    end
+  end
+
   def credit_card
     @credit_card ||= ActiveMerchant::Billing::CreditCard.new(
       type:                card_type,
@@ -45,14 +53,6 @@ class Order < ActiveRecord::Base
       first_name:          buyer_first_name,
       last_name:           buyer_last_name
     )
-  end
-
-  def validate_credit_card
-    unless credit_card.valid?
-      credit_card.errors.full_messages.each do |message|
-        errors[:base] << message
-      end
-    end
   end
 
   def set_money
