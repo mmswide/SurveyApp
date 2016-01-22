@@ -6,7 +6,8 @@
 		<div>
 			<%= ticket.ticket_name %></br>
 			Ticket Price : <%= number_to_currency(ticket.ticket_price) %></br>
-			Ticket Description : <%= ticket.ticket_decription %> <br>		
+			Ticket Description : <%= ticket.ticket_description %> <br>	
+			Ticket Quantity : <%= ticket.quantity %> <br>		
 			<!--edit ticket-->	
 			<%= link_to('Edit', edit_event_ticket_path(@event, ticket.id), :class => '') %> |
 			<!--delete ticket-->

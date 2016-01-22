@@ -12,6 +12,14 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
 
+ # validates :event_contact_email, allow_blank: true, length: { maximum: 255 },
+  #                  format: { with: VALID_EMAIL_REGEX , message: " - Should be in frank@dancer.com format" }
+
+  # validates :contact_phone, length: {minimum: 9, maximum: 18,
+   # too_short: "must have at least %{count} numbers. format: (xxx)-xxx-xxxx, remember the area code",
+    #  too_long: "Is a bit long. Max: %{count} digits, format: (xxx)-xxx-xxxx"
+    # }, allow_blank: true
+
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   # Returns the hash digest of the given string.

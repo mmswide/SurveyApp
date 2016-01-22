@@ -45,11 +45,11 @@ ActiveRecord::Schema.define(version: 20160122044020) do
   create_table "tickets", force: :cascade do |t|
     t.integer  "event_id"
     t.string   "ticket_name"
-    t.text     "ticket_decription"
+    t.text     "ticket_description"
     t.decimal  "ticket_price"
     t.integer  "quantity"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "users", force: :cascade do |t|
