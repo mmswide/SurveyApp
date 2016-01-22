@@ -17,7 +17,11 @@
 		<% end %>
 	</div>	
 <% else %>
-	<div class="well col-md-8">
-		<p> No Tickets created yet. Click the "Create Ticket" button to create your first ticket!</p>
+	<div class="col-md-8 tbo">
+		<center>
+		<h3>“I was lucky -- I found what I love to do early in life...”</h3>
+		</br> 
+		<p>— Steve Jobs</p>
+ 		<%= link_to('Create a Ticket', new_event_ticket_path , :class =>'btn btn-primary event-button')%></center>
 	</div>
 <% end %>
