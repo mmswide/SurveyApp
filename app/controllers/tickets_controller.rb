@@ -4,17 +4,17 @@ class TicketsController < ApplicationController
   
   
   def index
-    @event = Event.find(params[:event_id])
+    @event = Event.find_by(params[:event_id])
     @tickets = @event.tickets.sort
     authorize! :update, @event
   end
 
   def show
-    @ticket = Ticket.find(params[:id])
+    @ticket = Ticket.find_by(params[:id])
   end
 
   def new
-    @event = Event.find(params[:event_id])
+    @event = Event.find_by(params[:event_id])
     @ticket = @event.tickets.build
   end
 
@@ -30,13 +30,13 @@ class TicketsController < ApplicationController
   end
 
   def edit
-    @event = Event.find(params[:event_id])
+    @event = Event.find_by(params[:event_id])
     @ticket = @event.tickets.find(params[:id])
     authorize! :update, @event
   end
 
   def update
-    @ticket = Ticket.find(params[:id])
+    @ticket = Ticket.find_by(params[:id])
     if @ticket.update_attributes(ticket_params)
       flash[:success] = "Ticket updated successfully!!"
       redirect_to event_tickets_path
@@ -46,7 +46,7 @@ class TicketsController < ApplicationController
   end
 
   def destroy
-     ticket = Ticket.find(params[:id]).destroy
+     ticket = Ticket.find_by(params[:id]).destroy
      flash[:success] = "Ticket '#{ticket.ticket_name}' destroyed"
      redirect_to event_tickets_path
   end
@@ -54,7 +54,8 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-    params.require(:ticket).permit( :event_id, :ticket_name, :ticket_decription, :ticket_price)
+    params.require(:ticket).permit( :event_id, :ticket_name, 
+              :ticket_description, :ticket_price, :quantity)
   end 
 
   def find_event

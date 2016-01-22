@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119194840) do
+ActiveRecord::Schema.define(version: 20160122044020) do
 
   create_table "events", force: :cascade do |t|
     t.integer  "user_id"
@@ -31,9 +31,6 @@ ActiveRecord::Schema.define(version: 20160119194840) do
     t.date     "end_date"
     t.time     "start_time"
     t.time     "end_time"
-    t.string   "contact_name"
-    t.text     "contact_phone"
-    t.string   "contact_email"
     t.string   "venue_name"
     t.text     "venue_phone"
     t.string   "address_1"
@@ -48,23 +45,23 @@ ActiveRecord::Schema.define(version: 20160119194840) do
   create_table "tickets", force: :cascade do |t|
     t.integer  "event_id"
     t.string   "ticket_name"
-    t.text     "ticket_decription"
+    t.text     "ticket_description"
     t.decimal  "ticket_price"
     t.integer  "quantity"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
+    t.string   "first_name"
     t.string   "email"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "password_digest"
     t.string   "remember_digest"
-    t.boolean  "admin",             default: false
+    t.boolean  "admin",               default: false
     t.string   "activation_digest"
-    t.boolean  "activated",         default: false
+    t.boolean  "activated",           default: false
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
@@ -74,6 +71,10 @@ ActiveRecord::Schema.define(version: 20160119194840) do
     t.string   "facebook"
     t.string   "instagram"
     t.string   "youtube"
+    t.string   "last_name"
+    t.string   "alias"
+    t.string   "event_contact_phone"
+    t.string   "event_contact_email"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
