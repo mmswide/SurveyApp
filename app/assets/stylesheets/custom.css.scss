@@ -12,6 +12,10 @@
 
 
 /* universal */
+body{
+  font-size: 16px;
+  color: #A09494;
+}
 
 section {
   overflow: auto;
@@ -40,6 +44,12 @@ textarea {
 .pt100 {
   margin-top: 100px;
 }
+.ml20{
+  margin-left: 20px;
+}
+.pdl20{
+  padding-left: 20px;
+}
 
 /* typography */
 
@@ -66,6 +76,11 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+.btn-primary{
+      background-color: #1ca8dd;
+      padding: 18px 10px;
 }
 
 /* header */
@@ -208,6 +223,9 @@ input {
     font-weight: normal;
   }
 }
+.form-control{
+    padding: 13px 12px;
+}
 
 #session_remember_me {
   width: auto;
@@ -347,5 +365,25 @@ input {
 .hea{
   margin-top: 40px;
 }
+/* User Order Section */
+.tbo{
+  border: 1px solid #dddddd;
+  border-radius: 6px;
+}
+.tr{
+  padding-left:20px;
+}
+
+.well {
+background-color: transparent !important;
+}
+.event-button{
+    background-color: #2BDE73;
+    padding: 18px 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-color: #2BDE73;
+}
+
 
 

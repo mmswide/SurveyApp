@@ -6,31 +6,33 @@
 <hr>
 <!--Checking in the events are empty-->
 <% if @events.empty? %>
-	<div class="well col-md-8">
-		<h2>Your on your way to creating your first event!</h2>
- 		<center><%= link_to('Create Festival', {:action => 'new'}, :class =>'ce apn ame')%> </center>
+	<div class="col-md-8 tbo">
+		<center>
+		<h3>“The world is but a canvas to our imagination”</h3>
+	</br> <p>— Henry David Thoreau</p>
+ 		<%= link_to('Create a Festival', new_event_path , :class =>'btn btn-primary event-button')%></center>
 	</div>
 <% else %>
-	<div class="well col-md-8">
+	<div class="col-md-8 well">
 		<% @events.each do |event| %>
 		<h4><%= event.event_name %></br></h4>
 
 	<!--Checking if the user has permission to update link if not remove link-->	
 		<% if can? :update, event %>			
-		<%= link_to('Edit Event', {:action => 'show', :id => event.id})%> |
+		<%= link_to('Edit Event', edit_event_path(event.id))%> |
 		<% end %>
 
 		<%= link_to('View Event', {:controller => 'public', :action => 'show', :event_url => event.event_url})%> 
 
 	<!--Checking if the user has permission to create tickets link if not remove link-->	
 		<% if can? :update, event %>
-		| <%= link_to('Create Tickets', {:controller => 'tickets', :action => 'new', :event_id => event.id})%> 
+		| <%= link_to('Create Tickets',  new_event_ticket_path(event.id))%> 
 		<% end %>
 
 
 	<!--Checking if the user has permission to delete the event. Ff not remove link-->
-		<% if can? :destroy, event %>
-		<%= link_to('delete', {:action => 'delete', :id => event.id}, :class => 'pull-right')%> <br>
+		<% if can? :destroy, event %>	
+		| <%= link_to('Delete', event ,  :method => :delete,  data: {confirm: "Are you sure?"})%> <br>
 		<% end %>
 		<hr>
 

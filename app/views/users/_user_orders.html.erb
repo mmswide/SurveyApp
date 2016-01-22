@@ -1,7 +1,30 @@
 <!--FInd me at users/user_orders.html.erb -->
 <!--Header-->
+
 <div class='pt50'>
-	<h3 class='anw anx'>Orders</h3>
-</div> 
-<!--Header--> 
+	<h3 class='anw anx ml20'>Orders</h3>
+<!--Order Table in the user view--> 
 <hr>  
+<div class="tbo">
+ <div class="table-responsive">         
+  <table class="table table-hover">
+    <thead>
+      <tr>
+      	<th>Invoice #</th>
+      	<th>Event_Name</th>
+      	<th>Ticket</th>
+        <th>Attendee Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      	<td><%= link_to('order_id', {}) %></td>
+      	<td>event_name</td>
+        <td>ticket_name </td>
+        <td>first_name, last_name</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+

@@ -32,11 +32,7 @@
                     	</center>
                     </div>
                     <!-- Contact Information tab-->
-                     <div role="tabpanel" class="tab-pane" id="contact">
-                     	<p> Name: <%= @event.contact_name  %> </p>
-                     	<p> Email: <%= @event.contact_email %> </p>
-                     	<p> Phone: <%= number_to_phone(@event.contact_phone, area_code: true) %> </p>
-                     </div>
+
                      <!--Event Description tab-->
                      <div role="tabpanel" class="tab-pane" id="messages">
 						<p> <%= @event.description_long.try(:html_safe)  %> </p>

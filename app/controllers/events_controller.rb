@@ -8,12 +8,12 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
+    @event = Event.find_by(params[:id])
     authorize! :update, @event
   end
 
   def new
-    @event = Event.new({:user_id => @user_id})
+    @event = Event.new
   end
 
   def create
@@ -22,42 +22,39 @@ class EventsController < ApplicationController
     if @event.save
       flash[:success] = "Event created successfully!!"
       #redirect to index
-      redirect_to(:action => 'index')
+      redirect_to events_path
     else
       render('new')
     end
   end
 
   def edit
-    @event = Event.find(params[:id])
+    @event = Event.find_by(params[:id])
     authorize! :update, @event
   end
 
   def update
-    @event = Event.find(params[:id])
+    @event = Event.find_by(params[:id])
     if @event.update_attributes(event_params)
       #redirecting to the event profile if successful
       flash[:success] = "Event updated"
-      redirect_to(:action => 'show', :id => @event.id)
+      redirect_to event_path
     else
       render('edit')
     end
   end
 
-  def delete
-     @event = Event.find(params[:id])
-     authorize! :update, @event
-  end
-
   def destroy
-    event = Event.find(params[:id]).destroy
-     flash[:success] = "Event '#{event.event_name}' destroyed"
-    redirect_to(:action => 'index')
+    event = Event.find_by(params[:id]).destroy
+    flash[:success] = "Event '#{event.event_name}' Has been deleted"
+    redirect_to events_path
   end
 
   private
 
   def event_params
-    params.require(:event).permit(:user_id, :event_url, :event_name, :description_short, :main_image, :description_long, :contact_name, :contact_phone, :contact_email, :venue_name, :address_1, :city, :state, :zip_code)
+    params.require(:event).permit(:user_id, :event_url, :event_name, 
+      :description_short, :main_image, :description_long, :venue_name,
+      :address_1, :city, :state, :zip_code)
   end
 end

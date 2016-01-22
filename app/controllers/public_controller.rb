@@ -9,7 +9,7 @@ class PublicController < ApplicationController
   def show
   	@event = Event.where(:event_url => params[:event_url]).first
   	if @event.nil?
-   		redirect_to(:action => 'index')
+   		redirect_to root_path
    	else
    		render('show')
    		#show event content using show.html.erb
