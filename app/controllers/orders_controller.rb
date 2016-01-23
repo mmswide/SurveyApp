@@ -1,24 +1,28 @@
 class OrdersController < ApplicationController
-  before_action :straighten_out_tickets, only: :new
+  before_action :straighten_out_ticket_hash, only: :new
+  before_action :sign_up_user, only: :create
 
+  #sending tickets hash from form to the model for checking if there is enough tickets
+  #building nested fields(order_tickets) for each ordered ticket
+  #rendering new template if everything is ok
   def new
-    #sending tickets hash from form to the model for checking if there is enough tickets
     enough_tickets = Ticket.enough_tickets?(params[:tickets])
     if enough_tickets
-      @all_tickets_count = 0
+      @new_user = User.new if current_user.blank?
       @order = Order.new
       params[:tickets].each do |id, quantity|
-        quantity.to_i.times { @order.order_tickets.create(ticket_id: id) }
-        @all_tickets_count += quantity.to_i
+        quantity.to_i.times { @order.order_tickets.build(ticket_id: id) }
       end
     else
       flash[:warning] = 'Not enough available tickets'
       redirect_to(:back)
     end
   end
-
+  #creating a new order, if success - then performing a purchase
+  #if success - redirecting to users profile
+  #otherwise - re-rendering #new template and displaying errors
   def create
-    params[:order][:user_id] = current_user.id if current_user.present?
+    params[:order][:user_id] = current_user.id 
     params[:order][:ip_address] = request.remote_ip
     @order = Order.new(order_params)
     if @order.save
@@ -51,7 +55,27 @@ class OrdersController < ApplicationController
     )
   end
 
-  def straighten_out_tickets
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password,
+                                 :password_confirmation
+    )
+  end
+
+  #because hash that comes from a form is a mess, it's getting parsed here
+  def straighten_out_ticket_hash
     params[:tickets] = params[:tickets].first.delete_if { |k, v| v.blank? }
+  end
+  #checking if the user is logged_in
+  #if not - creating one before proceeding buying process
+  def sign_up_user
+    unless current_user.present?
+      @new_user = User.create(user_params)
+      if @new_user.save
+        log_in @new_user
+      else
+        @order = Order.new(order_params)
+        render 'new', object: [@order, @new_user]
+      end
+    end
   end
 end

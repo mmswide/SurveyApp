@@ -25,12 +25,23 @@ group :development, :test do
   gem 'byebug',      '3.4.0'
   gem 'web-console', '2.0.0.beta3'
   gem 'spring',      '1.1.3'
+  gem 'awesome_print', '~> 1.6', '>= 1.6.1'
+end
+
+group :test, :development do
+  gem "factory_girl_rails", "~> 4.0", require: false
+  gem "rspec-rails", "~> 3.0"
+  gem "rspec-activemodel-mocks", "~> 1.0"
 end
 
 group :test do
   gem 'minitest-reporters', '1.0.5'
   gem 'mini_backtrace',     '0.1.3'
   gem 'guard-minitest',     '2.3.1'
+  gem "database_cleaner"
+  gem "capybara"
+  gem "shoulda-matchers", "~> 2.6", require: false
+  gem 'simplecov', "~> 0.10.0", require:  false
 end
 
 group :production do
