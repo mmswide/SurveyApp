@@ -1,0 +1,14 @@
+<h2> New account information </h2>
+  <%= fields_for :user do |u| %>
+    <%= u.label :first_name %>
+    <%= u.text_field :first_name, class: 'form-control' %>
+    <%= u.label :last_name %>
+    <%= u.text_field :last_name, class: 'form-control' %>
+    <%= u.label :email %>
+    <%= u.email_field :email, class: 'form-control' %>
+    <%= u.label :password %>
+    <%= u.password_field :password, class: 'form-control' %>
+    <%= u.label :password_confirmation, "Confirmation" %>
+    <%= u.password_field :password_confirmation, class: 'form-control' %>
+    <p> Already have an account? Then login now! <%= link_to "Log in", login_path, class: 'form-control btn btn-primary' %></p>
+  <% end %>

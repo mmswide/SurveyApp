@@ -1,0 +1,45 @@
+<%= form_for @order do |f| %>
+  <h1> Credit card info </h1>
+    <%= f.label "First name" %>  
+    <%= f.text_field :buyer_first_name, class:'form-control' %>
+    <%= f.label "Last name" %>  
+    <%= f.text_field :buyer_last_name, class:'form-control' %> 
+    <%= f.label "Card number" %>
+    <%= f.text_field :card_number, class:'form-control' %>
+    <%= f.label "Card type" %>
+    <%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], 
+        ["Discover", "discover"], ["American Express", "american_express"]] %>
+    <%= f.label "Card Verification Value (CVV)" %>
+    <%= f.text_field :card_cvv, class:'form-control' %>
+    <%= f.label "Card expires on year" %>
+    <%= f.select :card_expires_year, Date.today.year..(Date.today.year+10), 
+        class:'form-control' %>
+    <%= f.label "Card expires on month" %>
+    <%= f.select :card_expires_month, 1..12, class:'form-control' %>
+
+    <h2> User info </h2>
+      <%= f.label "Adress" %>
+      <%= f.text_field :address1, class:'form-control' %>
+      <%= f.label "City" %>
+      <%= f.text_field :city, class:'form-control' %>
+      <%= f.label "State" %>
+      <%= f.text_field :state, class:'form-control' %>
+      <%= f.label "Zip code" %>
+      <%= f.number_field :zip, class:'form-control' %>
+
+    <%= render partial: 'users/user_sign_up_form' if @new_user.present? %>
+
+    <h2> Tickets </h2><br>
+      <%= f.fields_for :order_tickets do |ff| %>
+        <h3> Ticket <%="#{ff.object.ticket.ticket_name}"%></h3>
+          <%= ff.label "First name" %>
+          <%= ff.text_field :first_name, class:'form-control'%>
+          <%= ff.label "Last name" %>
+          <%= ff.text_field :last_name, class:'form-control' %>
+          <%= ff.label"Email" %>
+          <%= ff.text_field :email, class:'form-control' %>
+          <%= ff.hidden_field :ticket_id %>
+      <% end %>
+
+<%= f.submit "Submit", class:'btn btn-success' %>
+<% end %>

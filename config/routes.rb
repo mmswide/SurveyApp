@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   get 'users/new'
-  get    'lounge'    => 'static_pages#lounge'
+  get    'lounge'  => 'static_pages#lounge'
   get    'help'    => 'static_pages#help'
   get    'about'   => 'static_pages#about'
   get    'contact' => 'static_pages#contact'
@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
+<<<<<<< HEAD
 
   resources :events do
     resources :tickets
@@ -29,4 +30,10 @@ Rails.application.routes.draw do
 
 
 
+=======
+  resources :orders
+  resources :events do
+    resources :tickets
+  end
+>>>>>>> remotes/origin/stripe_payment
 end

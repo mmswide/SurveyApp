@@ -32,11 +32,7 @@
                     	</center>
                     </div>
                     <!-- Contact Information tab-->
-                     <div role="tabpanel" class="tab-pane" id="contact">
-                     	<p> Name: <%= @event.contact_name  %> </p>
-                     	<p> Email: <%= @event.contact_email %> </p>
-                     	<p> Phone: <%= number_to_phone(@event.contact_phone, area_code: true) %> </p>
-                     </div>
+
                      <!--Event Description tab-->
                      <div role="tabpanel" class="tab-pane" id="messages">
 						<p> <%= @event.description_long.try(:html_safe)  %> </p>
@@ -44,13 +40,18 @@
                      <!--Ticket description tab-->
                      <div role="tabpanel" class="tab-pane" id="settings">
                      <!--Checking to make sure there are tickets before revealing the ticket div-->
-						      <% @event.tickets.each do |ticket| %>
-								Ticket Name : <%= ticket.ticket_name %></br>
-								Ticket Price : <%= number_to_currency(ticket.ticket_price) %></br>
-								Ticket Description : <%= ticket.ticket_decription %> <br>
-								Ticket Identification : <%= ticket.id %> <br>  <hr>
-						      <% end%>
-					</div>
+                        <%= form_tag new_order_path, method: :get do %>
+                          <% @event.tickets.each do |ticket| %>
+                            Ticket Name : <%= ticket.ticket_name %></br>
+                            Ticket Price : <%= number_to_currency(ticket.ticket_price) %></br>
+                            Ticket Description : <%= ticket.ticket_description %> <br>
+                            Ticket Identification : <%= ticket.id %><hr>
+                            <!--collects pairs of ticket ids and their quantities and sends them to orders#new action-->
+                            <%= select_tag "tickets[]#{ticket.id}", options_for_select(1..12), prompt: "Select amount" %>
+                          <% end %>
+                        <%= submit_tag "Buy tickets", class: "btn btn-default" %>
+                        <% end%>
+                    </div>
                 </div>
 			</div>
         </div>

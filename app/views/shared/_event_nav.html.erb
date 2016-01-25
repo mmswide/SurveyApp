@@ -1,7 +1,11 @@
 <div class="list-group col-md-3 pt50">
 	<h3 class ='tq'>Event Details</h3>
+<<<<<<< HEAD
 	 <%= link_to('Event Details', event_path(@event.id), :class =>'list-group-item active')%>
 	 <%= link_to('Edit Event', edit_event_path(@event.id), :class =>'list-group-item')%>
+=======
+	 <%= link_to('Edit Event', edit_event_path(@event.id), :class =>'list-group-item active')%>
+>>>>>>> remotes/origin/stripe_payment
 	 <%= link_to('View Tickets', event_tickets_path(@event), :class =>'list-group-item')%>
 	<%= link_to('Create Ticket', new_event_ticket_path(@event) , :class =>'list-group-item')%> 
 	 <h3 class ='tq'>Calendar</h3>

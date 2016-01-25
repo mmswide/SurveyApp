@@ -1,22 +1,25 @@
 <% provide(:title, "Edit user") %>
 
 <div class ='container col-md-12'>
-  <div class="list-group col-md-4 pt100">
+  <div class="list-group col-md-3 pt100">
     <%= link_to('Edit', {}, :class =>'tq')%>
     <%= link_to('Account Information', {}, :class =>'list-group-item active')%>
 </div>
 <div class='pt50'>
-  <h3 class='anw anx'><%= @user.name %></h3>
+  <h3 class='anw anx'><%= @user.first_name %></h3>
 </div>
 <hr>
 
 <div class="row">
-  <div class="well col-md-7">
+  <div class="well col-md-6 col-md-offset-1">
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, class: 'form-control' %>
+
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, class: 'form-control' %>
 
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
@@ -27,8 +30,6 @@
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>      
 </br>
-</br>
-
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
 

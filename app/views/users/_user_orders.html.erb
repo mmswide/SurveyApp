@@ -1,7 +1,34 @@
 <!--FInd me at users/user_orders.html.erb -->
 <!--Header-->
+
 <div class='pt50'>
-	<h3 class='anw anx'>Orders</h3>
-</div> 
-<!--Header--> 
+	<h3 class='anw anx ml20'>Orders</h3>
+<!--Order Table in the user view--> 
 <hr>  
+<div class="tbo">
+ <div class="table-responsive">         
+  <table class="table table-hover">
+    <thead>
+      <tr>
+      	<th>Invoice #</th>
+      	<th>Event_Name</th>
+      	<th>Ticket</th>
+        <th>Attendee Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.orders.each do |order|%>
+        <tr>
+        	<td><%= order.id %></td>
+        	<td><%= order.order_tickets.first.ticket.event.event_name %></td>
+          <td><%= order.order_tickets.first.ticket.ticket_name %></td>
+          <% order.order_tickets.each do |ticket| %>
+            <td><%= "#{ticket.first_name} #{ticket.last_name}" %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
+
