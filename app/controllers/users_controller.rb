@@ -4,7 +4,7 @@ class UsersController < ApplicationController
    before_action :admin_user,     only: :destroy
 
   def show
-    @user = User.includes(orders: [ order_tickets: [:ticket] ]).find_by(id: params[:id])
+    @user = User.includes(orders: [ entitlements: [:ticket] ]).find_by(id: params[:id])
   end
 
   def new

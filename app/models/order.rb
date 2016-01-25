@@ -1,12 +1,12 @@
 class Order < ActiveRecord::Base
   belongs_to :user
   belongs_to :ticket
-  has_many :order_tickets, foreign_key: :order_id
+  has_many :entitlements, foreign_key: :order_id
   has_many :order_transactions
   #attr_accessor for number and cvv because it's prohibited to save that type of data to db
   attr_accessor :card_number, :card_cvv
 
-  accepts_nested_attributes_for :order_tickets
+  accepts_nested_attributes_for :entitlements
 
   validate :validate_credit_card, on: :create
   validates :buyer_first_name, :buyer_last_name, :address1, :city, :state, 
@@ -19,7 +19,7 @@ class Order < ActiveRecord::Base
   def purchase_order
     response = GATEWAY.purchase(total_price, credit_card, purchase_options)
     order_transactions.create!(response: response)
-    Ticket.recalculate(order_tickets) if response.success?
+    Ticket.recalculate(entitlements) if response.success?
     response.success?
   end
 
@@ -61,7 +61,7 @@ class Order < ActiveRecord::Base
   #returns nothing
   def set_money
     ticket_price = 0
-    order_tickets.each do |ordered_ticket|
+    entitlements.each do |ordered_ticket|
       ticket_price += ordered_ticket.ticket.ticket_price
     end
     raw_price_in_cents = (ticket_price * 100).round
