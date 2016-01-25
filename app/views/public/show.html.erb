@@ -1,7 +1,5 @@
-    <h3 class='anw anx pt50'><%= @event.event_name %></h3>
-    <hr>
-
-
+<h3 class='anw anx pt50'><%= @event.event_name %></h3>
+<hr>
 <div class="container">
 	<div class="row">
 		 <div class="col-md-7 col-sm-12 col-md-offset-2">
@@ -26,8 +24,8 @@
                              <% end %>
                         </div>
                     	<center>
-							<p> Venue Name: <%= @event.venue_name %></p>
-							<p> Venue Address: <%= @event.address_1 %> <%= @event.city %>, <%= @event.state %><p>
+          							<p> Venue Name: <%= @event.venue_name %></p>
+          							<p> Venue Address: <%= @event.address_1 %> <%= @event.city %>, <%= @event.state %><p>
                     		<p> Introduction: <%= @event.description_short %></p>
                     	</center>
                     </div>
@@ -35,7 +33,7 @@
 
                      <!--Event Description tab-->
                      <div role="tabpanel" class="tab-pane" id="messages">
-						<p> <%= @event.description_long.try(:html_safe)  %> </p>
+						            <p> <%= @event.description_long.try(:html_safe)  %> </p>
                      </div>
                      <!--Ticket description tab-->
                      <div role="tabpanel" class="tab-pane" id="settings">
@@ -45,11 +43,12 @@
                             Ticket Name : <%= ticket.ticket_name %></br>
                             Ticket Price : <%= number_to_currency(ticket.ticket_price) %></br>
                             Ticket Description : <%= ticket.ticket_description %> <br>
-                            Ticket Identification : <%= ticket.id %><hr>
+                            Ticket Identification : <%= ticket.id %>
                             <!--collects pairs of ticket ids and their quantities and sends them to orders#new action-->
                             <%= select_tag "tickets[]#{ticket.id}", options_for_select(1..12), prompt: "Select amount", class: "price_select", 
                                 data: { ticket_id: ticket.id, ticket_price: ticket.ticket_price } %>
                           <% end %>
+                          <hr>
                           <div class="price_counter">
                               <div id='total_raw_price'>Price: 0.00 </div>
                               <div id='fee'>Fee: 0.00 </div>
@@ -59,15 +58,7 @@
                         <%= submit_tag "Buy tickets", class: "btn btn-primary btn-small" %>
                         <% end%>
                     </div>
-						      <% @event.tickets.each do |ticket| %>
-								Ticket Name : <%= ticket.ticket_name %></br>
-								Ticket Price : <%= number_to_currency(ticket.ticket_price) %></br>
-								Ticket Description : <%= ticket.ticket_description %> <br>
-								Ticket Identification : <%= ticket.id %> <br>  <hr>
-						      <% end%>
-					</div>
-                </div>
-			</div>
-        </div>
-	</div>
-</div>
+			</div> <!--card -->
+    </div> <!--col-->
+	</div><!--row-->
+</div> <!--container-->

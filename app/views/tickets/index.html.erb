@@ -6,17 +6,8 @@
 		<div>
 			<%= ticket.ticket_name %></br>
 			Ticket Price : <%= number_to_currency(ticket.ticket_price) %></br>
-<<<<<<< HEAD
-<<<<<<< HEAD
-			Ticket Description : <%= ticket.ticket_decription %> <br>		
-=======
 			Ticket Description : <%= ticket.ticket_description %> <br>	
 			Ticket Quantity : <%= ticket.quantity %> <br>		
->>>>>>> remotes/origin/stripe_payment
-=======
-			Ticket Description : <%= ticket.ticket_description %> <br>	
-			Ticket Quantity : <%= ticket.quantity %> <br>		
->>>>>>> 82ca29f8762af4a0ecb66ff8760fdec04040b46f
 			<!--edit ticket-->	
 			<%= link_to('Edit', edit_event_ticket_path(@event, ticket.id), :class => '') %> |
 			<!--delete ticket-->

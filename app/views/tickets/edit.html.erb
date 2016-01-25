@@ -1,15 +1,7 @@
 <% provide(:title, "Edit Ticket") %>
 <%= render(:partial => 'shared/event_nav') %>
 <div class="row">
-<<<<<<< HEAD
-<<<<<<< HEAD
-  <div class="col-md-6">
-=======
   <div class="well col-md-6">
->>>>>>> remotes/origin/stripe_payment
-=======
-  <div class="well col-md-6">
->>>>>>> 82ca29f8762af4a0ecb66ff8760fdec04040b46f
     <%= form_for [:event , @ticket], :url => {:action => 'update'} do |f| %>
        <!-- Loading the partial form and passing the local variables for the form-->
       <%= render(:partial => 'shared/ticket_form', :locals => {:foo => f}) %>
