@@ -18,14 +18,14 @@
     </thead>
     <tbody>
       <% @user.orders.each do |order|%>
-        <tr>
-        	<td><%= order.id %></td>
-        	<td><%= order.order_tickets.first.ticket.event.event_name %></td>
-          <td><%= order.order_tickets.first.ticket.ticket_name %></td>
-          <% order.order_tickets.each do |ticket| %>
-            <td><%= "#{ticket.first_name} #{ticket.last_name}" %></td>
-          <% end %>
-        </tr>
+        <% order.order_tickets.each do |ordered_ticket| %>
+          <tr>
+          	<td><%= order.id %></td>
+          	<td><%= ordered_ticket.ticket.event.event_name %></td>
+            <td><%= ordered_ticket.ticket.ticket_name %></td>
+            <td><%= "#{ordered_ticket.first_name} #{ordered_ticket.last_name}" %></td>
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>
