@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
       @new_user = User.new if current_user.blank?
       @order = Order.new
       params[:tickets].each do |id, quantity|
-        quantity.to_i.times { @order.order_tickets.build(ticket_id: id) }
+        quantity.to_i.times { @order.entitlements.build(ticket_id: id) }
       end
     else
       flash[:warning] = 'Not enough available tickets'
@@ -47,7 +47,7 @@ class OrdersController < ApplicationController
                                   :card_expires_year, :buyer_first_name, 
                                   :buyer_last_name, :user_id, :ip_address,
                                   :ticket_amount, :address1, :city, :state, :zip,
-                                  order_tickets_attributes: [
+                                  entitlements_attributes: [
                                                              :first_name, 
                                                              :last_name, :email,
                                                              :ticket_id

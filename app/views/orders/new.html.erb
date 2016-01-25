@@ -30,7 +30,7 @@
     <%= render partial: 'users/user_sign_up_form' if @new_user.present? %>
 
     <h2> Tickets </h2><br>
-      <%= f.fields_for :order_tickets do |ff| %>
+      <%= f.fields_for :entitlements do |ff| %>
         <h3> Ticket <%="#{ff.object.ticket.ticket_name}"%></h3>
           <%= ff.label "First name" %>
           <%= ff.text_field :first_name, class:'form-control'%>
