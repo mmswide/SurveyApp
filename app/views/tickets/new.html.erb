@@ -2,10 +2,14 @@
 <%= render(:partial => 'shared/event_nav') %>
 <div class="row">
 <<<<<<< HEAD
+<<<<<<< HEAD
   <div class="well col-md-6">
 =======
   <div class="panel-body col-md-6 col-lg-offset-1 well">
 >>>>>>> remotes/origin/stripe_payment
+=======
+  <div class="panel-body col-md-6 col-lg-offset-1 well">
+>>>>>>> 82ca29f8762af4a0ecb66ff8760fdec04040b46f
     <%= form_for [:event , @ticket], :url => {:action => 'create'} do |f| %>
       <!-- Loading the partial form and passing the local variables for the form-->
       <%= render(:partial => 'shared/ticket_form', :locals => {:foo => f}) %>

@@ -45,11 +45,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
-<<<<<<< HEAD
-    event = Event.find(params[:id]).destroy
-=======
     event = Event.find_by(params[:id]).destroy
->>>>>>> remotes/origin/stripe_payment
     flash[:success] = "Event '#{event.event_name}' Has been deleted"
     redirect_to events_path
   end
@@ -58,12 +54,7 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:user_id, :event_url, :event_name, 
-<<<<<<< HEAD
-      :description_short, :main_image, :description_long, :contact_name, 
-      :contact_phone, :contact_email, :venue_name, :address_1, :city, :state, :zip_code)
-=======
       :description_short, :main_image, :description_long, :venue_name,
       :address_1, :city, :state, :zip_code)
->>>>>>> remotes/origin/stripe_payment
   end
 end

@@ -6,17 +6,11 @@
 <hr>
 <!--Checking in the events are empty-->
 <% if @events.empty? %>
-<<<<<<< HEAD
-	<div class="well col-md-8">
-		<h2>Your on your way to creating your first event!</h2>
- 		<center><%= link_to('Create Festival', new_event_path , :class =>'ce apn ame')%> </center>
-=======
 	<div class="col-md-8 tbo">
 		<center>
 		<h3>“The world is but a canvas to our imagination”</h3>
 	</br> <p>— Henry David Thoreau</p>
  		<%= link_to('Create a Festival', new_event_path , :class =>'btn btn-primary event-button')%></center>
->>>>>>> remotes/origin/stripe_payment
 	</div>
 <% else %>
 	<div class="col-md-8 well">
@@ -25,11 +19,7 @@
 
 	<!--Checking if the user has permission to update link if not remove link-->	
 		<% if can? :update, event %>			
-<<<<<<< HEAD
-		<%= link_to('Edit Event', event_path(event.id))%> |
-=======
 		<%= link_to('Edit Event', edit_event_path(event.id))%> |
->>>>>>> remotes/origin/stripe_payment
 		<% end %>
 
 		<%= link_to('View Event', {:controller => 'public', :action => 'show', :event_url => event.event_url})%> 

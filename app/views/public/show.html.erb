@@ -52,6 +52,13 @@
                         <%= submit_tag "Buy tickets", class: "btn btn-default" %>
                         <% end%>
                     </div>
+						      <% @event.tickets.each do |ticket| %>
+								Ticket Name : <%= ticket.ticket_name %></br>
+								Ticket Price : <%= number_to_currency(ticket.ticket_price) %></br>
+								Ticket Description : <%= ticket.ticket_description %> <br>
+								Ticket Identification : <%= ticket.id %> <br>  <hr>
+						      <% end%>
+					</div>
                 </div>
 			</div>
         </div>

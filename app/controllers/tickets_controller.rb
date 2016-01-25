@@ -4,11 +4,7 @@ class TicketsController < ApplicationController
   
   
   def index
-<<<<<<< HEAD
-    @event = Event.find(params[:event_id])
-=======
     @event = Event.find_by(params[:event_id])
->>>>>>> remotes/origin/stripe_payment
     @tickets = @event.tickets.sort
     authorize! :update, @event
   end
@@ -18,11 +14,7 @@ class TicketsController < ApplicationController
   end
 
   def new
-<<<<<<< HEAD
-    @event = Event.find(params[:event_id])
-=======
     @event = Event.find_by(params[:event_id])
->>>>>>> remotes/origin/stripe_payment
     @ticket = @event.tickets.build
   end
 
@@ -38,11 +30,7 @@ class TicketsController < ApplicationController
   end
 
   def edit
-<<<<<<< HEAD
-    @event = Event.find(params[:event_id])
-=======
     @event = Event.find_by(params[:event_id])
->>>>>>> remotes/origin/stripe_payment
     @ticket = @event.tickets.find(params[:id])
     authorize! :update, @event
   end
@@ -66,12 +54,8 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-<<<<<<< HEAD
-    params.require(:ticket).permit( :event_id, :ticket_name, :ticket_decription, :ticket_price)
-=======
     params.require(:ticket).permit( :event_id, :ticket_name, 
               :ticket_description, :ticket_price, :quantity)
->>>>>>> remotes/origin/stripe_payment
   end 
 
   def find_event
