@@ -1,8 +1,12 @@
-<h3 class='anw anx pt50'><%= @event.event_name %></h3>
-<hr>
+<% if @event.main_image_file_name.nil? %>
+                                <%= image_tag('http://placehold.it/1920x500', :class => "img-responsive") %>
+
+                            <% else %>
+                                 <%= image_tag(@event.main_image.url, :class => "img-responsive banner") %>
+                             <% end %>
 <div class="container">
 	<div class="row">
-		 <div class="col-md-7 col-sm-12 col-md-offset-2">
+		 <div class="col-md-12">
              <!-- Nav tabs -->
              <div class="card">
                  <ul class="nav nav-tabs center" role="tablist">
@@ -16,12 +20,7 @@
                 	<!--Event Introduction Tab-->
                     <div role="tabpanel" class="tab-pane active" id="basic">
                     	   <div role="tabpanel" class="tab-pane active" id="basic">
-                             <% if @event.main_image_file_name.nil? %>
-                                <%= image_tag('https://s3.amazonaws.com/dancefestimages/static_images/placeholder.png', :class => "img-responsive") %>
-
-                            <% else %>
-                                 <%= image_tag(@event.main_image.url, :class => "img-responsive") %>
-                             <% end %>
+                        
                         </div>
                     	<center>
           							<p> Venue Name: <%= @event.venue_name %></p>
@@ -36,7 +35,7 @@
 						            <p> <%= @event.description_long.try(:html_safe)  %> </p>
                      </div>
                      <!--Ticket description tab-->
-                     <div role="tabpanel" class="tab-pane" id="settings">
+                     <div role="tabpanel" class=" col-lg-6 tab-pane" id="settings">
                      <!--Checking to make sure there are tickets before revealing the ticket div-->
                         <%= form_tag new_order_path, method: :get do %>
                           <% @event.tickets.each do |ticket| %>
@@ -58,6 +57,7 @@
                         <%= submit_tag "Buy tickets", class: "btn btn-primary btn-small" %>
                         <% end%>
                     </div>
+                    
 			</div> <!--card -->
     </div> <!--col-->
 	</div><!--row-->

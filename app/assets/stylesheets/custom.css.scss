@@ -50,6 +50,10 @@ textarea {
 .pdl20{
   padding-left: 20px;
 }
+.bgcolor{
+   background-color: #1ca8dd; 
+   color: whitesmoke;
+}
 
 /* typography */
 
@@ -103,6 +107,9 @@ p {
 
 .navbar {
   margin-bottom: 0px;
+}
+.navbar-collapse{
+  margin-top: 20px;
 }
 
 .navbar-default {
@@ -195,7 +202,9 @@ input, textarea, select, .uneditable-input {
   margin-bottom: 15px;
   @include box_sizing;
 }
-
+select{
+  height: 47px;
+}
 input {
   height: auto !important;
 }

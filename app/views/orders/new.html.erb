@@ -1,45 +1,73 @@
+ <div class="well col-md-7 col-md-offset-2 pt100">
+
+  <%= render partial: 'users/user_sign_up_form' if @new_user.present? %>
+
 <%= form_for @order do |f| %>
-  <h1> Credit card info </h1>
-    <%= f.label "First name" %>  
-    <%= f.text_field :buyer_first_name, class:'form-control' %>
-    <%= f.label "Last name" %>  
-    <%= f.text_field :buyer_last_name, class:'form-control' %> 
-    <%= f.label "Card number" %>
-    <%= f.text_field :card_number, class:'form-control' %>
-    <%= f.label "Card type" %>
-    <%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], 
-        ["Discover", "discover"], ["American Express", "american_express"]] %>
-    <%= f.label "Card Verification Value (CVV)" %>
-    <%= f.text_field :card_cvv, class:'form-control' %>
-    <%= f.label "Card expires on year" %>
+  <h2> Payment Information </h2> 
+  <center><h5>Visa, MasterCard, American Express, or DiscoverCard Secure</h5> </center>
+    <div class="form-group col-md-6">  
+      <%= f.text_field :buyer_first_name, class:'form-control', placeholder: 'First Name' %> 
+    </div>
+    <div class="form-group col-md-6"> 
+      <%= f.text_field :buyer_last_name, class:'form-control', placeholder: 'Last Name' %> 
+    </div>
+
+   <div class="form-group col-md-12">
+      <%= f.text_field :address1, class:'form-control', placeholder: 'Address' %>
+    </div>
+    <div class="form-group col-md-5">
+      <%= f.text_field :city, class:'form-control', placeholder: 'City' %>
+    </div>
+     <div class="form-group col-md-4">
+      <%= f.select :state, options_for_select(us_states) %>
+    </div>
+   <div class="form-group col-md-3">
+      <%= f.number_field :zip, class:'form-control', placeholder: 'ZipCode' %>
+    </div>
+      <div class='col-md-12'>
+    <h2> Credit Card Information </h2>
+  </div> 
+    <div class="form-group col-md-5">
+    <%= f.text_field :card_number, class:'form-control', placeholder: 'Card Number' %>
+    </div>
+    <div class="form-group col-md-4">
+        <%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], 
+        ["Discover", "discover"], ["American Express", "american_express"]], class: 'dropdown' %>
+    </div>
+    <div class="form-group col-md-3">
+    <%= f.text_field :card_cvv, class:'form-control', placeholder: 'CVV' %>
+    </div>
+    <div class="form-group col-md-4">
+        <%= f.label "Expiration Month" %>
+        <%= f.select :card_expires_month, 1..12, class:'form-control' %>
+    </div>
+  <div class="form-group col-md-4">
+     <%= f.label "Year" %>
     <%= f.select :card_expires_year, Date.today.year..(Date.today.year+10), 
         class:'form-control' %>
-    <%= f.label "Card expires on month" %>
-    <%= f.select :card_expires_month, 1..12, class:'form-control' %>
+    </div>
 
-    <h2> User info </h2>
-      <%= f.label "Adress" %>
-      <%= f.text_field :address1, class:'form-control' %>
-      <%= f.label "City" %>
-      <%= f.text_field :city, class:'form-control' %>
-      <%= f.label "State" %>
-      <%= f.text_field :state, class:'form-control' %>
-      <%= f.label "Zip code" %>
-      <%= f.number_field :zip, class:'form-control' %>
-
-    <%= render partial: 'users/user_sign_up_form' if @new_user.present? %>
-
-    <h2> Tickets </h2><br>
-      <%= f.fields_for :order_tickets do |ff| %>
-        <h3> Ticket <%="#{ff.object.ticket.ticket_name}"%></h3>
-          <%= ff.label "First name" %>
-          <%= ff.text_field :first_name, class:'form-control'%>
-          <%= ff.label "Last name" %>
-          <%= ff.text_field :last_name, class:'form-control' %>
-          <%= ff.label"Email" %>
-          <%= ff.text_field :email, class:'form-control' %>
+  <div class='col-md-12'>
+    <h2> Ticket Information </h2>
+     <center><h5>We need to collect name of the attendee for each ticket.</h5> </center>
+  </div> 
+  <%= f.fields_for :order_tickets do |ff| %>
+  <div class="form-group col-md-12">
+    <h2> <%="#{ff.object.ticket.ticket_name}"%></h2>
+  </div>
+  <div class="form-group col-md-6">
+     <%= ff.text_field :first_name, class:'form-control', placeholder: 'First Name'%>
+  </div>
+  <div class="form-group col-md-6">
+     <%= ff.text_field :last_name, class:'form-control', placeholder: 'Last Name'%>
+  </div>
+   <div class="form-group col-md-12">
+          <%= ff.text_field :email, class:'form-control', placeholder: 'Email' %>
           <%= ff.hidden_field :ticket_id %>
+        </div>
       <% end %>
 
-<%= f.submit "Submit", class:'btn btn-success' %>
+<%= f.submit "Submit", class:'btn' %>
 <% end %>
+
+</div>
