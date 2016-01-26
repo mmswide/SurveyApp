@@ -18,7 +18,7 @@ $(document).ready ->
       $("#total_price").html("Total: 0.00")
     else
       #calculating price with your own fee(2.5% + 1 dollar)
-      price_with_fee = total_raw_price + (total_raw_price * 0.025 + 1)
+      price_with_fee = total_raw_price + (total_raw_price * 0.025 + 0.99)
       #calculating total price with stripes fee(2.9% + 30 cents)  
       total_price = price_with_fee + (price_with_fee * 0.029 + 0.30)
       #calculating total fee
