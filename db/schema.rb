@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160122044020) do
+ActiveRecord::Schema.define(version: 20160125152510) do
+
+  create_table "entitlements", force: :cascade do |t|
+    t.integer  "ticket_id"
+    t.integer  "order_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "description"
+  end
 
   create_table "events", force: :cascade do |t|
     t.integer  "user_id"
@@ -40,6 +51,36 @@ ActiveRecord::Schema.define(version: 20160122044020) do
     t.text     "zip_code"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+  end
+
+  create_table "order_transactions", force: :cascade do |t|
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "success"
+    t.string   "authorization"
+    t.string   "message"
+    t.string   "params"
+    t.integer  "order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "ticket_amount"
+    t.integer  "fee"
+    t.string   "buyer_first_name"
+    t.string   "buyer_last_name"
+    t.integer  "card_expires_year"
+    t.integer  "card_expires_month"
+    t.string   "card_type"
+    t.string   "address1"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.integer  "raw_price"
+    t.integer  "total_price"
+    t.string   "ip_address"
   end
 
   create_table "tickets", force: :cascade do |t|
