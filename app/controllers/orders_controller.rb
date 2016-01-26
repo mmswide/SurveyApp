@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
     enough_tickets = Ticket.enough_tickets?(params[:tickets])
     if enough_tickets
       @new_user = User.new if current_user.blank?
-      @order = Order.new
+      @order = Order.new(event_id: params[:event_id])
       params[:tickets].each do |id, quantity|
         quantity.to_i.times { @order.entitlements.build(ticket_id: id) }
       end
@@ -43,7 +43,7 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:card_type, :card_number,
-                                  :card_cvv, :card_expires_month, 
+                                  :card_cvv, :card_expires_month, :event_id,
                                   :card_expires_year, :buyer_first_name, 
                                   :buyer_last_name, :user_id, :ip_address,
                                   :ticket_amount, :address1, :city, :state, :zip,
