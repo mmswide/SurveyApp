@@ -1,8 +1,9 @@
 class Order < ActiveRecord::Base
   belongs_to :user
   belongs_to :ticket
+  belongs_to :event
   has_many :entitlements, foreign_key: :order_id
-  has_many :order_transactions
+  has_one :order_transaction, dependent: :destroy
   #attr_accessor for number and cvv because it's prohibited to save that type of data to db
   attr_accessor :card_number, :card_cvv
 
@@ -10,7 +11,7 @@ class Order < ActiveRecord::Base
 
   validate :validate_credit_card, on: :create
   validates :buyer_first_name, :buyer_last_name, :address1, :city, :state, 
-            :zip, presence: true
+            :zip, :event_id, presence: true
 
   after_save :set_money
   #method for performing an actual stripe purchase
@@ -18,7 +19,7 @@ class Order < ActiveRecord::Base
   #also recalculates available tickets that left
   def purchase_order
     response = GATEWAY.purchase(total_price, credit_card, purchase_options)
-    order_transactions.create!(response: response)
+    create_order_transaction(response: response)
     Ticket.recalculate(entitlements) if response.success?
     response.success?
   end

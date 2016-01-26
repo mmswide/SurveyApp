@@ -54,6 +54,7 @@
                               <div id='total_price'>Total: 0.00 </div>
                           </div>
                           <br>
+                          <%= hidden_field_tag "event_id", @event.id %>
                         <%= submit_tag "Buy tickets", class: "btn btn-primary btn-small" %>
                         <% end%>
                     </div>

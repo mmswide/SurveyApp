@@ -12,5 +12,4 @@ class Entitlement < ActiveRecord::Base
   def set_description
     self.description = self.ticket.ticket_description
   end
-
 end
