@@ -1,10 +1,10 @@
 <% provide(:title, "Ticket List") %>
 <%= render(:partial => 'shared/event_nav') %>
 <% if @tickets.present? %>
-	<div class="well col-md-6 col-lg-offset-1 ">
+	<div class="well col-md-7 col-lg-offset-1 ">
 		<% @tickets.each do |ticket| %>
 		<div>
-			<%= ticket.ticket_name %></br>
+			<h4><%= ticket.ticket_name %> </h4>
 			Ticket Price : <%= number_to_currency(ticket.ticket_price) %></br>
 			Ticket Description : <%= ticket.ticket_description %> <br>	
 			Ticket Quantity : <%= ticket.quantity %> <br>		

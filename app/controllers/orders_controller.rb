@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
     enough_tickets = Ticket.enough_tickets?(params[:tickets])
     if enough_tickets
       @new_user = User.new if current_user.blank?
-       @order = Order.new(event_id: params[:event_id])
+      @order = Order.new(event_id: params[:event_id])
       params[:tickets].each do |id, quantity|
         quantity.to_i.times { @order.entitlements.build(ticket_id: id) }
       end
