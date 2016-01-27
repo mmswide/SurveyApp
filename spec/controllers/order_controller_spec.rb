@@ -29,3 +29,4 @@ RSpec.describe OrderController, type: :controller do
     it 'waits for new logic to be merged into master'
   end
 end
+
