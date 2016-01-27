@@ -94,11 +94,6 @@ ActiveRecord::Schema.define(version: 20160126152405) do
     t.datetime "updated_at",         null: false
   end
 
-  create_table "transactions", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "email"
