@@ -18,7 +18,7 @@ RSpec.describe Order, type: :model do
     it 'validates credit card info on creation' do
       order = Order.new(card_type: 'visa', card_number: nil)
       order.valid?
-      expect(order.errors[:base]).not_to include('Number is required')
+      expect(order.errors[:base]).to include('Number is required')
     end
   end
   describe 'Callbacks' do
