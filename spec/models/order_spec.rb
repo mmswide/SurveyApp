@@ -75,14 +75,41 @@ RSpec.describe Order, type: :model do
     it 'fails with unvalid data' do
       expect(invalid_order.purchase_order).to be_falsy
     end
-    it 'creates order transaction'
-    context 'order_transaction' do
-      it 'sets field :success to true if transaction was successfull'
-      it 'sets field :success to false if transaction failed'
-      it 'assigns the field :message with successful message if transaction was successfull'
-      it 'assigns the field :message with error message if transaction failed'
+    it 'creates order transaction' do
+      order.purchase_order
+      expect(order.order_transaction).to be_present
     end
-    it 'recalculates tickets if transaction was successfull'
-    it 'does not recalculates tickets if transaction failed'
+    context 'order_transaction' do
+      it 'sets field :success to true if transaction was successfull' do
+        order.purchase_order
+        expect(order.order_transaction.success).to be_truthy
+      end
+      it 'sets field :success to false if transaction failed' do
+        invalid_order.purchase_order
+        expect(invalid_order.order_transaction.success).to be_falsy
+      end
+      it 'assigns the field :message with successful message if transaction was successfull' do
+        order.purchase_order
+        expect(order.order_transaction.message).to include("success")
+      end
+      it 'assigns the field :message with error message if transaction failed' do
+        invalid_order.purchase_order
+        expect(invalid_order.order_transaction.message).to include("failure")
+      end
+    end
+    it 'recalculates tickets if transaction was successfull' do
+      order
+      old_ticket_quantity = order.entitlements.first.ticket.quantity 
+      order.purchase_order
+      order.reload
+      expect(order.entitlements.first.ticket.quantity).not_to eq(old_ticket_quantity)
+    end
+    it 'does not recalculates tickets if transaction failed' do
+      invalid_order
+      old_ticket_quantity = invalid_order.entitlements.first.ticket.quantity 
+      invalid_order.purchase_order
+      invalid_order.reload
+      expect(invalid_order.entitlements.first.ticket.quantity).to eq(old_ticket_quantity)
+    end
   end
 end
