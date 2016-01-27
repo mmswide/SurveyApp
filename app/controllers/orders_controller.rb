@@ -34,7 +34,7 @@ class OrdersController < ApplicationController
         render 'new', object: @order
       end
     else
-      flash[:error] = @order.errors.full_messages.to_sentence
+      flash[:danger] = @order.errors.full_messages.to_sentence
       render 'new', object: @order
     end
   end
