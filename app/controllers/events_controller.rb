@@ -8,7 +8,8 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find_by(params[:id])
+    @event  = Event.find_by(params[:id])
+    @orders = @event.orders.select(:user_id, :raw_price, :id)
     authorize! :update, @event
   end
 

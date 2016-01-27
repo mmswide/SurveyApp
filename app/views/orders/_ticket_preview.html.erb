@@ -1,0 +1,15 @@
+<h2> Purchase Preview </h2> 
+  Event Name:  <%= @order.event.event_name %><br> 
+  Ticket(s): </br>
+  <% sum = 0 %>
+  <% tickets = build_ticket_hash(@order.entitlements) %>
+  <% tickets.each do |ticket_id, quantity| %>
+    <% ticket = Ticket.select(:ticket_name, :ticket_price).find_by(id: ticket_id) %>
+    * Name :    <%= ticket.ticket_name %> 
+    Quantity:   <%= quantity %> 
+    Price:      <%= ticket.ticket_price %> </br>
+    <% sum += (ticket.ticket_price * quantity.to_i) %> 
+  <% end %>
+  </br></br>
+  fee: <%= count_fee(sum) %> </br>
+  total: <%= total(sum) %>

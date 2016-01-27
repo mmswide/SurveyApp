@@ -1,4 +1,10 @@
 class Order < ActiveRecord::Base
+  PROCENT_FEE = 0.025
+  CENTS_FEE = 99
+  DOLLAR_FEE = 0.99
+  STRIPE_PROCENT_FEE = 0.029 
+  STRIPE_DOLLAR_FEE = 0.30 
+
   belongs_to :user
   belongs_to :ticket
   belongs_to :event
@@ -66,7 +72,7 @@ class Order < ActiveRecord::Base
       ticket_price += ordered_ticket.ticket.ticket_price
     end
     raw_price_in_cents = (ticket_price * 100).round
-    fee = (raw_price_in_cents * 0.025 + 99).round
+    fee = (raw_price_in_cents * Order::PROCENT_FEE + Order::CENTS_FEE).round
     total_price_in_cents = (raw_price_in_cents + fee).round
     self.update_column(:fee, fee)
     self.update_column(:raw_price, raw_price_in_cents)

@@ -1,5 +1,5 @@
 <h2> New account information </h2>
-  <%= fields_for :user do |u| %>
+  <%= form_for :user do |u| %>
     <%= u.label :first_name %>
     <%= u.text_field :first_name, class: 'form-control' %>
     <%= u.label :last_name %>

@@ -13,12 +13,13 @@ $(document).ready ->
       #collecting raw price for all chosen tickets
       total_raw_price += ticket_raw_price
     if total_raw_price == 0
+      $("#submit").prop("disabled", true)
       $("#total_raw_price").html("Price: 0.00")
       $("#fee").html("Fee: 0.00")
       $("#total_price").html("Total: 0.00")
     else
       #calculating price with your own fee(2.5% + 1 dollar)
-      price_with_fee = total_raw_price + (total_raw_price * 0.025 + 1)
+      price_with_fee = total_raw_price + (total_raw_price * 0.025 + 0.99)
       #calculating total price with stripes fee(2.9% + 30 cents)  
       total_price = price_with_fee + (price_with_fee * 0.029 + 0.30)
       #calculating total fee
@@ -26,3 +27,4 @@ $(document).ready ->
       $("#total_raw_price").html("Price: " + total_raw_price.toFixed(2))
       $("#fee").html("Fee: " + fee.toFixed(2))
       $("#total_price").html("Total: " + total_price.toFixed(2))
+      $("#submit").prop("disabled", false)

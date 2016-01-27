@@ -1,16 +1,16 @@
 class OrdersController < ApplicationController
   before_action :straighten_out_ticket_hash, only: :new
-  before_action :sign_up_user, only: :create
+  before_action :sign_up_user, only: :new
 
   #sending tickets hash from form to the model for checking if there is enough tickets
   #building nested fields(order_tickets) for each ordered ticket
   #rendering new template if everything is ok
   def new
-    enough_tickets = Ticket.enough_tickets?(params[:tickets])
+    @tickets = params[:tickets]
+    enough_tickets = Ticket.enough_tickets?(@tickets)
     if enough_tickets
-      @new_user = User.new if current_user.blank?
-       @order = Order.new(event_id: params[:event_id])
-      params[:tickets].each do |id, quantity|
+      @order = Order.new(event_id: params[:event_id])
+      @tickets.each do |id, quantity|
         quantity.to_i.times { @order.entitlements.build(ticket_id: id) }
       end
     else
@@ -54,13 +54,6 @@ class OrdersController < ApplicationController
                                   ]
     )
   end
-
-  def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password,
-                                 :password_confirmation
-    )
-  end
-
   #because hash that comes from a form is a mess, it's getting parsed here
   def straighten_out_ticket_hash
     params[:tickets] = params[:tickets].first.delete_if { |k, v| v.blank? }
@@ -69,13 +62,9 @@ class OrdersController < ApplicationController
   #if not - creating one before proceeding buying process
   def sign_up_user
     unless current_user.present?
-      @new_user = User.create(user_params)
-      if @new_user.save
-        log_in @new_user
-      else
-        @order = Order.new(order_params)
-        render 'new', object: [@order, @new_user]
-      end
+      store_location
+      @user = User.new(activated: true) 
+      render 'users/new', object: @user
     end
   end
 end
