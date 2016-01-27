@@ -1,64 +1,65 @@
 <% if @event.main_image_file_name.nil? %>
-                                <%= image_tag('http://placehold.it/1920x500', :class => "img-responsive") %>
+  <%= image_tag('', :class => "img-responsive") %>
+<% else %>
+  <%= image_tag(@event.main_image.url, :class => "img-responsive banner") %>
+<% end %>
 
-                            <% else %>
-                                 <%= image_tag(@event.main_image.url, :class => "img-responsive banner") %>
-                             <% end %>
 <div class="container">
 	<div class="row">
 		 <div class="col-md-12">
-             <!-- Nav tabs -->
-             <div class="card">
-                 <ul class="nav nav-tabs center" role="tablist">
-                   <li role="presentation" class="active"><a href="#basic" aria-controls="basic" role="tab" data-toggle="tab">Basic Info</a></li>
-                    <li role="presentation"><a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">Contact Info</a></li>
-                    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Details</a></li>
-                    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Tickets</a></li>
-                  </ul>
-                  <!-- Tab panes -->
-                <div class="tab-content">
-                	<!--Event Introduction Tab-->
-                    <div role="tabpanel" class="tab-pane active" id="basic">
-                    	   <div role="tabpanel" class="tab-pane active" id="basic">
-                        
-                        </div>
-                    	<center>
-          							<p> Venue Name: <%= @event.venue_name %></p>
-          							<p> Venue Address: <%= @event.address_1 %> <%= @event.city %>, <%= @event.state %><p>
-                    		<p> Introduction: <%= @event.description_short %></p>
-                    	</center>
-                    </div>
-                    <!-- Contact Information tab-->
-
-                     <!--Event Description tab-->
-                     <div role="tabpanel" class="tab-pane" id="messages">
-						            <p> <%= @event.description_long.try(:html_safe)  %> </p>
-                     </div>
-                     <!--Ticket description tab-->
-                     <div role="tabpanel" class=" col-lg-6 tab-pane" id="settings">
-                     <!--Checking to make sure there are tickets before revealing the ticket div-->
-                        <%= form_tag new_order_path, method: :get do %>
-                          <% @event.tickets.each do |ticket| %>
-                            Ticket Name : <%= ticket.ticket_name %></br>
-                            Ticket Price : <%= number_to_currency(ticket.ticket_price) %></br>
-                            Ticket Description : <%= ticket.ticket_description %> <br>
-                            Ticket Identification : <%= ticket.id %>
-                            <!--collects pairs of ticket ids and their quantities and sends them to orders#new action-->
-                            <%= select_tag "tickets[]#{ticket.id}", options_for_select(1..12), prompt: "Select amount", class: "price_select", 
-                                data: { ticket_id: ticket.id, ticket_price: ticket.ticket_price } %>
-                          <% end %>
-                          <hr>
-                          <div class="price_counter">
-                              <div id='total_raw_price'>Price: 0.00 </div>
-                              <div id='fee'>Fee: 0.00 </div>
-                              <div id='total_price'>Total: 0.00 </div>
-                          </div>
-                          <br>
-                          <%= hidden_field_tag "event_id", @event.id %>
-                        <%= submit_tag "Buy tickets", class: "btn btn-primary btn-small" %>
-                        <% end%>
-                    </div>
-                    
+          <!-- Nav tabs -->
+          <div class="card">
+            <ul class="nav nav-tabs center" role="tablist">
+              <li role="presentation" class="active"><a href="#basic" aria-controls="basic" role="tab" data-toggle="tab">Basic Info</a></li>
+              <li role="presentation"><a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">Contact Info</a></li>
+              <li role="presentation"><a href="#details" aria-controls="details" role="tab" data-toggle="tab">Details</a></li>
+              <li role="presentation"><a href="#tickets" aria-controls="tickets" role="tab" data-toggle="tab">Tickets</a></li>
+            </ul>
+            <!-- Tab panes -->
+          <div class="tab-content">
+            <!--Event Introduction Tab-->
+            <div role="tabpanel" class="tab-pane active" id="basic">
+              <center>
+          			<p> Venue Name: <%= @event.venue_name %></p>
+          			<p> Venue Address: <%= @event.address_1 %> <%= @event.city %>, <%= @event.state %><p>
+                <p> Introduction: <%= @event.description_short %></p>
+              </center>
+            </div>
+            <!-- Contact Information tab-->
+            <div role="tabpanel" class="tab-pane" id="contact">
+              <p> Contact Information </p>
+            </div>
+             <!--Event Description tab-->
+            <div role="tabpanel" class="tab-pane" id="details">
+              <p>Details</p>
+						  <p> <%= @event.description_long.try(:html_safe)  %> </p>
+            </div>
+            <!--Ticket description tab-->
+             <div role="tabpanel"  class="tab-pane" id="tickets">
+              <!--Checking to make sure there are tickets before revealing the ticket div-->
+              <div class='well col-md-offset-0'>
+              <%= form_tag new_order_path, method: :get do %>
+              <% @event.tickets.each do |ticket| %>
+                Ticket Name : <%= ticket.ticket_name %></br>
+                Ticket Price : <%= number_to_currency(ticket.ticket_price) %></br>
+                Ticket Description : <%= ticket.ticket_description %> <br>
+                Ticket Identification : <%= ticket.id %>
+               <!--collects pairs of ticket ids and their quantities and sends them to orders#new action-->
+              <%= select_tag "tickets[]#{ticket.id}", options_for_select(1..12), prompt: "Select amount", class: "price_select", 
+                data: { ticket_id: ticket.id, ticket_price: ticket.ticket_price } %>
+              <% end %>
+       
+              <div class="price_counter">
+                <div id='total_raw_price'>Price: 0.00 </div>
+                  <div id='fee'>Fee: 0.00 </div>
+                <div id='total_price'>Total: 0.00 </div>
+              </div>
+    
+              <%= hidden_field_tag "event_id", @event.id %>
+              <%= submit_tag "Buy tickets", class: "btn btn-primary btn-small", id: "submit", disabled: "disabled" %>
+              <% end%>
+              </div>  
+            </div>
 			</div> <!--card -->
     </div> <!--col-->
 	</div><!--row-->

@@ -1,31 +1,30 @@
 <% provide(:title, "Event Details") %>
 <%= render(:partial => 'shared/event_nav') %>
 <!-- Event dashboard navigation-->
-	<div class="well col-md-7">
-		<!--Basic Event Information-->
-		  <% if @event.main_image_file_name.nil? %>
-             <%= image_tag('https://s3.amazonaws.com/dancefestimages/static_images/placeholder.png', :class => "img-responsive") %>
-          <% else %>
-             <%= image_tag(@event.main_image.url, :class => "img-responsive") %>
-          <% end %>
-		<h4>Basic Details</h4>
-		<p>Event Name: <%= @event.event_name %> </p>
-		<p>Event ID: <%= @event.id %> </p>
-		<p>Quick Description: <%= @event.description_short %> </p>
-		<br>
-
-		<!--Contact Information-->
-	
-		<!--Location Information-->
-		<h4>Location</h4>
-		<p>Venue Name: <%= @event.venue_name %></p>
-		<p>Venue Address: <%= @event.address_1 %></p>
-		<p>Venue City: <%= @event.city %></p>
-		<p>State, Zipcode: <%= @event.state %> , <%= @event.zip_code %></p>
-
-		<h4>Details</h4>
-		<p>Detailed Description: <%= @event.description_long.try(:html_safe) %> </p>
+<div class="well col-md-7">
+<!--Basic Event Information-->
+	<h2> Overview </h2></br>
+	<div class="tbo">
+	 <div class="table-responsive">         
+	  <table class="table table-hover">
+	    <thead>
+	      <tr>
+	      	<th>Invoice #</th>
+	      	<th>Buyers Name</th>
+	      	<th>Amount</th>
+	      	<th>Ticket Name</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+			<% @orders.each do |order| %>
+      	<tr>
+          <td> <%= order.id %> </td>
+          <td> <%= order.user.first_name %> <%= order.user.last_name %></td>
+          <td> <%= number_to_currency(order.raw_price/100,  precision: 2) %></td>
+          <td> <%= order.entitlements.map { |e| e.ticket.ticket_name } %> </td>
+      <% end %>
+	    </tbody>
+	  </table>
+	 </div>
 	</div>
-</div>
-
 </div>
