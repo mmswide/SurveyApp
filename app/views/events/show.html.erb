@@ -17,12 +17,12 @@
 	    </thead>
 	    <tbody>
 			<% @orders.each do |order| %>
-	        	<tr>
-	            <td> <%= order.id %> </td>
-	            <td> <%= order.user.first_name %> <%= order.user.last_name %></td>
-	            <td> <%= number_to_currency(order.raw_price/100,  precision: 2) %></td>
-	            <td> ??? </td>
-	      <% end %>
+      	<tr>
+          <td> <%= order.id %> </td>
+          <td> <%= order.user.first_name %> <%= order.user.last_name %></td>
+          <td> <%= number_to_currency(order.raw_price/100,  precision: 2) %></td>
+          <td> <%= order.entitlements.map { |e| e.ticket.ticket_name } %> </td>
+      <% end %>
 	    </tbody>
 	  </table>
 	 </div>
