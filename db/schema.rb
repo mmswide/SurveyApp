@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160126152405) do
+ActiveRecord::Schema.define(version: 20160126102416) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "entitlements", force: :cascade do |t|
     t.integer  "ticket_id"
@@ -27,7 +30,7 @@ ActiveRecord::Schema.define(version: 20160126152405) do
   create_table "events", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "event_name",                limit: 100
-    t.text     "description_short",         limit: 300
+    t.text     "description_short"
     t.text     "description_long"
     t.string   "event_url"
     t.string   "main_image_file_name"
@@ -119,6 +122,6 @@ ActiveRecord::Schema.define(version: 20160126152405) do
     t.string   "event_contact_email"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end

@@ -1,5 +1,9 @@
 class ChangeSuccessInOrderTransaction < ActiveRecord::Migration
-  def change
-    change_column :order_transactions, :success, :boolean
+  def self.up
+    change_column :order_transactions, :success, 'boolean USING CAST("success" AS boolean)'
+  end
+
+  def self.down
+    change_column :order_transactions, :success, :string
   end
 end
