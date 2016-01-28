@@ -35,6 +35,7 @@ class EventsController < ApplicationController
   end
 
   def update
+    raise params.inspect
     @event = Event.find_by(params[:id])
     if @event.update_attributes(event_params)
       #redirecting to the event profile if successful
@@ -49,6 +50,10 @@ class EventsController < ApplicationController
     event = Event.find_by(params[:id]).destroy
     flash[:success] = "Event '#{event.event_name}' Has been deleted"
     redirect_to events_path
+  end
+
+  def schedule
+    @event = Event.find_by(id: params[:event_id])
   end
 
   private

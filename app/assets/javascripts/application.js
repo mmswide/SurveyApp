@@ -16,4 +16,5 @@
 //= require bootstrap
 //= require turbolinks
 //= require tinymce-jquery
+//= require cocoon
 //= require_tree .

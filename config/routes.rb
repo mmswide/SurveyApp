@@ -26,5 +26,7 @@ Rails.application.routes.draw do
   resources :orders
   resources :events do
     resources :tickets
+    get 'schedule' => 'events#schedule'
   end
+
 end

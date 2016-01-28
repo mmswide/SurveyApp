@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160126152405) do
+ActiveRecord::Schema.define(version: 20160128160900) do
+
+  create_table "days", force: :cascade do |t|
+    t.integer  "event_id"
+    t.string   "name"
+    t.date     "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "entitlements", force: :cascade do |t|
     t.integer  "ticket_id"
@@ -22,6 +30,14 @@ ActiveRecord::Schema.define(version: 20160126152405) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "description"
+  end
+
+  create_table "event_schedules", force: :cascade do |t|
+    t.integer  "event_id"
+    t.datetime "date"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "events", force: :cascade do |t|
@@ -84,6 +100,14 @@ ActiveRecord::Schema.define(version: 20160126152405) do
     t.integer  "event_id"
   end
 
+  create_table "sub_events", force: :cascade do |t|
+    t.integer  "day_id"
+    t.datetime "hour"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "tickets", force: :cascade do |t|
     t.integer  "event_id"
     t.string   "ticket_name"
@@ -92,6 +116,11 @@ ActiveRecord::Schema.define(version: 20160126152405) do
     t.integer  "quantity"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

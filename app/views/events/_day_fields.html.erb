@@ -1,0 +1,13 @@
+<div class='nested-fields'>
+  <%= f.text_field :name %>
+  <%= f.date_field :date %>
+  <div id='sub_events'>
+    <%= f.fields_for :sub_events do |event| %>
+      <%= render 'sub_event_fields', f: event %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association 'add sub event', f, :sub_events %>
+    </div>
+  </div>
+  <%= link_to_remove_association "remove day", f %>
+</div>

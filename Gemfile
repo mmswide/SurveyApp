@@ -20,6 +20,7 @@ gem 'sprockets-rails',          '2.3.3'
 gem 'cancancan',                '~> 1.10'
 gem 'activemerchant'
 gem 'jquery-turbolinks'
+gem "cocoon"
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
