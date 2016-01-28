@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event  = Event.find_by(params[:id])
+    @event  = Event.find_by(id: params[:id])
     @orders = @event.orders.select(:user_id, :raw_price, :id)
     authorize! :update, @event
   end
@@ -30,12 +30,12 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find_by(params[:id])
+    @event = Event.find_by(id: params[:id])
     authorize! :update, @event
   end
 
   def update
-    @event = Event.find_by(params[:id])
+    @event = Event.find_by(id: params[:id])
     if @event.update_attributes(event_params)
       #redirecting to the event profile if successful
       flash[:success] = "Event updated"
@@ -46,7 +46,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    event = Event.find_by(params[:id]).destroy
+    event = Event.find_by(id: params[:id]).destroy
     flash[:success] = "Event '#{event.event_name}' Has been deleted"
     redirect_to events_path
   end
