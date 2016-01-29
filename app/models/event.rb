@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
 	has_many :orders
 	has_many :days
 
-	accepts_nested_attributes_for :days, reject_if: :all_blank, allow_destroy: true
+	accepts_nested_attributes_for :days, allow_destroy: true
 
 	 #Paperclip gem Profile Image for events. The hash at the end of 150150 crops the image to that size
 	has_attached_file :main_image, styles: { medium: "300x300>", thumb: "100x100>" }

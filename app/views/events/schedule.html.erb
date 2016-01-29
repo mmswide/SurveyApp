@@ -1,17 +1,12 @@
 <% provide(:title, "Ticket List") %>
 <%= render(:partial => 'shared/event_nav') %>
-
 <div class="well col-md-7 col-lg-offset-1 ">
-  <%= form_for @event do |f| %>
-    <h3>Tasks</h3>
-    <div id='days'>
-      <%= f.fields_for :days do |day| %>
-        <%= render 'day_fields', f: day %>
-      <% end %>
-      <div class='links'>
-        <%= link_to_add_association 'add day', f, :days %>
-      </div>
-    </div>
-    <%= f.submit 'Save' %>
-  <% end %>
+  <div class="new_schedule">
+    <%= render(:partial => 'new_schedule') %>
   </div>
+</div>
+<div class="well col-md-7 col-lg-offset-1 ">
+  <div class="schedule_show">
+    <%= render(:partial => 'event_schedule') %>
+  </div>
+</div>

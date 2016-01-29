@@ -1,0 +1,12 @@
+<%= form_for @event, remote: true do |f| %>
+  <h3>Create schedule</h3>
+  <div id='days'>
+    <%= f.fields_for :days do |day| %>
+      <%= render 'day_fields', f: day %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association '+ Add Day', f, :days, class: 'btn btn-default' %>
+    </div>
+  </div>
+  <%= f.submit 'Save', class: 'btn btn-success' %>
+<% end %>

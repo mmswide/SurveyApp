@@ -35,14 +35,20 @@ class EventsController < ApplicationController
   end
 
   def update
-    raise params.inspect
     @event = Event.find_by(params[:id])
-    if @event.update_attributes(event_params)
-      #redirecting to the event profile if successful
-      flash[:success] = "Event updated"
-      redirect_to event_path
-    else
-      render('edit')
+    respond_to do |format|
+      format.html {
+        if @event.update_attributes(event_params)
+          flash[:success] = "Event updated"
+          redirect_to(event_path)
+        else
+          render('edit')
+        end
+      }
+      format.js { 
+        @event.update_attributes(event_params)
+        render 'schedule', object: @event 
+      }
     end
   end
 
@@ -61,6 +67,8 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:user_id, :event_url, :event_name, 
       :description_short, :main_image, :description_long, :venue_name,
-      :address_1, :city, :state, :zip_code)
+      :address_1, :city, :state, :zip_code, 
+      days_attributes: [:id, :name, :date, :_destroy, 
+      sub_events_attributes: [:id, :hour, :description, :_destroy]])
   end
 end

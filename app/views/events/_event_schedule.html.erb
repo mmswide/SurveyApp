@@ -1,0 +1,8 @@
+<h3>Schedule</h3>
+  <% @event.days.each do |day| %>
+    <li><%= "#{day.name} #{day.date}" %></li>
+    <% day.sub_events.each do |subevent| %>
+      <li><%= "#{subevent.hour.strftime("at %I:%M%p")} - #{subevent.description}" %></li>
+    <% end %>
+    <br>
+  <% end %>

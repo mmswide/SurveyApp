@@ -1,0 +1,6 @@
+var new_form = $(".new_schedule");
+var event_schedule = $(".schedule_show");
+
+
+new_form.html("<%= j (render partial: 'new_schedule', object: @event) %>");
+event_schedule.html("<%= j (render partial: 'event_schedule', object: @event) %>");
