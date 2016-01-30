@@ -12,14 +12,14 @@
           <th></th>
         </tr>
       </thead>
-      <tbody class="sort_it">
+      <tbody class="sorted_table">
         <% smart_listing.collection.each do |sub_event| %>
           <tr class="editable" data-id=<%= "#{sub_event.id}" %>>
             <%= smart_listing.render partial: 'sub_event', object: @sub_event = sub_event %>
           </tr>
         <% end %>
-        <%= smart_listing.item_new colspan: 3, link: new_event_day_sub_event_path  %>
       </tbody>
+      <%= smart_listing.item_new colspan: 3, link: new_event_day_sub_event_path  %>
     </table>
     <div class="text-center">
       <%= smart_listing.paginate %>

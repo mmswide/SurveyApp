@@ -1,3 +1,23 @@
 // Place all the styles related to the sub_events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body.dragging, body.dragging * {
+  cursor: move !important;
+}
+
+.dragged {
+  position: absolute;
+  opacity: 0.5;
+  z-index: 2000;
+}
+
+tr.placeholder {
+  position: relative;
+}
+
+tr.placeholder:before {
+  position: absolute;
+  content:" \25b6";
+}
