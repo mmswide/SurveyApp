@@ -17,4 +17,6 @@
 //= require turbolinks
 //= require tinymce-jquery
 //= require cocoon
+//= require smart_listing
+//= require jquery.sortable
 //= require_tree .

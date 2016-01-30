@@ -1,15 +1,17 @@
 <div class='nested-fields'>
-  <%= f.label 'Day name' %>
-  <%= f.text_field :name, class: 'form-control' %>
-  <%= f.label 'Date' %>
-  <%= f.date_field :date, class: 'form-control' %>
-  <div id='sub_events'>
-    <%= f.fields_for :sub_events do |event| %>
-      <%= render 'sub_event_fields', f: event %>
-    <% end %>
-    <div class='links'>
-      <%= link_to_add_association '+ Add Event', f, :sub_events, class: 'btn' %>
+  <div class="form-group form-group-sm">
+    <%= f.text_field :name, class: 'form-control input-sm', placeholder: "Day name" %>
+  </div>
+  <div class="form-group form-group-sm">
+    <div class="col-xs-2">
+      <%= f.date_field :date, class: 'form-control input-sm', placeholder: "Date" %>
     </div>
   </div>
-  <%= link_to_remove_association "- Remove Day", f, class: 'btn btn-danger' %>
+  <div class="btn-group">
+    <%= link_to_remove_association "- Remove Day", f, class: 'btn btn-danger btn-sm' %>
+    <% unless f.object.new_record? %>
+      <%= link_to "Manage sub events", event_day_sub_events_path(event_id: f.object.event_id, day_id: f.object.id), class: 'btn btn-info btn-sm' %>
+    <% end %>
+  </div>
+
 </div>

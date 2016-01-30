@@ -21,6 +21,8 @@ gem 'cancancan',                '~> 1.10'
 gem 'activemerchant'
 gem 'jquery-turbolinks'
 gem "cocoon"
+gem "smart_listing"
+gem 'jquery-sortable-rails'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

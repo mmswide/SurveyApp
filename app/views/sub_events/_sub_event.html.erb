@@ -1,0 +1,11 @@
+<td style="width: 90px; height: 25px">
+  <%= @sub_event.hour.strftime("at %I:%M%p") %>
+</td>
+<td>
+  <%= @sub_event.description %>
+</td>
+<td class="actions">
+<%= smart_listing_item_actions [{ name: :edit, url: edit_event_day_sub_event_path(day_id: @sub_event.day_id, id: @sub_event.id) }, 
+  { name: :destroy, url: event_day_sub_event_path(day_id: @sub_event.day_id, id: @sub_event.id) , confirmation: "Are you sure you want to delete this?" }] %>
+</td>
+

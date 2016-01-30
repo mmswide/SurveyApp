@@ -1,7 +1,0 @@
-<div class='nested-fields'>
-  <%= f.label 'Start hour' %>
-  <%= f.time_select :hour, { ampm: true, discard_minute: true, include_blank: true }, class: 'form-control' %>
-  <%= f.label 'Description' %>
-  <%= f.text_field :description, class: 'form-control' %>
-  <%= link_to_remove_association "- Remove Event", f, class: 'btn' %>
-</div>
