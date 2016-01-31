@@ -167,8 +167,81 @@ p {
   margin-left: 55px;
   margin-bottom:50px;
 }
+/* Lounge Promo Box */
 
-
+.lounge-heading {
+    width: 393px;
+    height: 125px;
+    margin-top: 60px;
+    margin-left: 45px;
+    padding-top: 9px;
+    font-family: Montserrat, sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+}
+.brand{
+    background-color: #ff0052;
+    font-family: Montserrat, sans-serif;
+    color: #fff;
+    width: 180px;
+    height: 41px;
+    padding-top: 5px;
+    margin-left: 110px;
+}
+.lounge-btn{
+    margin-top: 25%;
+    width: 50%;
+    font-size: 20px;
+    font-weight: bold;
+}
+/* Event Page */
+.event-name{
+    width: 413px;
+    height: auto;
+    margin-top: 194px;
+    margin-bottom: 13px;
+    margin-left: 25px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    background-color:rgba(151,109,122,0.45);
+    font-family: Montserrat, sans-serif;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 400;
+}
+.x-container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 940px;
+}
+.event.back {
+  height: 650px;
+  padding-top: 75px;
+  padding-bottom: 0px;
+  background-color: #363b48;
+  background-image: -webkit-radial-gradient(circle farthest-corner at 50% 50%, rgba(0, 0, 0, .4) 100%, hsla(0, 35%, 71%, 0)), url("http://uploads.webflow.com/56a95c1367e2ddc8033425bf/56a95c1367e2ddc8033425df_pov.jpg");
+  background-image: radial-gradient(circle farthest-corner at 50% 50%, rgba(0, 0, 0, .4) 100%, hsla(0, 35%, 71%, 0)), url("http://uploads.webflow.com/56a95c1367e2ddc8033425bf/56a95c1367e2ddc8033425df_pov.jpg");
+  background-position: 0px 0px, 0px 0px;
+  background-size: auto, cover;
+  text-align: center;
+}
+.event-heading {
+    width: 393px;
+    height: 68px;
+    margin-top: 194px;
+    margin-left: 25px;
+    padding-top: 9px;
+    background-color: #ff0052;
+    font-family: Montserrat, sans-serif;
+    color: #fff;
+    font-size: 51px;
+    font-weight: 400;
+}
+.event-subhead {
+    width: 447px;
+    color: #fff;
+    font-size: 14px;
+}
 /* footer */
 
 footer {
@@ -322,13 +395,14 @@ input {
 
 .nav-tabs > li.active > a,.nav-tabs > li > a:hover {
     border: none;
-    color: #4285F4 !important;
+    color: black !important;
+    font-weight: bold;
     background: transparent;
 }
 
 .nav-tabs > li > a::after {
     content: "";
-    background: #4285F4;
+    background: #ff0052;
     height: 2px;
     position: absolute;
     width: 100%;
