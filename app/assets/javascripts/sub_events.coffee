@@ -4,6 +4,12 @@
 
 $(document).ready ->
   $('.sorted_table').sortable
-    containerSelector: 'tbody'
-    itemSelector: 'tr'
+    containerSelector: 'tr'
+    itemSelector: '.editable'
     placeholder: '<tr class="placeholder"/>'
+
+  $('body').on "click", ".edit", () ->
+    $('.sorted_table').sortable("disable")
+  
+  $('body').on "click", ".save_item", () ->
+    $('.sorted_table').sortable("enable")

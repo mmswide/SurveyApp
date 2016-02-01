@@ -34,6 +34,8 @@ class SubEventsController < ApplicationController
   private
 
   def find_sub_event
+    @event = Event.find_by(id: params[:event_id])
+    @day = Day.find_by(id: params[:day_id])
     @sub_event = SubEvent.find_by(id: params[:id])
   end
 
