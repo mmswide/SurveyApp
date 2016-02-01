@@ -18,6 +18,8 @@ class SubEventsController < ApplicationController
   def create
     params[:sub_event][:day_id] = params[:day_id]
     @sub_event = SubEvent.create(sub_event_params)
+    @event = Event.find_by(id: params[:event_id])
+    @day = Day.find_by(id: params[:day_id])
   end
 
   def edit
