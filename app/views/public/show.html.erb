@@ -1,49 +1,52 @@
 <% if @event.main_image_file_name.nil? %>
-  <%= image_tag('', :class => "img-responsive") %>
+<%= @event.main_image_file_name.nil? %>
+  <div class="x-section event back">
+    <div class="w-container">
+      <h1 class="event-name"><%= @event.event_name %></h1>
+    </div>
+  </div>
+<!--Shows the default view-->  
 <% else %>
-  <%= image_tag(@event.main_image.url, :class => "img-responsive banner") %>
+  <div class="x-section event back">
+    <div class="w-container">
+      <h1 class="event-name"><%= @event.event_name %></h1>
+    </div>
+  </div>
 <% end %>
 
-<div class="container">
-	<div class="row">
-		 <div class="col-md-12">
-          <!-- Nav tabs -->
-          <div class="card">
-            <ul class="nav nav-tabs center" role="tablist">
-              <li role="presentation" class="active"><a href="#basic" aria-controls="basic" role="tab" data-toggle="tab">Basic Info</a></li>
-              <li role="presentation"><a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">Contact Info</a></li>
-              <li role="presentation"><a href="#details" aria-controls="details" role="tab" data-toggle="tab">Details</a></li>
-              <li role="presentation"><a href="#tickets" aria-controls="tickets" role="tab" data-toggle="tab">Tickets</a></li>
-            </ul>
-            <!-- Tab panes -->
-          <div class="tab-content">
-            <!--Event Introduction Tab-->
-            <div role="tabpanel" class="tab-pane active" id="basic">
-              <center>
-          			<p> Venue Name: <%= @event.venue_name %></p>
-          			<p> Venue Address: <%= @event.address_1 %> <%= @event.city %>, <%= @event.state %><p>
-                <p> Introduction: <%= @event.description_short %></p>
-              </center>
-            </div>
-            <!-- Contact Information tab-->
-            <div role="tabpanel" class="tab-pane" id="contact">
-              <p> Contact Information </p>
-            </div>
-             <!--Event Description tab-->
-            <div role="tabpanel" class="tab-pane" id="details">
-              <p>Details</p>
-						  <p> <%= @event.description_long.try(:html_safe)  %> </p>
-            </div>
-            <!--Ticket description tab-->
-             <div role="tabpanel"  class="tab-pane" id="tickets">
-              <!--Checking to make sure there are tickets before revealing the ticket div-->
-              <div class='well col-md-offset-0'>
+<!--start of Event Main Page-->
+<div class="row">
+  <div class=" col-lg-10 col-lg-offset-1" 
+      style='margin-top:-160px; height:500px; background-color: white;'>
+  <div>
+  <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" style='font-size: 18px;'>About</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" style='font-size: 18px;'>Artists</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" style='font-size: 18px;'>Schedule</a></li>
+        <li role="presentation"><a href="#schedule" aria-controls="settings" role="tab" data-toggle="tab" style='font-size: 18px;'>Workshops</a></li>
+        <li role="presentation"><a href="#tickets" aria-controls="settings" role="tab" data-toggle="tab" style='font-size: 18px;'>Tickets</a></li>
+      </ul>
+  </div>
+  <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">
+          <div class='col-md-10 col-md-offset-1 pt50'> <p><%= @event.description_long.try(:html_safe)  %> </p></div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="profile">Profile</div>
+        <div role="tabpanel" class="tab-pane" id="messages">Message</div>
+        <div role="tabpanel" class="tab-pane" id="settings">Settings</div>
+        <div role="tabpanel" class="tab-pane" id="tickets">
+
+           <!-- Tickets Panel -->
+        <div role="tabpanel"  class="tab-pane" id="tickets">
+          <!--Checking to make sure there are tickets before revealing the ticket div-->
+              <div class='well col-md-6 col-md-offset-3'>
               <%= form_tag new_order_path, method: :get do %>
               <% @event.tickets.each do |ticket| %>
-                Ticket Name : <%= ticket.ticket_name %></br>
-                Ticket Price : <%= number_to_currency(ticket.ticket_price) %></br>
-                Ticket Description : <%= ticket.ticket_description %> <br>
-                Ticket Identification : <%= ticket.id %>
+                <b><%= ticket.ticket_name %> </b></br>
+                Price : <%= number_to_currency(ticket.ticket_price) %></br></br>
+                Ticket Description : <%= ticket.ticket_description %> </br>
                <!--collects pairs of ticket ids and their quantities and sends them to orders#new action-->
               <%= select_tag "tickets[]#{ticket.id}", options_for_select(1..12), prompt: "Select amount", class: "price_select", 
                 data: { ticket_id: ticket.id, ticket_price: ticket.ticket_price } %>
@@ -58,9 +61,12 @@
               <%= hidden_field_tag "event_id", @event.id %>
               <%= submit_tag "Buy tickets", class: "btn btn-primary btn-small", id: "submit", disabled: "disabled" %>
               <% end%>
-              </div>  
-            </div>
-			</div> <!--card -->
-    </div> <!--col-->
-	</div><!--row-->
-</div> <!--container-->
+              </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end of Event Main Page-->
+
+

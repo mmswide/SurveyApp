@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160128160900) do
 
   create_table "days", force: :cascade do |t|
@@ -20,6 +21,12 @@ ActiveRecord::Schema.define(version: 20160128160900) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+=======
+ActiveRecord::Schema.define(version: 20160126102416) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+>>>>>>> UpdateHomeUi
 
   create_table "entitlements", force: :cascade do |t|
     t.integer  "ticket_id"
@@ -43,7 +50,7 @@ ActiveRecord::Schema.define(version: 20160128160900) do
   create_table "events", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "event_name",                limit: 100
-    t.text     "description_short",         limit: 300
+    t.text     "description_short"
     t.text     "description_long"
     t.string   "event_url"
     t.string   "main_image_file_name"
@@ -148,6 +155,6 @@ ActiveRecord::Schema.define(version: 20160128160900) do
     t.string   "event_contact_email"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end
