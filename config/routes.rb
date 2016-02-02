@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   get 'users/new'
-  get    'lounge'  => 'static_pages#lounge'
+  get    'lounge'  => 'public#lounge2'
   get    'help'    => 'static_pages#help'
   get    'about'   => 'static_pages#about'
   get    'contact' => 'static_pages#contact'
@@ -25,6 +25,12 @@ Rails.application.routes.draw do
 
   resources :orders
   resources :events do
+    resources :days, shallow: true do
+      resources :sub_events
+    end
     resources :tickets
+    get 'schedule' => 'events#schedule'
+    get 'day' => 'events#day'
   end
+
 end

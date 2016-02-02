@@ -1,0 +1,12 @@
+var table = $(".sorted_table")
+var nested_form = $('.nested-fields')
+var error_place = $(".error_messages")
+
+table.html("<%= j (render partial: 'days/days_table', object: @event) %>");
+
+<% if @event.errors.blank? %>
+  error_place.html();
+  nested_form.hide();
+<% else %>
+  error_place.html("<%= @event.errors.full_messages.to_sentence %>");
+<% end %>

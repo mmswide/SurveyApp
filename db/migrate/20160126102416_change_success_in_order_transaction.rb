@@ -7,3 +7,4 @@ class ChangeSuccessInOrderTransaction < ActiveRecord::Migration
     change_column :order_transactions, :success, :string
   end
 end
+

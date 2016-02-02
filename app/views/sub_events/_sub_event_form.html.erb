@@ -1,0 +1,25 @@
+<td colspan="3">
+  <% if object.persisted? %>
+    <p>Edit subevent</p>
+  <% else %>
+    <p>Add subevent</p>
+  <% end %>
+  <%= form_for object, url: object.new_record? ? day_sub_events_path 
+                       : sub_event_path(object), 
+                       remote: true, html: { class: "form-horizontal" } do |f| %>
+    <p>
+      Hour: <%= f.time_select :hour, { ampm: true, discard_minute: true, include_blank: true }, class: 'form-control', style: "padding: 2px" %>
+    </p>
+    <p>
+      Description: 
+      <%= f.text_field :description, class: 'form-control' %>
+    </p>
+    <p>
+      <%= f.submit "Save", class: "btn btn-success save_item" %>
+      <button class="btn btn-link cancel">Cancel</button>
+    </p>
+  <% end %>
+</td>
+
+
+

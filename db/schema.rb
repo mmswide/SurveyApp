@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160126102416) do
+ActiveRecord::Schema.define(version: 20160128160900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "days", force: :cascade do |t|
+    t.integer  "event_id"
+    t.string   "name"
+    t.date     "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "entitlements", force: :cascade do |t|
     t.integer  "ticket_id"
@@ -85,6 +93,14 @@ ActiveRecord::Schema.define(version: 20160126102416) do
     t.integer  "total_price"
     t.string   "ip_address"
     t.integer  "event_id"
+  end
+
+  create_table "sub_events", force: :cascade do |t|
+    t.integer  "day_id"
+    t.datetime "hour"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "tickets", force: :cascade do |t|

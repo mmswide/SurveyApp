@@ -1,0 +1,11 @@
+<div class=''>
+  <div class="">
+    <%= f.text_field :name, class: 'form-control ', placeholder: "Day name" %>
+      <%= f.date_field :date, class: 'form-control', placeholder: "Date", style:  'padding: 6px;
+' %>
+ <% unless f.object.new_record? %>
+      <%= link_to "", event_day_sub_events_path(event_id: f.object.event_id, day_id: f.object.id), class: 'btn btn-default btn-lg glyphicon  glyphicon-edit ' ,style: 'margin-bottom: 16px; height: 50px;'%>
+    <% end %> 
+     <%= link_to_remove_association "", f, class: 'btn btn-danger btn-lg glyphicon glyphicon-trash pull-right' %>
+    </div>
+</div>

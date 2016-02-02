@@ -1,0 +1,28 @@
+<div class="col-md-12">
+	<% @event.days.each do |day| %>
+    	<% if day.persisted? %>
+    		<div class="page-header">
+        		<h1 id="timeline"><%= "#{day.name}" %></h1>
+    		</div>
+    		 <% day.sub_events.each do |subevent| %>
+			    <ul class="timeline">
+			        <li class="timeline-inverted">
+			          <div class="timeline-badge warning"></i></div>
+			          <div class="timeline-panel">
+			            <div class="timeline-heading">
+			          
+			              <h4 class="timeline-title"> <%= "#{subevent.hour.strftime(" %I:%M%p")}"%>
+			              	</br></br>
+			              <%= "#{subevent.description}" %>
+			              </h4>
+			            </div>
+			            <div class="timeline-body">
+			              <p></p>
+			            </div>
+			          </div>
+			        </li>
+			        <% end %>
+			    </ul>
+    	<% end %>
+</div>
+  <% end %>

@@ -5,7 +5,8 @@
 	 <%= link_to('View Tickets', event_tickets_path(@event), :class =>'list-group-item')%>
 	<%= link_to('Create Ticket', new_event_ticket_path(@event) , :class =>'list-group-item')%> 
 	 <h3 class ='tq'>Calendar</h3>
-     <%= link_to('Event Calendar', {}, :class =>'list-group-item')%>
+     <%= link_to('Event Days',  event_days_path(@event), :class =>'list-group-item')%>
+     <%= link_to('Event Calendar', event_schedule_path(@event), :class =>'list-group-item')%>
      <%= link_to('Workshop Calendar', {}, :class =>'list-group-item')%>
      <h3 class ='tq'>stats</h3>
   	 <%= link_to('Revenue', {}, :class =>'list-group-item')%>

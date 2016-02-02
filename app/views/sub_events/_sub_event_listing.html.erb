@@ -1,0 +1,27 @@
+
+  <div class="content">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="col-md-3">
+            <%= smart_listing.sortable "Time", "hour" %>
+          </th>
+          <th class="col-md-3">
+            <%= smart_listing.sortable "Description", "description" %>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="sorted_table">
+        <% smart_listing.collection.each do |sub_event| %>
+          <tr class="editable" data-id=<%= "#{sub_event.id}" %>>
+            <%= smart_listing.render partial: 'sub_event', object: @sub_event = sub_event %>
+          </tr>
+        <% end %>
+      </tbody>
+      <%= smart_listing.item_new colspan: 3, link: new_day_sub_event_path  %>
+    </table>
+    <div class="text-center">
+      <%= smart_listing.paginate %>
+    </div>
+  </div>

@@ -10,11 +10,11 @@ class TicketsController < ApplicationController
   end
 
   def show
-    @ticket = Ticket.find_by(params[:id])
+    @ticket = Ticket.find_by(id: params[:id])
   end
 
   def new
-    @event = Event.find_or_create_by(id: params[:event_id])
+    @event = Event.find_by(id: params[:event_id])
     @ticket = @event.tickets.build
   end
 

@@ -1,0 +1,29 @@
+<% if @event.days.any? %> 
+  <% @event.days.each do |day| %>
+    <% next if day.new_record? %>
+    <tr>
+      <td>
+        <%= link_to("#", id: "activate_address_edit_#{day.id}") do %>
+          <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" title="Edit"></span>
+        <% end %>
+        <%= best_in_place day, :name, activator: "#activate_address_edit_#{day.id}", ok_button: "Save", ok_button_class: "small button success" %>
+      </td>
+      <td>
+        <%= link_to("#", id: "activate_date_edit_#{day.id}") do %>
+          <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" title="Edit"></span>
+        <% end %>
+        <%= best_in_place day, :date, as: :date, activator: "#activate_date_edit_#{day.id}", ok_button: "Save", ok_button_class: "small button success" %>
+      </td>
+      <td>
+        <%= link_to(day_sub_events_path(event_id: @event.id, day_id: day.id)) do %>
+          <span class="glyphicon glyphicon-list-alt" data-toggle="tooltip" title="Manage sub events"></span>
+        <% end %>  
+        <%= link_to(day_path(event_id: @event.id, id: day.id), method: :delete, remote: true, data: { confirm: "Are you sure?" }) do %>
+            <span class="glyphicon glyphicon-remove-circle" data-toggle="tooltip" title="Destroy"></span>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>  
+<% else %>
+  <div>"No days yet"</div>
+<% end %>

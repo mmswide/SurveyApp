@@ -11,9 +11,23 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui/datepicker
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
 //= require tinymce-jquery
+//= require cocoon
+//= require smart_listing
+//= require jquery.sortable
+//= require jquery.purr
+//= require best_in_place
+//= require best_in_place.jquery-ui
+//= require best_in_place.purr
 //= require_tree .
+
+$(document).ready(function(){
+  $.datepicker.setDefaults({
+    dateFormat: 'yy-mm-dd'
+  });
+});

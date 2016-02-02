@@ -20,7 +20,12 @@ gem 'sprockets-rails',          '2.3.3'
 gem 'cancancan',                '~> 1.10'
 gem 'activemerchant'
 gem 'jquery-turbolinks'
+gem "cocoon"
+gem "smart_listing"
+gem 'jquery-sortable-rails'
 gem 'pg',             '0.17.1'
+gem 'best_in_place', git: 'git://github.com/bernat/best_in_place.git'
+gem 'jquery-ui-rails'
 
 group :development, :test do
   gem 'byebug',      '3.4.0'
