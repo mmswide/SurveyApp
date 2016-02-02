@@ -46,7 +46,7 @@ class EventsController < ApplicationController
       }
       format.js { 
         @event.update_attributes(event_params)
-        render 'schedule', object: @event 
+        render 'day', object: @event 
       }
     end
   end

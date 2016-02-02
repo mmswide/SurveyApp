@@ -25,11 +25,12 @@ Rails.application.routes.draw do
 
   resources :orders
   resources :events do
-    resources :days do
+    resources :days, shallow: true do
       resources :sub_events
     end
     resources :tickets
     get 'schedule' => 'events#schedule'
+    get 'day' => 'events#day'
   end
 
 end

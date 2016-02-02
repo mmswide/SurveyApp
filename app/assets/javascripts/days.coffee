@@ -4,8 +4,4 @@
 
 $(document).ready ->
   $('.best_in_place').best_in_place()
-  if $('body .my-datepicker').length
-    $('body .my-datepicker').datepicker {}
-
-  $('.form-inline').on 'cocoon:after-insert', (e, insertedItem) ->
-    $('body .my-datepicker').datepicker {}
+  $('.my-datepicker').datepicker dateFormat: 'yy-mm-dd'

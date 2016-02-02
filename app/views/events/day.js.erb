@@ -1,0 +1,10 @@
+var table = $(".sorted_table")
+var nested_form = $('.nested-fields')
+
+table.html("<%= j (render partial: 'days/days_table', object: @event) %>");
+
+<% if @event.errors.blank? %>
+  nested_form.hide();
+<% else %>
+  
+<% end %>
