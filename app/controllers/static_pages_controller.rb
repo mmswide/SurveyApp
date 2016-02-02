@@ -2,6 +2,7 @@ class StaticPagesController < ApplicationController
 
   def lounge
   end
+  
   def lounge2
   end
   

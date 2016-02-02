@@ -16,15 +16,14 @@
 	<div class="col-md-8 well">
 		<% @events.each do |event| %>
 		<h4><%= event.event_name %></br></h4>
-
 	<!--Checking if the user has permission to update link if not remove link-->	
 		<% if can? :update, event %>			
-		<%= link_to('Edit Event', edit_event_path(event.id))%> |
+		<%= link_to('Overview', event_path(event.id))%> |
 		<% end %>
 
 	<!--Checking if the user has permission to update link if not remove link-->	
 		<% if can? :update, event %>			
-		<%= link_to('Stats', event_path(event.id))%> |
+		<%= link_to('Edit Event', edit_event_path(event.id))%> |
 		<% end %>
 
 		<%= link_to('View Event', {:controller => 'public', :action => 'show', :event_url => event.event_url})%> 
@@ -40,7 +39,6 @@
 		| <%= link_to('Delete', event ,  :method => :delete,  data: {confirm: "Are you sure?"})%> <br>
 		<% end %>
 		<hr>
-
 		<% end %>
 	</div>
 <% end %>

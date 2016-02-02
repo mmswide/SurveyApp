@@ -3,13 +3,12 @@
   <div class="list-group col-md-3 pt100">
     <h2><%= current_user.first_name %></h2>
   	<h3 class ='tq'>Dashboard</h3>
-    <%= link_to('Overview', user_path( anchor: 'overview'), html_options = { :class =>'list-group-item active', "data-toggle" => "tab"})%>
-    <%= link_to('Order History', user_path( anchor: 'order'), html_options = { :class =>'list-group-item', "data-toggle" => "tab"})%>
-    <h3 class ='tq'>Tools</h3>
-    <%= link_to('Events',  events_path, :class =>'list-group-item')%>
-    <h3 class ='tq'>Roles</h3>
-    <%= link_to('Instructor', {}, :class =>'list-group-item')%>
-    <%= link_to('Performer', {}, :class =>'list-group-item')%>
-    <h3 class ='tq'>Settings</h3>
-    <%= link_to('Reset Password', edit_user_path, :class =>'list-group-item')%>
+     <ul class="nav nav-tabs" role="tablist">
+        <%= link_to('Overview', user_path( anchor: 'overview'), html_options = { :class =>'list-group-item active', "data-toggle" => "tab"})%>
+        <%= link_to('Order History', user_path( anchor: 'order'), html_options = { :class =>'list-group-item', "data-toggle" => "tab"})%>
+        <h3 class ='tq'>Tools</h3>
+        <%= link_to('Events',  events_path, :class =>'list-group-item')%>
+        <h3 class ='tq'>Settings</h3>
+        <%= link_to('Reset Password', edit_user_path, :class =>'list-group-item')%>
+    </ul>
 </div>
