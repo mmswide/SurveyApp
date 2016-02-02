@@ -106,6 +106,9 @@ p {
   padding-top: 9px;
   font-weight: bold;
 }
+.container-fluid{
+  height: 100px;
+}
 
 #logo:hover {
   color: #fff;
@@ -123,7 +126,9 @@ p {
    background-color: white; 
    border-color: transparent;
 }
-
+.navbar-nav > li > a{
+  font-size:18px;
+}
 /* Home */
 .w-container {
     margin-left: auto;

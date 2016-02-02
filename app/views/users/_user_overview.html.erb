@@ -6,4 +6,17 @@
 </div> 
 <!--Header--> 
 <hr> 
+<center><h3 class='anw anx'>Welcome to DanceFest.io</h3>
+</br> 
+<p>This app is dedicated to all you dance lovers. Keep making art on the dancefloor! </p>
+</br> <p>—Frank</p>
+</center>
+<!--Big Nav buttons--> 
+<div class='col-md-5 col-md-offset-1'>
+	<center><%= link_to('Manage Festival', events_path , :class =>'btn btn-primary event-button')%></center>
+</div>
+<div class='col-md-3'>
+	<center>  <%= link_to('Order History', user_path( anchor: 'order'), html_options = { :class =>'btn btn-primary event-button', "data-toggle" => "tab"})%></center>
+</div>
+
  
