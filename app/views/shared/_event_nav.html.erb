@@ -1,24 +1,22 @@
 <div class="list-group col-md-3 pt50">
 	<h3 class ='tq'>Event Details</h3>
-	<%= link_to('Overview', event_path(@event.id), :class =>'list-group-item')%>
-	 <%= link_to('Edit Event', edit_event_path(@event.id), :class =>'list-group-item active')%>
-	 <%= link_to('View Tickets', event_tickets_path(@event), :class =>'list-group-item')%>
-	<%= link_to('Create Ticket', new_event_ticket_path(@event) , :class =>'list-group-item')%> 
+	<%= active_link_to('Overview', event_path(@event.id), :class =>'list-group-item', active: [['events'], ['show']])%>
+	 <%= active_link_to('Edit Event', edit_event_path(@event.id), :class =>'list-group-item', active: [['events'], ['edit']])%>
+	 <%= active_link_to('View Tickets', event_tickets_path(@event), :class =>'list-group-item', active: [['tickets'], ['index']])%>
+	 <%= active_link_to('Create Ticket', new_event_ticket_path(@event) , :class =>'list-group-item', active: [['tickets'], ['new']] )%> 
 	 <h3 class ='tq'>Calendar</h3>
-     <%= link_to('Event Days',  event_days_path(@event), :class =>'list-group-item')%>
+     <%= active_link_to('Event Days',  event_days_path(@event), :class =>'list-group-item')%>
      <%= link_to('Event Calendar', event_schedule_path(@event), :class =>'list-group-item')%>
      <%= link_to('Workshop Calendar', {}, :class =>'list-group-item')%>
      <h3 class ='tq'>stats</h3>
   	 <%= link_to('Revenue', {}, :class =>'list-group-item')%>
      <%= link_to('Attendees', {}, :class =>'list-group-item')%>
-   	 <h3 class ='tq'>other</h3>
+   	 <h3 class ='tq'>Account</h3>
      <%= link_to('Bank information', {}, :class =>'list-group-item')%>
      <h3 class ='tq'>Artist</h3>
      <%= link_to('Artist List', {}, :class =>'list-group-item')%>
      <%= link_to('Invite +', {}, :class =>'list-group-item')%>
-	 <h3 class ='tq'>Public</h3>
-	 <%= link_to('View Event Page',  {:controller => 'public', :action => 'show', 
-	 									:event_url => @event.event_url}, :class =>'list-group-item')%>
+ </br>
 </div>
 
 	<h3 class='anw anx pt50'><%= @event.event_name %></h3>

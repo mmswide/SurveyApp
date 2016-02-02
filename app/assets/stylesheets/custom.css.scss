@@ -466,6 +466,14 @@ input {
 .list-group-item.active {
   background-color: #1ca8dd; 
 }
+.list-group{
+  height:1200px;
+}
+
+.navbar-nav > li > a.active{
+  border-bottom: 3px solid #ff0052;
+}
+
 
 .tq {
     padding-left: 15px;
