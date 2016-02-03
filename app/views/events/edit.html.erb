@@ -17,12 +17,12 @@
       <%= f.label :event_url %>
       <%= f.text_field :event_url, class: 'form-control' %>
 
-      <%= f.label :main_image %>
       <% if @event.main_image_file_name.nil? %>
         <%= image_tag('https://s3.amazonaws.com/dancefestimages/static_images/placeholder.png', :class => "img-responsive") %>
       <% else %>
-        <%= image_tag(@event.main_image.url, :class => "img-responsive") %>
+        <%= image_tag(@event.main_image.url(:medium), style: 'height:250px; width:338px; border-radius: 6px;') %>
       <% end %>
+      <%= f.label :main_image %>
       <%= f.file_field :main_image, as: :file %>
 
      <%= label_tag(:description_short, 'Quick Description') %>

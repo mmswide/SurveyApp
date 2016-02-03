@@ -29,6 +29,7 @@ class OrdersController < ApplicationController
       if @order.purchase_order
         flash[:success] = "Order successfully completed!"
         redirect_to user_path(current_user)
+        UserMailer.invoice(current_user, @order).deliver_now
       else
         flash[:error] = @order.order_transactions.first.message
         render 'new', object: @order
