@@ -1,0 +1,20 @@
+<td colspan="3">
+  <% if object.persisted? %>
+    <p>Edit room</p>
+  <% else %>
+    <p>Add room</p>
+  <% end %>
+  <%= form_for object, url: object.new_record? ? day_rooms_path 
+                       : room_path(object), 
+                       remote: true, html: { class: "form-horizontal" } do |f| %>
+    <p>
+      Name: 
+      <%= f.text_field :name, class: 'form-control' %>
+    </p>
+    <p>
+      <%= f.hidden_field :day_id %>
+      <%= f.submit "Save", class: "btn btn-success save_item" %>
+      <button class="btn btn-default cancel cancel_item">Cancel</button>
+    </p>
+  <% end %>
+</td>

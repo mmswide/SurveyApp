@@ -1,0 +1,23 @@
+<div class="content">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="col-md-3">
+          <%= smart_listing.sortable "Name", "name" %>
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class="sorted_table">
+      <% smart_listing.collection.each do |room| %>
+        <tr class="editable" data-id=<%= "#{room.id}" %>>
+          <%= smart_listing.render partial: 'room', object: @room = room %>
+        </tr>
+      <% end %>
+    </tbody>
+    <%= smart_listing.item_new colspan: 3, link: new_day_room_path  %>
+  </table>
+  <div class="text-center">
+    <%= smart_listing.paginate %>
+  </div>
+</div>

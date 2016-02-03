@@ -27,10 +27,13 @@ Rails.application.routes.draw do
   resources :events do
     resources :days, shallow: true do
       resources :sub_events
+      resources :rooms do
+        resources :workshops
+      end
     end
     resources :tickets
     get 'schedule' => 'events#schedule'
-    get 'day' => 'events#day'
+    get 'classes' => 'events#classes'
   end
 
 end

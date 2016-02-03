@@ -7,7 +7,7 @@
 	 <h3 class ='tq'>Calendar</h3>
      <%= active_link_to('Event Days',  event_days_path(@event), :class =>'list-group-item')%>
      <%= link_to('Event Calendar', event_schedule_path(@event), :class =>'list-group-item')%>
-     <%= link_to('Workshop Calendar', {}, :class =>'list-group-item')%>
+     <%= link_to('Workshop Calendar', event_classes_path(@event), :class =>'list-group-item')%>
      <h3 class ='tq'>stats</h3>
   	 <%= link_to('Revenue', {}, :class =>'list-group-item')%>
      <%= link_to('Attendees', {}, :class =>'list-group-item')%>

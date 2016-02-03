@@ -1,0 +1,39 @@
+<td colspan="7">
+  <% if object.persisted? %>
+    <p>Edit workshop</p>
+  <% else %>
+    <p>Add workshop</p>
+  <% end %>
+  <%= form_for object, url: object.new_record? ? room_workshops_path 
+                       : workshop_path(object), 
+                       remote: true, html: { class: "form-horizontal" } do |f| %>
+    <p>
+      Title: 
+      <%= f.text_field :title, class: 'form-control' %>
+    </p>
+    <p>
+      Time: <%= f.time_select :time, { ampm: true, discard_minute: true, include_blank: true }, class: 'form-control', style: "padding: 2px" %>
+    </p>
+    <p>
+      Instructor: 
+      <%= f.text_field :instructor, class: 'form-control' %>
+    </p>
+    <p>
+      Level: 
+      <%= f.text_field :level, class: 'form-control' %>
+    </p>
+    <p>
+      Location: 
+      <%= f.text_field :location, class: 'form-control' %>
+    </p>
+    <p>
+      Category: 
+      <%= f.text_field :category, class: 'form-control' %>
+    </p>
+    <p>
+      <%= f.hidden_field :room_id %>
+      <%= f.submit "Save", class: "btn btn-success save_item" %>
+      <button class="btn btn-link cancel">Cancel</button>
+    </p>
+  <% end %>
+</td>

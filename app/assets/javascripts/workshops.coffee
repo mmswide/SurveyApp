@@ -2,12 +2,8 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ->
-  $('.sorted_table').sortable
-    containerSelector: 'tr'
-    itemSelector: '.editable'
-    placeholder: '<tr class="placeholder"/>'
 
+$(document).ready ->
   $('body').on "click", ".edit", () ->
     $('.sorted_table').sortable("disable")
   
@@ -16,4 +12,3 @@ $(document).ready ->
 
   $('body').on "click", ".cancel_item", () ->
     $('.sorted_table').sortable("enable")
-
