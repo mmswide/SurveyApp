@@ -61,6 +61,10 @@ class EventsController < ApplicationController
     @event = Event.find_by(id: params[:event_id])
   end
 
+  def classes
+    @event = Event.find_by(id: params[:event_id])
+  end
+
   private
 
   def event_params
