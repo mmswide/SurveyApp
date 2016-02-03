@@ -1,0 +1,23 @@
+<td>
+  <%= @workshop.title %>
+</td>
+<td>
+  <%= @workshop.time.strftime("at %I:%M%p") %> 
+</td>
+<td>
+  <%= @workshop.instructor %> 
+</td>
+<td>
+  <%= @workshop.level %> 
+</td>
+<td>
+  <%= @workshop.location %> 
+</td>
+<td>
+  <%= @workshop.category %> 
+</td>
+<td class="actions">
+<%= smart_listing_item_actions [{ name: :edit, url: edit_workshop_path(@workshop) }, 
+  { name: :destroy, url: workshop_path(@workshop) , confirmation: "Are you sure you want to delete this?" }] %>
+</td>
+
