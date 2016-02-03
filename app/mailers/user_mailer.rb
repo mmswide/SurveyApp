@@ -9,4 +9,11 @@ class UserMailer < ApplicationMailer
     @user = user
     mail to: user.email, subject: "Password reset"
   end
+
+  def invoice(user, order)
+  	@user = user
+  	@order = order
+  	mail to: user.email, subject: 'Your Purchase invoice'
+  end
+
 end

@@ -1,0 +1,12 @@
+<p>Hello there, this is your event pass invoice</p>
+
+Event Name:  <%= @order.event.event_name %></br>
+<% @order.entitlements.each do |entitlement| %>
+Ticket: <%= entitlement.ticket.ticket_name %></br>
+Entitled: <%= "#{entitlement.first_name} #{entitlement.last_name}" %></br>
+<% end %>
+
+Order# <%= @order.id %> </br>
+
+<p> Thank you for choosing DanceFest.io.</p>
+-Frank
