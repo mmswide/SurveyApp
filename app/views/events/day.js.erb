@@ -1,11 +1,11 @@
 var table = $(".sorted_table")
 var nested_form = $('.nested-fields')
-var error_place = $(".error_messages")
+var no_days_div = $('.no_days')
 
 table.html("<%= j (render partial: 'days/days_table', object: @event) %>");
 
 <% if @event.errors.blank? %>
-  error_place.html();
+  no_days_div.remove();
   nested_form.remove();
 <% else %>
   error_place.html("<%= @event.errors.full_messages.to_sentence %>");

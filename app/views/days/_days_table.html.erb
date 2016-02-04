@@ -3,16 +3,11 @@
     <% next if day.new_record? %>
     <tr>
       <td>
-        <%= link_to("#", id: "activate_address_edit_#{day.id}") do %>
-          <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" title="Edit"></span>
-        <% end %>
-        <%= best_in_place day, :name, activator: "#activate_address_edit_#{day.id}", ok_button: "Save", ok_button_class: "small button success" %>
+        <%= best_in_place day, :name %>
       </td>
       <td>
-        <%= link_to("#", id: "activate_date_edit_#{day.id}") do %>
-          <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" title="Edit"></span>
-        <% end %>
-        <%= best_in_place day, :date, as: :date, activator: "#activate_date_edit_#{day.id}", ok_button: "Save", ok_button_class: "small button success" %>
+        
+        <%= best_in_place day, :date, as: :date %>
       </td>
       <td>
         <%= link_to(day_sub_events_path(event_id: @event.id, day_id: day.id)) do %>
@@ -28,5 +23,5 @@
     </tr>
   <% end %>  
 <% else %>
-  <div>"No days yet"</div>
+  <div class="no_days">"No days yet"</div>
 <% end %>
