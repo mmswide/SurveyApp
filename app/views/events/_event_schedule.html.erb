@@ -1,28 +1,38 @@
-<div class="col-md-12">
-	<% @event.days.each do |day| %>
-    	<% if day.persisted? %>
-    		<div class="page-header">
-        		<h1 id="timeline"><%= "#{day.name}" %></h1>
-    		</div>
-    		 <% day.sub_events.each do |subevent| %>
-			    <ul class="timeline">
-			        <li class="timeline-inverted">
-			          <div class="timeline-badge warning"></i></div>
-			          <div class="timeline-panel">
-			            <div class="timeline-heading">
-			          
-			              <h4 class="timeline-title"> <%= "#{subevent.hour.strftime(" %I:%M%p")}"%>
-			              	</br></br>
-			              <%= "#{subevent.description}" %>
-			              </h4>
-			            </div>
-			            <div class="timeline-body">
-			              <p></p>
-			            </div>
-			          </div>
-			        </li>
-			        <% end %>
-			    </ul>
-    	<% end %>
+<div class="row well">
+	<h3>Event Calendar</h3>
+	<hr>
+<!-- Navigation Buttons -->
+  	<div class="col-md-3">
+    	<ul class="nav nav-pills nav-stacked" id="myTabs">
+    		<% @event.days.each do |day| %>
+    			<% if day.persisted? %>
+      				<li><%= link_to day.name, day_path(day.name, :anchor => "day_#{day.id}") %></li>
+      			<%end%>
+         	<%end%>
+    	</ul>
+    </div>
+  <!-- Content -->
+  <div class="col-md-9">
+    <div class="tab-content">
+    	<% @event.days.each do |day| %>
+      		<%= div_for(day, class: "tab-pane") do |day| %>
+  				 <% day.sub_events.each do |subevent| %>
+  				<li> <%= "#{subevent.hour.strftime(" %I:%M%p")}"%> - <%= "#{subevent.description}" %> </li>
+  				  <% end %>
+			<% end %>
+		<% end %>
+    </div>
+  </div>
 </div>
-  <% end %>
+
+<!-- Enable the tabs -->
+<script type="text/javascript">
+  $('#myTabs a').click(function (e) {
+    e.preventDefault()
+    $(this).tab('show')
+  });
+</script>
+
+
+
+

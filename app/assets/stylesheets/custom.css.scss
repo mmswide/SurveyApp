@@ -12,6 +12,9 @@
 
 
 /* universal   */
+.container{
+  width:1400px;
+}
 body{
 }
 
@@ -390,13 +393,17 @@ input {
 }
 
 .nav-tabs > li.active > a,.nav-tabs > li.active > a:focus,.nav-tabs > li.active > a:hover {
-    border-width: 0;
+    border-width: 0; 
+}
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  color: #fff;
+  background-color: #1ca8dd;
 }
 
 .nav-tabs > li > a {
     border: none;
     color: #666;
-}
+  }
 
 .nav-tabs > li.active > a,.nav-tabs > li > a:hover {
     border: none;
@@ -467,7 +474,7 @@ input {
   background-color: #1ca8dd; 
 }
 .list-group{
-  height:1200px;
+  height: auto;
 }
 
 .navbar-nav > li > a.active{

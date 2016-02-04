@@ -5,9 +5,9 @@
 	 <%= active_link_to('View Tickets', event_tickets_path(@event), :class =>'list-group-item', active: [['tickets'], ['index']])%>
 	 <%= active_link_to('Create Ticket', new_event_ticket_path(@event) , :class =>'list-group-item', active: [['tickets'], ['new']] )%> 
 	 <h3 class ='tq'>Calendar</h3>
-     <%= active_link_to('Event Days',  event_days_path(@event), :class =>'list-group-item')%>
-     <%= link_to('Event Calendar', event_schedule_path(@event), :class =>'list-group-item')%>
-     <%= link_to('Workshop Calendar', event_classes_path(@event), :class =>'list-group-item')%>
+     <%= active_link_to('Edit Event Calendar',  event_days_path(@event), :class =>'list-group-item')%>
+     <%= active_link_to('View Event Calendar', event_schedule_path(@event), :class =>'list-group-item', active: [['events'], ['schedule']])%>
+     <%= link_to('View Workshop Calendar', event_classes_path(@event), :class =>'list-group-item')%>
      <h3 class ='tq'>stats</h3>
   	 <%= link_to('Revenue', {}, :class =>'list-group-item')%>
      <%= link_to('Attendees', {}, :class =>'list-group-item')%>
