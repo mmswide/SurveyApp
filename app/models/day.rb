@@ -7,4 +7,6 @@ class Day < ActiveRecord::Base
 
   validates :name, :date, presence: true
   
+  default_scope { order('days.created_at asc') } 
+
 end
