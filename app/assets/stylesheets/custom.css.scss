@@ -58,6 +58,9 @@ textarea {
    background-color: #1ca8dd; 
    color: whitesmoke;
 }
+.border{
+border: 1px solid #e3e3e3;
+}
 
 /* typography */
 
@@ -172,7 +175,7 @@ p {
 }
 .event-thumb{
   margin-top:50px;
-  margin-left: 55px;
+  margin-left: 66px;
   margin-bottom:50px;
 }
 /* Lounge Promo Box */
@@ -411,6 +414,12 @@ input {
     font-weight: bold;
     background: transparent;
 }
+.calendar-box{
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 40px !important;
+    }
 
 .nav-tabs > li > a::after {
     content: "";

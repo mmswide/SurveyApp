@@ -1,12 +1,12 @@
-<div class="row well">
+<div class="row">
 	<h3>Event Calendar</h3>
 	<hr>
 <!-- Navigation Buttons -->
-  	<div class="col-md-3">
-    	<ul class="nav nav-pills nav-stacked" id="myTabs">
+  	<div class=" col-md-3">
+    	<ul class="nav nav-pills nav-stacked border" id="myTabs">
     		<% @event.days.each do |day| %>
     			<% if day.persisted? %>
-      				<li><%= link_to day.name, day_path(day.name, :anchor => "day_#{day.id}") %></li>
+      				<li><%= link_to day.name, day_path(day.name, :anchor => "day_#{day.id}"),:class => 'calendar-box' %></li>
       			<%end%>
          	<%end%>
     	</ul>

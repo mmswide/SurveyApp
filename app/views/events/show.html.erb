@@ -38,9 +38,9 @@
           <td> <%= order.id %> </td>
           <td> <%= order.user.first_name %> <%= order.user.last_name %></td>
           <td> <%= number_to_currency(order.raw_price/100,  precision: 2) %></td>
-          <td> <%= order.entitlements.map { |e| e.ticket.ticket_name } %> </td>
-          <td> <%= order.entitlements.map { |e| e.first_name }  %> 
-           	   <%= order.entitlements.map { |e| e.last_name }  %>  </td>
+          <td> <%=order.entitlements.map { |e| e.ticket.ticket_name }.join(", ") %> </td>
+          <td> <%= order.entitlements.map { |e| e.first_name }.join(", ")  %> 
+           	   <%= order.entitlements.map { |e| e.last_name }.join(", ")  %>  </td>
       <% end %>
 	    </tbody>
 	  </table>
