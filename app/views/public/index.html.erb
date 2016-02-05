@@ -8,10 +8,10 @@
 		<div class="col-md-10 col-md-offset-1 event-box">
 		<!--event boxes-->
 		<% @events.each do |event| %>		
-			<div class = 'col-md-3 col-lg-offset-1 event-thumb'>
-				<img class='img-responsive' src="http://placehold.it/350x350">
-				<%= link_to(event.event_name, {:controller => 'public', 
-					:action => 'show', :event_url => event.event_url}) %> 
+			<div class = 'col-md-3  event-thumb border'>
+				 <%= image_tag(event.main_image.url(:medium), style: 'height:250px; width:338px; border-radius: 6px; margin-top: 10px;', :class => "img-responsive") %>
+				<center><h4><%= link_to(event.event_name, {:controller => 'public', 
+					:action => 'show', :event_url => event.event_url}) %> </h4> </center>
 			</div>	
 		<% end %>
 		</div>

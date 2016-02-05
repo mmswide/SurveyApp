@@ -23,7 +23,7 @@
       <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" style='font-size: 18px;'>About</a></li>
         <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" style='font-size: 18px;'>Artists</a></li>
-        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" style='font-size: 18px;'>Schedule</a></li>
+        <li role="presentation"><a href="#schedule" aria-controls="schedule" role="tab" data-toggle="tab" style='font-size: 18px;'>Schedule</a></li>
         <li role="presentation"><a href="#schedule" aria-controls="settings" role="tab" data-toggle="tab" style='font-size: 18px;'>Workshops</a></li>
         <li role="presentation"><a href="#tickets" aria-controls="settings" role="tab" data-toggle="tab" style='font-size: 18px;'>Tickets</a></li>
       </ul>
@@ -34,7 +34,9 @@
           <div class='col-md-10 col-md-offset-1 pt50'> <p><%= @event.description_long.try(:html_safe)  %> </p></div>
         </div>
         <div role="tabpanel" class="tab-pane" id="profile">Profile</div>
-        <div role="tabpanel" class="tab-pane" id="messages">Message</div>
+        <div role="tabpanel" class="tab-pane" id="schedule">
+         <%= render(:partial => 'events/event_schedule') %>
+        </div>
         <div role="tabpanel" class="tab-pane" id="settings">Settings</div>
         <div role="tabpanel" class="tab-pane" id="tickets">
 
