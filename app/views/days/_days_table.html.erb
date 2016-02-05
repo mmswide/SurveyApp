@@ -2,11 +2,10 @@
   <% @event.days.each do |day| %>
     <% next if day.new_record? %>
     <tr>
-      <td>
+      <td data-container="body" data-toggle="tooltip" data-placement="bottom" title="Click for editing">
         <%= best_in_place day, :name %>
       </td>
-      <td>
-        
+      <td data-container="body" data-toggle="tooltip" data-placement="bottom" title="Click for editing">
         <%= best_in_place day, :date, as: :date %>
       </td>
       <td>
