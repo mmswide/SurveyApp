@@ -1,0 +1,33 @@
+- provide(:title, "New Ticket")
+= render(:partial => 'shared/event_nav')
+.row
+  .panel-body.col-md-6.col-lg-offset-1
+    = simple_form_for @ticket, :url => {:action => 'create'} do |f|
+      .form-inline
+        = f.input :ticket_name, class: 'form-control', placeholder: "Ticket Name", label: false
+        .input-group.col-lg-3
+          %span.input-group-addon $
+          = f.text_field :ticket_price, class: 'form-control'
+          %span.input-group-addon USD
+        .input-group.col-lg-3
+          = f.text_field :quantity, class: 'form-control'
+          %span.input-group-addon Quantity
+        = f.hidden_field :event_id, :value => @event.id
+        .input-group.col-lg-2
+          = submit_tag("Create Ticket", class: "btn btn-primary")
+  .panel-body.col-md-6.col-lg-offset-1
+    %h2 Tickets
+    %table.table.table-bordered
+      %thead
+        %tr
+          %th Ticket Name
+          %th Ticket Price
+          %th Quanitity
+      %tbody
+      - @event.tickets.each do |ticket|
+        %tr
+          %td= ticket.ticket_name
+          %td= ticket.ticket_price
+          %td= ticket.quantity
+
+

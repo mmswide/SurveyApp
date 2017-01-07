@@ -27,6 +27,8 @@ gem 'pg',             '0.17.1'
 gem 'best_in_place', git: 'git://github.com/bernat/best_in_place.git'
 gem 'jquery-ui-rails'
 gem 'active_link_to'
+gem "haml"
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug',      '3.4.0'

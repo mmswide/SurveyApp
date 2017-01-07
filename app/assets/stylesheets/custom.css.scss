@@ -16,6 +16,7 @@
   width:1400px;
 }
 body{
+  padding-bottom: 200px;
 }
 
 section {
@@ -95,46 +96,9 @@ p {
   line-height: 1.7em;
 }
 
-.btn-primary{
-      background-color: #1ca8dd;
-      padding: 18px 10px;
-}
 
 /* header */
 
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-}
-.container-fluid{
-  height: 100px;
-}
-
-#logo:hover {
-  color: #fff;
-  text-decoration: none;
-}
-
-.navbar {
-  margin-bottom: 0px;
-}
-.navbar-collapse{
-  margin-top: 20px;
-}
-
-.navbar-default {
-   background-color: white; 
-   border-color: transparent;
-}
-.navbar-nav > li > a{
-  font-size:18px;
-}
 /* Home */
 .w-container {
     margin-left: auto;
@@ -332,17 +296,8 @@ aside {
 
 /* forms */
 
-input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 100%;
-  margin-bottom: 15px;
-  @include box_sizing;
-}
 select{
   height: 47px;
-}
-input {
-  height: auto !important;
 }
 
 #error_explanation {
@@ -367,9 +322,6 @@ input {
     margin-left: 20px;
     font-weight: normal;
   }
-}
-.form-control{
-    padding: 13px 12px;
 }
 
 #session_remember_me {
@@ -482,14 +434,6 @@ input {
 .list-group-item.active {
   background-color: #1ca8dd; 
 }
-.list-group{
-  height: auto;
-}
-
-.navbar-nav > li > a.active{
-  border-bottom: 3px solid #ff0052;
-}
-
 
 .tq {
     padding-left: 15px;
@@ -503,7 +447,7 @@ input {
     margin-top: 20px;
 }
 
-.list-group-item {
+.list-group-item-border {
   border: none;
 }
 

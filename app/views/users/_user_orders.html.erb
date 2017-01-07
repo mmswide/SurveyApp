@@ -23,7 +23,6 @@
           <% order.entitlements.each do |ordered_ticket| %>
             <tr>
             	<td><%= order.id %></td>
-              <td><%= order.event.event_name %></td>
               <td><%= ordered_ticket.ticket.ticket_name %></td>
               <td><%= "#{ordered_ticket.first_name} #{ordered_ticket.last_name}" %></td>
             </tr>

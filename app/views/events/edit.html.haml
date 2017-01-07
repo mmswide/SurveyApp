@@ -1,0 +1,26 @@
+- provide(:title, "Edit Event")
+= tinymce_assets
+= tinymce
+= render(:partial => 'shared/event_nav')
+.row
+  .col-md-7.col-lg-offset-1
+    / Rendering shared error template
+    = render 'shared/event_error_messages'
+    / Edit Basic Information
+    %center
+      %h3 Edit Basic Information
+    = simple_form_for @event, html: { multipart: true } do |f|
+      = f.input :event_name, class: "form-control", label: false, placeholder: "Event Name"
+      = f.input :event_url, class: "form-control", label: false
+      = f.input :description_short, label: "Short Description",class: "form-control", label: false
+      = f.input :venue_name, class: "form-control", label: false
+      = f.input :address_1, class: "form-control", label: false
+      = f.input :city, class: "form-control", label: false
+      = f.input :state, class: "form-control", label: false
+      = f.input :zip_code, class: "form-control", label: false
+      = f.button :submit, class: "btn btn-primary", label: false
+      / Description Information
+      %center
+        %h3 Edit Event Description
+      = f.text_area(:description_long, :class => 'tinymce')
+      = submit_tag("Save", class: "btn btn-primary")

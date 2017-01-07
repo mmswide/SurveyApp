@@ -1,9 +1,6 @@
 <!--Title of the event-->
 <% provide(:title, "Event Details") %>
-<!--Find me in the layout/event_overview_nav-->  
-<%= render(:partial => 'layouts/event_overview_nav')%>
-<h3 class='anw anx pt50'>Festival Overview</h3>
-<hr>
+<h3 class='anw anx pt50'>Events</h3>
 <!--Checking in the events are empty-->
 <% if @events.empty? %>
 	<div class="col-md-8 tbo">
@@ -13,7 +10,7 @@
  		<%= link_to('Create a Festival', new_event_path , :class =>'btn btn-primary event-button')%></center>
 	</div>
 <% else %>
-	<div class="col-md-8 well">
+	<div class="col-md-6">
 		<% @events.each do |event| %>
 		<h4><%= event.event_name %></br></h4>
 	<!--Checking if the user has permission to update link if not remove link-->	

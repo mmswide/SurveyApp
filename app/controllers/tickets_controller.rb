@@ -23,7 +23,7 @@ class TicketsController < ApplicationController
     @ticket.save
     if @ticket.save
       flash[:success] = "Ticket created successfully!!"
-      redirect_to event_tickets_path
+      redirect_to new_event_ticket_path
     else
       render('new')
     end
