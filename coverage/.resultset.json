@@ -1,14 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/var/www/sample_app/config/environment.rb": [
+      "/Users/frankavila/Desktop/french/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/var/www/sample_app/config/application.rb": [
+      "/Users/frankavila/Desktop/french/config/application.rb": [
         1,
         null,
         1,
@@ -36,12 +36,12 @@
         null,
         null
       ],
-      "/var/www/sample_app/config/boot.rb": [
+      "/Users/frankavila/Desktop/french/config/boot.rb": [
         1,
         null,
         1
       ],
-      "/var/www/sample_app/config/environments/test.rb": [
+      "/Users/frankavila/Desktop/french/config/environments/test.rb": [
         1,
         null,
         null,
@@ -90,7 +90,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/config/initializers/assets.rb": [
+      "/Users/frankavila/Desktop/french/config/initializers/assets.rb": [
         null,
         null,
         null,
@@ -103,7 +103,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/config/initializers/backtrace_silencers.rb": [
+      "/Users/frankavila/Desktop/french/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -113,18 +113,18 @@
         null,
         null
       ],
-      "/var/www/sample_app/config/initializers/cookies_serializer.rb": [
+      "/Users/frankavila/Desktop/french/config/initializers/cookies_serializer.rb": [
         null,
         null,
         1
       ],
-      "/var/www/sample_app/config/initializers/filter_parameter_logging.rb": [
+      "/Users/frankavila/Desktop/french/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/var/www/sample_app/config/initializers/inflections.rb": [
+      "/Users/frankavila/Desktop/french/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -142,18 +142,336 @@
         null,
         null
       ],
-      "/var/www/sample_app/config/initializers/mime_types.rb": [
+      "/Users/frankavila/Desktop/french/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/var/www/sample_app/config/initializers/session_store.rb": [
+      "/Users/frankavila/Desktop/french/config/initializers/session_store.rb": [
         null,
         null,
         1
       ],
-      "/var/www/sample_app/config/initializers/wrap_parameters.rb": [
+      "/Users/frankavila/Desktop/french/config/initializers/simple_form.rb": [
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/frankavila/Desktop/french/config/initializers/simple_form_bootstrap.rb": [
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/frankavila/Desktop/french/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -169,7 +487,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/spec/factories/days.rb": [
+      "/Users/frankavila/Desktop/french/spec/factories/days.rb": [
         1,
         1,
         1,
@@ -178,7 +496,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/spec/factories/entitlements.rb": [
+      "/Users/frankavila/Desktop/french/spec/factories/entitlements.rb": [
         1,
         1,
         1,
@@ -188,7 +506,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/spec/factories/events.rb": [
+      "/Users/frankavila/Desktop/french/spec/factories/events.rb": [
         1,
         1,
         1,
@@ -198,7 +516,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/spec/factories/orders.rb": [
+      "/Users/frankavila/Desktop/french/spec/factories/orders.rb": [
         1,
         1,
         1,
@@ -230,14 +548,14 @@
         null,
         null
       ],
-      "/var/www/sample_app/spec/factories/rooms.rb": [
+      "/Users/frankavila/Desktop/french/spec/factories/rooms.rb": [
         1,
         1,
         23,
         null,
         null
       ],
-      "/var/www/sample_app/spec/factories/sub_events.rb": [
+      "/Users/frankavila/Desktop/french/spec/factories/sub_events.rb": [
         1,
         1,
         1,
@@ -245,7 +563,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/spec/factories/tickets.rb": [
+      "/Users/frankavila/Desktop/french/spec/factories/tickets.rb": [
         1,
         1,
         1,
@@ -256,7 +574,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/spec/factories/users.rb": [
+      "/Users/frankavila/Desktop/french/spec/factories/users.rb": [
         1,
         1,
         199,
@@ -267,7 +585,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/spec/factories/workshops.rb": [
+      "/Users/frankavila/Desktop/french/spec/factories/workshops.rb": [
         1,
         1,
         5,
@@ -279,7 +597,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/config/routes.rb": [
+      "/Users/frankavila/Desktop/french/config/routes.rb": [
         1,
         null,
         1,
@@ -320,11 +638,11 @@
         null,
         null
       ],
-      "/var/www/sample_app/app/helpers/account_activations_helper.rb": [
+      "/Users/frankavila/Desktop/french/app/helpers/account_activations_helper.rb": [
         1,
         null
       ],
-      "/var/www/sample_app/app/helpers/application_helper.rb": [
+      "/Users/frankavila/Desktop/french/app/helpers/application_helper.rb": [
         1,
         1,
         0,
@@ -401,15 +719,15 @@
         null,
         null
       ],
-      "/var/www/sample_app/app/helpers/days_helper.rb": [
+      "/Users/frankavila/Desktop/french/app/helpers/days_helper.rb": [
         1,
         null
       ],
-      "/var/www/sample_app/app/helpers/events_helper.rb": [
+      "/Users/frankavila/Desktop/french/app/helpers/events_helper.rb": [
         1,
         null
       ],
-      "/var/www/sample_app/app/helpers/orders_helper.rb": [
+      "/Users/frankavila/Desktop/french/app/helpers/orders_helper.rb": [
         1,
         1,
         0,
@@ -429,19 +747,19 @@
         null,
         null
       ],
-      "/var/www/sample_app/app/helpers/password_resets_helper.rb": [
+      "/Users/frankavila/Desktop/french/app/helpers/password_resets_helper.rb": [
         1,
         null
       ],
-      "/var/www/sample_app/app/helpers/public_helper.rb": [
+      "/Users/frankavila/Desktop/french/app/helpers/public_helper.rb": [
         1,
         null
       ],
-      "/var/www/sample_app/app/helpers/rooms_helper.rb": [
+      "/Users/frankavila/Desktop/french/app/helpers/rooms_helper.rb": [
         1,
         null
       ],
-      "/var/www/sample_app/app/helpers/sessions_helper.rb": [
+      "/Users/frankavila/Desktop/french/app/helpers/sessions_helper.rb": [
         1,
         null,
         null,
@@ -463,8 +781,8 @@
         null,
         null,
         1,
+        27,
         23,
-        19,
         4,
         0,
         0,
@@ -505,28 +823,28 @@
         null,
         null
       ],
-      "/var/www/sample_app/app/helpers/static_pages_helper.rb": [
+      "/Users/frankavila/Desktop/french/app/helpers/static_pages_helper.rb": [
         1,
         null
       ],
-      "/var/www/sample_app/app/helpers/sub_events_helper.rb": [
+      "/Users/frankavila/Desktop/french/app/helpers/sub_events_helper.rb": [
         1,
         null
       ],
-      "/var/www/sample_app/app/helpers/tickets_helper.rb": [
+      "/Users/frankavila/Desktop/french/app/helpers/tickets_helper.rb": [
         1,
         null
       ],
-      "/var/www/sample_app/app/helpers/users_helper.rb": [
+      "/Users/frankavila/Desktop/french/app/helpers/users_helper.rb": [
         1,
         null,
         null
       ],
-      "/var/www/sample_app/app/helpers/workshops_helper.rb": [
+      "/Users/frankavila/Desktop/french/app/helpers/workshops_helper.rb": [
         1,
         null
       ],
-      "/var/www/sample_app/app/controllers/days_controller.rb": [
+      "/Users/frankavila/Desktop/french/app/controllers/days_controller.rb": [
         1,
         1,
         0,
@@ -553,7 +871,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/app/controllers/application_controller.rb": [
+      "/Users/frankavila/Desktop/french/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -565,6 +883,10 @@
         null,
         null,
         1,
+        7,
+        null,
+        null,
+        1,
         null,
         null,
         1,
@@ -572,12 +894,11 @@
         0,
         0,
         0,
-        null,
         null,
         null,
         null
       ],
-      "/var/www/sample_app/spec/controllers/orders_controller_spec.rb": [
+      "/Users/frankavila/Desktop/french/spec/controllers/orders_controller_spec.rb": [
         1,
         null,
         1,
@@ -679,9 +1000,11 @@
         null,
         null
       ],
-      "/var/www/sample_app/app/controllers/orders_controller.rb": [
+      "/Users/frankavila/Desktop/french/app/controllers/orders_controller.rb": [
         1,
         1,
+        1,
+        null,
         1,
         null,
         null,
@@ -711,6 +1034,7 @@
         4,
         4,
         4,
+        4,
         null,
         0,
         0,
@@ -751,7 +1075,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/spec/controllers/rooms_controller_spec.rb": [
+      "/Users/frankavila/Desktop/french/spec/controllers/rooms_controller_spec.rb": [
         1,
         null,
         1,
@@ -869,7 +1193,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/app/controllers/rooms_controller.rb": [
+      "/Users/frankavila/Desktop/french/app/controllers/rooms_controller.rb": [
         1,
         1,
         1,
@@ -913,7 +1237,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/spec/controllers/sub_events_controller_spec.rb": [
+      "/Users/frankavila/Desktop/french/spec/controllers/sub_events_controller_spec.rb": [
         1,
         null,
         1,
@@ -1031,7 +1355,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/app/controllers/sub_events_controller.rb": [
+      "/Users/frankavila/Desktop/french/app/controllers/sub_events_controller.rb": [
         1,
         1,
         1,
@@ -1080,7 +1404,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/spec/controllers/workshops_controller_spec.rb": [
+      "/Users/frankavila/Desktop/french/spec/controllers/workshops_controller_spec.rb": [
         1,
         null,
         1,
@@ -1199,7 +1523,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/app/controllers/workshops_controller.rb": [
+      "/Users/frankavila/Desktop/french/app/controllers/workshops_controller.rb": [
         1,
         1,
         1,
@@ -1244,7 +1568,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/spec/helpers/days_helper_spec.rb": [
+      "/Users/frankavila/Desktop/french/spec/helpers/days_helper_spec.rb": [
         1,
         null,
         null,
@@ -1261,7 +1585,7 @@
         1,
         null
       ],
-      "/var/www/sample_app/spec/helpers/rooms_helper_spec.rb": [
+      "/Users/frankavila/Desktop/french/spec/helpers/rooms_helper_spec.rb": [
         1,
         null,
         null,
@@ -1278,7 +1602,7 @@
         1,
         null
       ],
-      "/var/www/sample_app/spec/helpers/sub_events_helper_spec.rb": [
+      "/Users/frankavila/Desktop/french/spec/helpers/sub_events_helper_spec.rb": [
         1,
         null,
         null,
@@ -1295,7 +1619,7 @@
         1,
         null
       ],
-      "/var/www/sample_app/spec/helpers/workshops_helper_spec.rb": [
+      "/Users/frankavila/Desktop/french/spec/helpers/workshops_helper_spec.rb": [
         1,
         null,
         null,
@@ -1312,7 +1636,7 @@
         1,
         null
       ],
-      "/var/www/sample_app/spec/models/day_spec.rb": [
+      "/Users/frankavila/Desktop/french/spec/models/day_spec.rb": [
         1,
         null,
         1,
@@ -1327,7 +1651,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/app/models/day.rb": [
+      "/Users/frankavila/Desktop/french/app/models/day.rb": [
         1,
         1,
         1,
@@ -1336,10 +1660,12 @@
         1,
         null,
         1,
+        null,
+        82,
         null,
         null
       ],
-      "/var/www/sample_app/spec/models/order_spec.rb": [
+      "/Users/frankavila/Desktop/french/spec/models/order_spec.rb": [
         1,
         null,
         1,
@@ -1456,7 +1782,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/app/models/order.rb": [
+      "/Users/frankavila/Desktop/french/app/models/order.rb": [
         1,
         1,
         1,
@@ -1539,7 +1865,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/spec/models/room_spec.rb": [
+      "/Users/frankavila/Desktop/french/spec/models/room_spec.rb": [
         1,
         null,
         1,
@@ -1552,7 +1878,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/app/models/room.rb": [
+      "/Users/frankavila/Desktop/french/app/models/room.rb": [
         1,
         1,
         1,
@@ -1560,7 +1886,7 @@
         1,
         null
       ],
-      "/var/www/sample_app/spec/models/sub_event_spec.rb": [
+      "/Users/frankavila/Desktop/french/spec/models/sub_event_spec.rb": [
         1,
         null,
         1,
@@ -1573,7 +1899,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/app/models/sub_event.rb": [
+      "/Users/frankavila/Desktop/french/app/models/sub_event.rb": [
         1,
         1,
         null,
@@ -1582,7 +1908,7 @@
         40,
         null
       ],
-      "/var/www/sample_app/spec/models/workshop_spec.rb": [
+      "/Users/frankavila/Desktop/french/spec/models/workshop_spec.rb": [
         1,
         null,
         1,
@@ -1596,14 +1922,14 @@
         null,
         null
       ],
-      "/var/www/sample_app/app/models/workshop.rb": [
+      "/Users/frankavila/Desktop/french/app/models/workshop.rb": [
         1,
         1,
         null,
         1,
         null
       ],
-      "/var/www/sample_app/app/models/user.rb": [
+      "/Users/frankavila/Desktop/french/app/models/user.rb": [
         1,
         1,
         1,
@@ -1698,7 +2024,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/app/models/ticket.rb": [
+      "/Users/frankavila/Desktop/french/app/models/ticket.rb": [
         1,
         1,
         1,
@@ -1724,7 +2050,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/app/models/event.rb": [
+      "/Users/frankavila/Desktop/french/app/models/event.rb": [
         1,
         1,
         1,
@@ -1757,7 +2083,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/app/models/entitlement.rb": [
+      "/Users/frankavila/Desktop/french/app/models/entitlement.rb": [
         1,
         1,
         1,
@@ -1774,7 +2100,7 @@
         null,
         null
       ],
-      "/var/www/sample_app/app/models/order_transaction.rb": [
+      "/Users/frankavila/Desktop/french/app/models/order_transaction.rb": [
         1,
         1,
         1,
@@ -1791,8 +2117,35 @@
         0,
         null,
         null
+      ],
+      "/Users/frankavila/Desktop/french/app/mailers/user_mailer.rb": [
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        4,
+        4,
+        4,
+        null,
+        null,
+        null
+      ],
+      "/Users/frankavila/Desktop/french/app/mailers/application_mailer.rb": [
+        1,
+        1,
+        1,
+        null
       ]
     },
-    "timestamp": 1454511706
+    "timestamp": 1484019072
   }
 }

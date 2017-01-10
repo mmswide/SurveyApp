@@ -4,9 +4,9 @@
   = active_link_to('Edit Event', edit_event_path(@event.id), :class =>'list-group-item', active: [['events'], ['edit']])
   = active_link_to('Tickets', new_event_ticket_path(@event) , :class =>'list-group-item', active: [['tickets'], ['new']] )
   %h3.tq Calendar
-  = active_link_to('Edit Event Calendar',  event_days_path(@event), :class =>'list-group-item')
-  = active_link_to('View Event Calendar', event_schedule_path(@event), :class =>'list-group-item', active: [['events'], ['schedule']])
-  = link_to('View Workshop Calendar', event_classes_path(@event), :class =>'list-group-item')
+  = active_link_to('Days',  event_days_path(@event), :class =>'list-group-item')
+  = active_link_to('Edit Event Calendar', event_schedule_path(@event), :class =>'list-group-item', active: [['events'], ['schedule']])
+  = link_to('Edit Workshop Calendar', event_classes_path(@event), :class =>'list-group-item')
   %h3.tq Orders
   = link_to('Revenue', {}, :class =>'list-group-item')
   = link_to('Attendees', {}, :class =>'list-group-item')

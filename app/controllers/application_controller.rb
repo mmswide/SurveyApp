@@ -8,15 +8,18 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, :alert => 'Notice: You do not have permissions to view that page'
   end
 
-  private
-
-      # Confirms a logged-in user.
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
+  def disable_nav
+    @disable_nav = true
   end
 
+  private
+
+  # Confirms a logged-in user.
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end
+  end
 end

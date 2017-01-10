@@ -1,5 +1,4 @@
 - provide(:title, "New Ticket")
-= render(:partial => 'shared/event_nav')
 .row
   .panel-body.col-md-6.col-lg-offset-1
     = simple_form_for @ticket, :url => {:action => 'create'} do |f|
