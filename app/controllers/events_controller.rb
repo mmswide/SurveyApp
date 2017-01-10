@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :logged_in_user
+  before_filter :disable_nav, only: :index
   
   def index
    @user = current_user

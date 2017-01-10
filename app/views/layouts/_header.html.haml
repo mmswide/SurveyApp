@@ -1,0 +1,33 @@
+/ Another Navigation
+%nav.navbar.navbar-default
+  .container-fluid
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      /Create an event action to be added
+      = active_link_to('Create Event', new_event_path , :class =>'button btn btn-default navbar-btn pull-right')
+      %ul.nav.navbar-nav
+        %ul.nav.navbar-nav.navbar-left
+          - if logged_in?
+            %li= active_link_to("My Events", events_path, active: [['events', 'tickets', 'days'],[]])
+            %li= active_link_to "Profile", current_user, active: [['users'],[]]
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                = current_user.first_name
+                %b.caret
+              %ul.dropdown-menu
+                %li= link_to "Edit Profile", edit_user_path(current_user)
+                %li.divider
+                %li
+                  = link_to "Log out", logout_path, method: "delete"
+          - else
+            %li= link_to "Log in", login_path
+            %li= link_to "Sign up", :controller => 'users', :action => 'new'
+    / /.navbar-collapse
+  / /.container-fluid

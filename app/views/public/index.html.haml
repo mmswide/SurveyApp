@@ -1,0 +1,7 @@
+.row
+	.col-md-3
+		- @events.each do |event|
+			%ul.list-group
+				%li.list-group-item
+					= link_to(event.event_name, {:controller => 'public', |
+       :action => 'show', :event_url => event.event_url})  |

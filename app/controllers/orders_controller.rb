@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   before_action :straighten_out_ticket_hash, only: :new
   before_action :sign_up_user, only: :new
+  #disabeling dashboard navigation bar for this action
+  before_filter :disable_nav, only: :new
 
   #sending tickets hash from form to the model for checking if there is enough tickets
   #building nested fields(order_tickets) for each ordered ticket
