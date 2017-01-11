@@ -96,5 +96,51 @@ RSpec.describe OrdersController, type: :controller do
       expect(response).to render_template('new')
     end
   end
+
+  describe 'Orders with applied coupons' do
+      
+    before :example do
+      post_order
+    end
+
+    before :context do
+      @coupon = FactoryGirl.create(:coupon)
+    end
+    
+    context 'with percent type' do
+      it 'saves the order to the database with coupon reference' do
+        expect(Order.last.coupon.present?).to be_truthy
+      end
+
+      it 'set correct discounted order value' do
+        ticket_price_cents = (@ticket.ticket_price.to_f.round(2)*100).to_i
+        discount_cents = @coupon.discount_cents(ticket_price_cents)
+        expect(Order.last.raw_price).to eql ticket_price_cents - discount_cents
+      end
+    end
+
+    before :context do
+      @coupon = FactoryGirl.create(:coupon, discount_type: 'fixed_amount', discount_amount_cents: 500)
+    end
+
+    context 'with fixed_amount type' do
+      it 'set correct discounted order value' do
+        ticket_price_cents = (@ticket.ticket_price.to_f.round(2)*100).to_i
+        discount_cents = @coupon.discount_cents(ticket_price_cents)
+        expect(Order.last.raw_price).to eql ticket_price_cents - discount_cents
+      end
+    end
+
+    def post_order
+      @event = create(:event)
+      @ticket = FactoryGirl.create(:ticket, event: @event)
+      post :create, order: attributes_for(
+        :order, 
+        event_id: @event.id, 
+        coupon_id: @coupon.id,
+        entitlements_attributes: {"0"=>{"first_name"=>"Test", "last_name"=>"Last", "email"=>"em@em.com", "ticket_id"=>@ticket.id}}
+      ) 
+    end
+  end    
 end
 

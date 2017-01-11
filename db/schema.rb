@@ -11,10 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160203091502) do
+ActiveRecord::Schema.define(version: 20170111075336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
+
+  create_table "coupons", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "quantity",              default: 1
+    t.boolean  "active",                default: true
+    t.string   "code"
+    t.string   "discount_type",         default: "fixed_amount"
+    t.integer  "discount_amount_cents"
+    t.integer  "discount_percentage"
+    t.date     "expiration"
+    t.string   "description"
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+  end
+
+  add_index "coupons", ["event_id"], name: "index_coupons_on_event_id", using: :btree
 
   create_table "days", force: :cascade do |t|
     t.integer  "event_id"
@@ -33,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160203091502) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "description"
+    t.integer  "event_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -93,7 +111,10 @@ ActiveRecord::Schema.define(version: 20160203091502) do
     t.integer  "total_price"
     t.string   "ip_address"
     t.integer  "event_id"
+    t.integer  "coupon_id"
   end
+
+  add_index "orders", ["coupon_id"], name: "index_orders_on_coupon_id", using: :btree
 
   create_table "rooms", force: :cascade do |t|
     t.string   "name"
@@ -159,4 +180,5 @@ ActiveRecord::Schema.define(version: 20160203091502) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "orders", "coupons"
 end

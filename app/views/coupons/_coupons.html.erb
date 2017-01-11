@@ -1,0 +1,41 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Quantity</th>
+      <th>Used</th>
+      <th>Active?</th>
+      <th>Valid?</th>
+      <th>Expiration</th>
+      <th>Type</th>
+      <th>Value</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% coupons.where.not(id: nil).each do |coupon| %>
+      <tr>
+        <td><%= coupon.code %></td>
+        <td><%= coupon.quantity %></td>
+        <td><%= coupon.used %></td>
+        <td><%= coupon.active ? 'Yes' : 'No' %></td>
+        <td><%= coupon.is_valid? ? 'Yes' : 'No' %></td>
+        <td><%= coupon.expiration %></td>
+        <td><%= coupon.discount_type.humanize %></td>
+        <td>
+          <% if coupon.fixed_amount? %>
+            $<%= coupon.amount %>
+          <% else %>
+            <%= coupon.discount_percentage %>%
+          <% end %>
+        </td>
+        <td><%= coupon.description %></td>
+        <td>
+          <%= link_to 'Edit', edit_event_coupon_path(coupon.event, coupon) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

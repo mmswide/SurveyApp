@@ -11,6 +11,13 @@
   <% sum += (ticket.ticket_price * quantity.to_i) %> 
   <% end %>
 <center>
-  fee: <%= number_to_currency(count_fee(sum)) %>
-  total: <%= number_to_currency(total(sum)) %>
+  fee: <%= number_to_currency(count_fee(sum)) %><br>
+  <% if @order.coupon.present? %>
+    Discount applied: 
+    <% discount = @order.coupon.discount_cents(total(sum)*100)/100 %>
+    <%= number_to_currency discount %><br>
+    total: <%= number_to_currency(total(sum)-discount) %>
+  <% else %>
+    total: <%= number_to_currency(total(sum)) %>
+  <% end %>
 </center>
