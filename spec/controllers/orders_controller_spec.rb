@@ -99,12 +99,12 @@ RSpec.describe OrdersController, type: :controller do
 
   describe 'Orders with applied coupons' do
       
-    before :example do
+    before :each do
       post_order
     end
 
     before :context do
-      @coupon = FactoryGirl.create(:coupon)
+      @coupon = FactoryGirl.create(:coupon, code: '1234')
     end
     
     context 'with percent type' do
@@ -120,7 +120,7 @@ RSpec.describe OrdersController, type: :controller do
     end
 
     before :context do
-      @coupon = FactoryGirl.create(:coupon, discount_type: 'fixed_amount', discount_amount_cents: 500)
+      @coupon = FactoryGirl.create(:coupon, discount_type: 'fixed_amount', discount_amount_cents: 500, code: '123')
     end
 
     context 'with fixed_amount type' do

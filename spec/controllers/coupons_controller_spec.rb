@@ -4,11 +4,12 @@ RSpec.describe CouponsController, type: :controller do
 
   let(:event){FactoryGirl.create(:event)}
   let(:valid_attributes) {
-    { description: 'Some description', 
-      quantity: "1", 
-      active: "1", 
-      discount_type: "percents", 
-      discount: 50, 
+    { description: 'Some description',
+      code: '123controller',
+      quantity: "1",
+      active: "1",
+      discount_type: "percents",
+      discount: 50,
       expiration: "2017-1-11"
     }
   }

@@ -2,12 +2,16 @@ class Coupon < ActiveRecord::Base
   belongs_to  :user
   belongs_to  :event
   has_many    :orders
-  
-  before_create     :generate_code
+
   before_validation :set_discount_value, if: :discount
 
+  COUPON_FORMAT = /\A[a-zA-Z\d]*\Z/  # only letters and numbers
+
   validates :code, uniqueness: true
-  validates :quantity, presence: true
+  validates :quantity, :code, presence: true
+  validates :code, format: {  with: COUPON_FORMAT, 
+                              message:  'No special characters, 
+                                        only letters and numbers' }
   validates :discount_amount_cents, numericality: { greater_than: 0}, 
                                                     allow_blank: true
   validates :discount_percentage,   numericality: { greater_than: 0, 
@@ -40,11 +44,6 @@ class Coupon < ActiveRecord::Base
   end
 
   private
-
-  def generate_code
-    self.code = SecureRandom.hex 4
-    generate_code if Coupon.exists?(code: code)
-  end
 
   def set_discount_value
     if fixed_amount?

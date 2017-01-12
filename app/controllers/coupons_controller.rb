@@ -81,6 +81,7 @@ class CouponsController < ApplicationController
                                       :active,
                                       :discount_type,
                                       :discount,
-                                      :expiration)
+                                      :expiration,
+                                      :code)
     end
 end

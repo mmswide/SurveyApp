@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :coupon do
     quantity            30
+    code                'test123'
     active              true
     discount_type       'percents'
     discount_percentage 30

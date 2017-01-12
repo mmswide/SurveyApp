@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "coupons/index", type: :view do
   before(:each) do
     assign(:coupons, [
-      Coupon.create!(),
-      Coupon.create!()
+      Coupon.create!(code: '123views'),
+      Coupon.create!(code: '456views')
     ])
   end
 
