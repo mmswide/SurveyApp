@@ -15,7 +15,6 @@ class CouponsController < ApplicationController
 
   # GET /coupons/new
   def new
-    @coupons = @event.coupons
     @coupon = @event.coupons.new
   end
 
@@ -72,6 +71,7 @@ class CouponsController < ApplicationController
 
     def set_event
       @event = Event.find(params[:event_id])
+      @coupons = @event.coupons
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

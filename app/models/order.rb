@@ -73,9 +73,8 @@ class Order < ActiveRecord::Base
       ticket_price += ordered_ticket.ticket.ticket_price
     end
     raw_price_in_cents = (ticket_price * 100).round 
-    raw_price_in_cents -= discount(raw_price_in_cents)
-    raw_price_in_cents = 0 if raw_price_in_cents < 0
     fee = (raw_price_in_cents * Order::PROCENT_FEE + Order::CENTS_FEE).round
+    raw_price_in_cents -= discount(raw_price_in_cents)
     total_price_in_cents = (raw_price_in_cents + fee).round
     self.update_column(:fee, fee)
     self.update_column(:raw_price, raw_price_in_cents)

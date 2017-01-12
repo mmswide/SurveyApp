@@ -10,7 +10,7 @@ class Coupon < ActiveRecord::Base
   validates :code, uniqueness: true
   validates :quantity, :code, presence: true
   validates :code, format: {  with: COUPON_FORMAT, 
-                              message:  'No special characters, 
+                              message:  'no special characters allowed, 
                                         only letters and numbers' }
   validates :discount_amount_cents, numericality: { greater_than: 0}, 
                                                     allow_blank: true
@@ -33,7 +33,7 @@ class Coupon < ActiveRecord::Base
 
   def discount_cents(for_value_cents)
     if fixed_amount?
-      discount_amount_cents
+      discount_amount_cents > for_value_cents ? for_value_cents : discount_amount_cents
     else
       (for_value_cents*discount_percentage/100).to_i
     end
