@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+  layout :resolve_layout
   def new
     
   end
@@ -26,5 +26,17 @@ class SessionsController < ApplicationController
    def destroy
     log_out if logged_in?
     redirect_to root_url
+  end
+   
+   
+private
+
+  def resolve_layout
+    case action_name
+    when "new", "create"
+      "welcome"
+    else
+      "application"
+    end
   end
 end
