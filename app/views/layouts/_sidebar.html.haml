@@ -1,0 +1,29 @@
+.page-sidebar-inner.slimscroll
+  %ul.menu.accordion-menu
+    %li
+      %a.waves-effect.waves-button{:href => "#{events_path}"}
+        %span.menu-icon.icon-music-tone-alt
+        %p Events
+        %span
+    %li
+      %a.waves-effect.waves-button{:href => "#{new_event_path}"}
+        %span.menu-icon.icon-plus
+        %p Create Event
+        %span      
+    %li
+      %a.waves-effect.waves-button{:href => "/"}
+        %span.menu-icon.icon-magnifier
+        %p Find a Festival
+    %li.droplink
+      %a.waves-effect.waves-button{:href => "#"}
+        %span.menu-icon.icon-envelope-open
+        %p Mailbox
+        %span.arrow
+      %ul.sub-menu
+        %li
+          %a{:href => "inbox.html"} Inbox
+        %li
+          %a{:href => "message-view.html"} View Message
+        %li
+          %a{:href => "compose.html"} Compose
+    

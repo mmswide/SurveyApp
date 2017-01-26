@@ -1,5 +1,5 @@
 class PublicController < ApplicationController
-
+  layout 'welcome'
   before_action :set_navigation
  
   def index

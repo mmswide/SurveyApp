@@ -18,12 +18,29 @@
 //= require turbolinks
 //= require tinymce-jquery
 //= require cocoon
-//= require smart_listing
 //= require jquery.sortable
 //= require jquery.purr
 //= require best_in_place
 //= require best_in_place.jquery-ui
 //= require best_in_place.purr
+//= require pace-master/pace.min
+//= require jquery-blockui/jquery.blockui
+//= require jquery-slimscroll/jquery.slimscroll.min
+//= require switchery/switchery.min
+//= require uniform/js/jquery.uniform.standalone
+//= require offcanvasmenueffects/js/classie
+//= require waves/waves.min
+//= require 3d-bold-navigation/js/modernizr
+//= require 3d-bold-navigation/js/main
+//= require waypoints/jquery.waypoints.min
+//= require toastr/toastr.min
+//= require flot/jquery.flot.min
+//= require flot/jquery.flot.time.min
+//= require flot/jquery.flot.symbol.min
+//= require flot/jquery.flot.resize.min
+//= require flot/jquery.flot.tooltip.min
+//= require curvedlines/curvedLines
+//= require meteor
 //= require_tree .
 
 $(document).ready(function(){

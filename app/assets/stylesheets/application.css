@@ -10,8 +10,22 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require custom
  *= require jquery-ui/datepicker
- *= require_tree .
+ *= require pace-master/themes/blue/pace-theme-flash
+ *= require uniform/css/default
+ *= require bootstrap/css/bootstrap.min
+ *= require font-awesome
+ *= require simple-line-icons
+ *= require offcanvasmenueffects/css/menu_cornerbox
+ *= require waves/waves.min 
+ *= require switchery/switchery.min
+ *= require 3d-bold-navigation/css/style
+ *= require slidepushmenus/css/component
+ *= require weather-icons-master/css/weather-icons.min
+ *= require toastr/toastr.min
+ *= require meteor
+ *= require layers/dark-layer
  *= require_self
  */
 

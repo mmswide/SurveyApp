@@ -1,14 +1,19 @@
 <% provide(:title, "New Event") %>
-<h3 class='anw anx pt50'>New Festival</h3>
+
 <hr>
 <div class="row">
-  <div class="col-md-6 col-md-offset-1 well">
-  	<%= render 'shared/event_error_messages' %>
+  <div class="col-md-6 col-md-offset-1">
+    <div class="panel panel-white">
+      <div class="panel-heading clearfix">  <h3 class='anw anx pt50'>New Festival</h3></div>
+      <div class="panel-body">
+      <%= render 'shared/event_error_messages' %>
     <%= form_for(:event, :url => {:action => 'create'}) do |f| %>
     <!--This template is shared by the new and create action-->
     <%= render(:partial => 'shared/event_form', :locals => {:f => f}) %>
     <%= submit_tag("Create Event", class: "btn btn-primary") %>
     <% end %>
+  </div>
+  </div>
   </div>
 </div>
 
