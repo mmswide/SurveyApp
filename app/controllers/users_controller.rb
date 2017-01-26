@@ -5,6 +5,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.includes(orders: [ entitlements: [:ticket] ]).find_by(id: params[:id])
+    @subscription = Subscription.new
+    @stripe_list = Stripe::Plan.all
+    @plans = @stripe_list[:data]
   end
 
   def new

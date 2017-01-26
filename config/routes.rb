@@ -36,4 +36,7 @@ Rails.application.routes.draw do
     get 'classes' => 'events#classes'
   end
 
+  #subscribe
+  post 'subscribe' => 'subscription#create'
+  post 'subscription_checkout' => 'subscription#subscription_checkout'
 end

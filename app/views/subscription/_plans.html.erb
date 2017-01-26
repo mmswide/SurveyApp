@@ -1,0 +1,25 @@
+<div class="plan-container">
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-2">
+        <div class="each-plan">
+          <h1> Free </h1>
+        </div>
+      </div>
+      <% plans.each do |plan| %>
+          <div class="col-sm-3 col-sm-offset-1">
+            <div class="each-plan">
+              <div class="name">
+                <h1><%=plan[:name]%></h1>
+              </div>
+              <div class="amount">
+                $<%= plan[:amount]/100 %>/month
+              </div>
+              <%= form_tag('/subscription_checkout', {method: :post, plan: plan}) do %>
+                <%= text_field_tag :plan_id, params[:plan_id] , type: "hidden", value: plan[:id] %>
+                <script class="stripe-button" data-amount="<%= (plan[:amount]) %>" data-currency="<%= plan[:currency] %>" data-email="customer@example.com" data-image="/assets/sitepoint.png" data-key="<%= Rails.configuration.stripe[:publishable_key] %>" src="https://checkout.stripe.com/checkout.js"></script>
+              <% end %>
+            </div>
+          </div>
+      <% end %>
+    </div>
+</div>

@@ -29,6 +29,7 @@ gem 'jquery-ui-rails'
 gem 'active_link_to'
 gem "haml"
 gem 'simple_form'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :development, :test do
   gem 'byebug',      '3.4.0'
