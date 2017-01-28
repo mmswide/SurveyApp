@@ -1,7 +1,17 @@
-- provide(:title, "Event Details")
-/ Event dashboard navigation
-.col-md-9
-  / Basic Event Information
+- provide(:title, "Event")
+.page-inner
+  .page-title
+    %h3.breadcrumb-header
+      = current_user.first_name
+    .page-breadcrumb
+      %ol.breadcrumb.breadcrumb-with-header
+        %li
+          = link_to "Home", root_path
+        %li
+          = link_to "All Events", events_path
+        %li.active Event Details
+        %li
+          = link_to "Tickets",  new_event_ticket_path(@event.id)
   .row
     .well.col-md-3.col-sm-offset-1{:style => "height:200px; margin-right:20px;"}
       Orders
@@ -16,30 +26,31 @@
     .well.col-md-3{:style => "height:200px; margin-right:20px;"}
       Attendees
       %center
-  .row
-    %h2 Purchases
-  .tbo
-    .table-responsive
-      %table.table.table-hover
-        %thead
+/ 
+.row
+  %h2 Purchases
+.tbo
+  .table-responsive
+    %table.table.table-hover
+      %thead
+        %tr
+          %th Invoice #
+          %th Buyers Name
+          %th Amount
+          %th Ticket Name
+          %th Entitled Name
+      %tbody
+        - @orders.each do |order|
           %tr
-            %th Invoice #
-            %th Buyers Name
-            %th Amount
-            %th Ticket Name
-            %th Entitled Name
-        %tbody
-          - @orders.each do |order|
-            %tr
-              %td
-                = order.id
-              %td
-                = order.user.first_name
-                = order.user.last_name
-              %td
-                = number_to_currency(order.raw_price/100,  precision: 2)
-              %td
-                = order.entitlements.map { |e| e.ticket.ticket_name }.join(", ")
-              %td
-                = order.entitlements.map { |e| e.first_name }.join(", ")
-                = order.entitlements.map { |e| e.last_name }.join(", ")
+            %td
+              = order.id
+            %td
+              = order.user.first_name
+              = order.user.last_name
+            %td
+              = number_to_currency(order.raw_price/100,  precision: 2)
+            %td
+              = order.entitlements.map { |e| e.ticket.ticket_name }.join(", ")
+            %td
+              = order.entitlements.map { |e| e.first_name }.join(", ")
+              = order.entitlements.map { |e| e.last_name }.join(", ")
