@@ -12,6 +12,10 @@
         %li.active Event Details
         %li
           = link_to "Tickets",  new_event_ticket_path(@event.id)
+        %li
+          = link_to "Coupons",  "#"
+        %li
+          = link_to "Schedule",  new_event_ticket_path(@event.id)
   .row
     .well.col-md-3.col-sm-offset-1{:style => "height:200px; margin-right:20px;"}
       Orders
