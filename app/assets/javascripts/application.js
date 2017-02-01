@@ -41,6 +41,7 @@
 //= require flot/jquery.flot.tooltip.min
 //= require curvedlines/curvedLines
 //= require meteor
+//= require custom
 //= require_tree .
 
 $(document).ready(function(){
