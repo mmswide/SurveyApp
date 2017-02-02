@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       end
     end
     resources :tickets
+    resources :coupons
     get 'schedule' => 'events#schedule'
     get 'classes' => 'events#classes'
   end

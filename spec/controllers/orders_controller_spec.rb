@@ -96,5 +96,99 @@ RSpec.describe OrdersController, type: :controller do
       expect(response).to render_template('new')
     end
   end
+
+  describe 'Orders with applied coupons' do
+      
+    before :each do
+      post_order
+    end
+
+    before :context do
+      @coupon = FactoryGirl.create(:coupon, code: '1234')
+    end
+    
+    context 'with percent type' do
+      it 'saves the order to the database with coupon reference' do
+        expect(Order.last.coupon.present?).to be_truthy
+      end
+
+      it 'set correct discounted order value' do
+        ticket_price_cents = (@ticket.ticket_price.to_f.round(2)*100).to_i
+        discount_cents = @coupon.discount_cents(ticket_price_cents)
+        expect(Order.last.raw_price).to eql ticket_price_cents - discount_cents
+      end
+    end
+
+    before :context do
+      @coupon = FactoryGirl.create(:coupon, discount_percentage: 100, code: '100percents')
+    end
+    
+    context 'with percent type and 100% value' do
+      it 'saves the order to the database with coupon reference' do
+        expect(Order.last.coupon.present?).to be_truthy
+      end
+
+      it 'set correct discounted order raw_price value to 0' do
+        expect(Order.last.raw_price).to eql 0
+      end
+      
+      it 'set correct FEE' do
+        ticket_price_cents = (@ticket.ticket_price.to_f.round(2)*100).to_i
+        fee = (ticket_price_cents * Order::PROCENT_FEE + Order::CENTS_FEE).round
+        expect(Order.last.total_price).to eql fee
+      end
+    end
+
+    before :context do
+      @coupon = FactoryGirl.create(:coupon, discount_type: 'fixed_amount', discount_amount_cents: 500, code: '123')
+    end
+
+    context 'with fixed_amount type' do
+      it 'saves the order to the database with coupon reference' do
+        expect(Order.last.coupon.present?).to be_truthy
+      end
+
+      it 'set correct discounted order value' do
+        ticket_price_cents = (@ticket.ticket_price.to_f.round(2)*100).to_i
+        discount_cents = @coupon.discount_cents(ticket_price_cents)
+        expect(Order.last.raw_price).to eql ticket_price_cents - discount_cents
+      end
+    end
+
+    before :context do
+      @coupon = FactoryGirl.create(:coupon, discount_type: 'fixed_amount', discount_amount_cents: 500000, code: 'prettyBig')
+    end
+
+    context 'with fixed_amount type and pretty big value' do
+      it 'saves the order to the database with coupon reference' do
+        expect(Order.last.coupon.present?).to be_truthy
+      end
+
+      # We expected here to have payment fee based on tickets 
+      # amount BEFORE we apply coupon. It means tickets, after coupon apply
+      # never comes for FREE to buyer but will be 0 valued for selled
+      # if coupon value greater then tickets cost.
+      it 'set discounted order raw_price value to 0' do
+        expect(Order.last.raw_price).to eql 0
+      end
+      
+      it 'set correct FEE' do
+        ticket_price_cents = (@ticket.ticket_price.to_f.round(2)*100).to_i
+        fee = (ticket_price_cents * Order::PROCENT_FEE + Order::CENTS_FEE).round
+        expect(Order.last.total_price).to eql fee
+      end
+    end
+
+    def post_order
+      @event = create(:event)
+      @ticket = FactoryGirl.create(:ticket, event: @event)
+      post :create, order: attributes_for(
+        :order, 
+        event_id: @event.id, 
+        coupon_id: @coupon.id,
+        entitlements_attributes: {"0"=>{"first_name"=>"Test", "last_name"=>"Last", "email"=>"em@em.com", "ticket_id"=>@ticket.id}}
+      ) 
+    end
+  end    
 end
 

@@ -52,6 +52,9 @@
               <%= select_tag "tickets[]#{ticket.id}", options_for_select(1..12), prompt: "Select amount", class: "price_select", 
                 data: { ticket_id: ticket.id, ticket_price: ticket.ticket_price } %>
               <% end %>
+              <br><br>
+              <%= label_tag :coupon_code %>
+              <%= text_field_tag :coupon_code %>
        
               <div class="price_counter">
                 <div id='total_raw_price'>Price: 0.00 </div>

@@ -11,6 +11,7 @@
   <%= form_for @order do |f| %>
     <h2> Payment Information </h2> 
     <center><h5>Visa, MasterCard, American Express, or DiscoverCard Secure</h5> </center>
+      <%= f.hidden_field :coupon_id, value: @order.coupon.try(:id) %>
       <div class="form-group col-md-6">  
         <%= f.text_field :buyer_first_name, class:'form-control', placeholder: 'First Name' %> 
       </div>

@@ -7,6 +7,7 @@ class Order < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :ticket
+  belongs_to :coupon
   belongs_to :event
   has_many :entitlements, foreign_key: :order_id
   has_one :order_transaction, dependent: :destroy
@@ -71,11 +72,16 @@ class Order < ActiveRecord::Base
     entitlements.each do |ordered_ticket|
       ticket_price += ordered_ticket.ticket.ticket_price
     end
-    raw_price_in_cents = (ticket_price * 100).round
+    raw_price_in_cents = (ticket_price * 100).round 
     fee = (raw_price_in_cents * Order::PROCENT_FEE + Order::CENTS_FEE).round
+    raw_price_in_cents -= discount(raw_price_in_cents)
     total_price_in_cents = (raw_price_in_cents + fee).round
     self.update_column(:fee, fee)
     self.update_column(:raw_price, raw_price_in_cents)
     self.update_column(:total_price, total_price_in_cents)
+  end
+
+  def discount(cents)
+    coupon ? coupon.discount_cents(cents) : 0
   end
 end

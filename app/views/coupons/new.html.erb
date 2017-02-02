@@ -1,0 +1,9 @@
+<h1>New Coupon</h1>
+
+<%= render 'form' %>
+
+<h3>Coupons</h3>
+<%= render partial: 'coupons', locals: {coupons: @coupons} %>
+
+
+<%= link_to 'Back', events_path %>

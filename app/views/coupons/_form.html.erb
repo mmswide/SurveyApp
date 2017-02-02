@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <%= simple_form_for [@event, @coupon] do |f| %>
+      <% if @coupon.errors.any? %>
+        <div id="error_explanation">
+          <div class="alert alert-danger">
+            The form contains <%= pluralize(@coupon.errors.count, "error") %>.
+          </div>
+          <ul>
+          <% @coupon.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.input :code, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.input :description, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.input :quantity, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :active, class: "checkbox inline" do %>
+          <%= f.check_box :active %>
+          <span>Active?</span>
+        <% end %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :discount_type %>
+        <%= f.select :discount_type, 
+          {'Fixed amount' => 'fixed_amount', 'Prercents' => 'percents'} %>
+      </div>     
+
+       <div class="form-group">
+        <%= f.input :discount, as: :decimal %>
+      </div>
+
+      <div class="form-group">
+        <%= f.input :expiration, as: :date %>
+      </div> 
+
+
+      <div class="form-actions">
+        <%= f.button :submit, 'Save Coupon', class: 'btn btn-default' %>
+      </div>
+    <% end %>
+  </div>
+</div>
