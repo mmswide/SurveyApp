@@ -24,10 +24,24 @@ class Order < ActiveRecord::Base
   #returns true if payment went successfully
   #also recalculates available tickets that left
   def purchase_order
-    response = GATEWAY.purchase(total_price, credit_card, purchase_options)
-    create_order_transaction(response: response)
-    Ticket.recalculate(entitlements) if response.success?
-    response.success?
+    byebug
+    # response = GATEWAY.purchase(total_price, credit_card, purchase_options)
+    event_owner = self.event.user;
+    begin
+      charge = Stripe::Charge.create({
+        :amount => self.total_price,
+        :currency => "usd",
+        :source => self.source_token,
+        :application_fee => self.fee, # amount in cents
+        :destination => event_owner.stripe_user_id
+      })
+    rescue => e
+      @error = e.message
+      nil
+    end
+    create_order_transaction(response: charge)
+    Ticket.recalculate(entitlements) if charge.paid
+    charge.paid
   end
 
   private 

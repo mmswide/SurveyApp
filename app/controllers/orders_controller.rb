@@ -24,6 +24,7 @@ class OrdersController < ApplicationController
   #if success - redirecting to users profile
   #otherwise - re-rendering #new template and displaying errors
   def create
+    byebug
     params[:order][:user_id] = current_user.id 
     params[:order][:ip_address] = request.remote_ip
     @order = Order.new(order_params)
@@ -49,8 +50,8 @@ class OrdersController < ApplicationController
                                   :card_cvv, :card_expires_month, :event_id,
                                   :card_expires_year, :buyer_first_name, 
                                   :buyer_last_name, :user_id, :ip_address,
-                                  :ticket_amount, :address1, :city, :state, :zip,
-                                  entitlements_attributes: [
+                                  :ticket_amount, :address1, :city, :state, :zip, 
+                                  :source_token, entitlements_attributes: [
                                                              :first_name, 
                                                              :last_name, :email,
                                                              :ticket_id
