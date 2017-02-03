@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+   layout :resolve_layout
    before_action :logged_in_user, only: [:edit, :update, :index, :destroy]
    before_action :correct_user,   only: [:edit, :update]
    before_action :admin_user,     only: :destroy
@@ -65,7 +66,15 @@ class UsersController < ApplicationController
 
        # Before filters
   end
-
+  
+  def resolve_layout
+    case action_name
+    when "new", "create"
+      "welcome"
+    else
+      "application"
+    end
+  end
   # Confirms an admin user.
     def admin_user
       redirect_to(root_url) unless current_user.admin?

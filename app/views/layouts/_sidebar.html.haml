@@ -1,0 +1,52 @@
+.page-sidebar-inner.slimscroll
+  %ul.menu.accordion-menu
+    %li
+      %a.waves-effect.waves-button{:href => "#{new_event_path}"}
+        %span.menu-icon.icon-plus
+        %p Create Event
+        %span      
+    %li.droplink
+      %a.waves-effect.waves-button{:href => "#"}
+        %span.menu-icon.icon-envelope-open
+        %p Events
+        %span.arrow
+      %ul.sub-menu
+        %li
+          %a.waves-effect.waves-button{:href => "#{events_path}"} All Events
+        %li
+          %a{:href => "message-view.html"} Event #1
+        %li
+          %a{:href => "compose.html"} Event #2
+        %li
+          %a{:href => "compose.html"} Event #3
+        %ul.sub-menu
+          %li
+            %a{:href => "form-elements.html"} Details
+          %li
+            %a{:href => "form-wizard.html"} Tickets
+          %li
+            %a{:href => "form-upload.html"} Coupons
+          %li
+            %a{:href => "form-image-crop.html"} Orders
+          %li
+            %a{:href => "form-image-zoom.html"} Schedules
+          %li
+            %a{:href => "form-select2.html"} Delete
+    %li.droplink
+      %a.waves-effect.waves-button{:href => "#"}
+        %span.menu-icon.icon-pencil
+        %p Settings
+        %span.arrow
+      %ul.sub-menu
+        %li
+          %a.waves-effect.waves-button{:href => "/"} User Details
+        %li
+          %a{:href => "message-view.html"} Bank Information
+        %li
+          %a{:href => "compose.html"} Password
+        %li
+          %a{:href => "compose.html"} Invoice & Plans
+
+
+
+    

@@ -1,0 +1,363 @@
+.navbar-inner
+  .sidebar-pusher
+    %a.waves-effect.waves-button.push-sidebar{:href => "javascript:void(0);"}
+      %i.icon-arrow-right
+  .logo-box
+    %a.logo-text{:href => "/"}
+      %span Eventable
+  / Logo Box
+  .search-button
+    %a.show-search{:href => "javascript:void(0);"}
+      %i.icon-magnifier
+  .topmenu-outer
+    .top-menu
+      %ul.nav.navbar-nav.navbar-left
+        %li
+          %a.sidebar-toggle{:href => "javascript:void(0);"}
+            %i.icon-arrow-left
+        %li
+          %a.cd-nav-trigger{:href => "#cd-nav"}
+            %i.icon-support
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            %i.icon-settings
+          %ul.dropdown-menu.dropdown-md.dropdown-list.theme-settings{:role => "menu"}
+            %li.li-group
+              %ul.list-unstyled
+                %li.no-link{:role => "presentation"}
+                  Fixed Header
+                  .ios-switch.pull-right.switch-md
+                    %input.js-switch.pull-right.fixed-header-check{:type => "checkbox"}/
+            %li.li-group
+              %ul.list-unstyled
+                %li.no-link{:role => "presentation"}
+                  Fixed Sidebar
+                  .ios-switch.pull-right.switch-md
+                    %input.js-switch.pull-right.fixed-sidebar-check{:type => "checkbox"}/
+                %li.no-link{:role => "presentation"}
+                  Horizontal bar
+                  .ios-switch.pull-right.switch-md
+                    %input.js-switch.pull-right.horizontal-bar-check{:type => "checkbox"}/
+                %li.no-link{:role => "presentation"}
+                  Toggle Sidebar
+                  .ios-switch.pull-right.switch-md
+                    %input.js-switch.pull-right.toggle-sidebar-check{:type => "checkbox"}/
+                %li.no-link{:role => "presentation"}
+                  Compact Menu
+                  .ios-switch.pull-right.switch-md
+                    %input.js-switch.pull-right.compact-menu-check{:checked => "checked", :type => "checkbox"}/
+                %li.no-link{:role => "presentation"}
+                  Hover Menu
+                  .ios-switch.pull-right.switch-md
+                    %input.js-switch.pull-right.hover-menu-check{:type => "checkbox"}/
+            %li.li-group
+              %ul.list-unstyled
+                %li.no-link{:role => "presentation"}
+                  Boxed Layout
+                  .ios-switch.pull-right.switch-md
+                    %input.js-switch.pull-right.boxed-layout-check{:type => "checkbox"}/
+            %li.no-link
+              %button.btn.btn-default.reset-options Reset Options
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          %a.show-search{:href => "javascript:void(0);"}
+            %i.icon-magnifier
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            %i.icon-envelope-open
+            %span.badge.badge-danger.pull-right 6
+          %ul.dropdown-menu.title-caret.dropdown-lg{:role => "menu"}
+            %li
+              %p.drop-title You have 6 new  messages!
+            %li.dropdown-menu-list.slimscroll.messages
+              %ul.list-unstyled
+                %li
+                  %a{:href => "#"}
+                    .msg-img
+                      .online.on
+                      = image_tag("avatar2.png")
+                    %p.msg-name Michael Lewis
+                    %p.msg-text Yeah science!
+                    %p.msg-time 3 minutes ago
+                %li
+                  %a{:href => "#"}
+                    .msg-img
+                      .online.off
+                      = image_tag("avatar3.png")
+                    %p.msg-name John Doe
+                    %p.msg-text Hi Nick
+                    %p.msg-time 8 minutes ago
+                %li
+                  %a{:href => "#"}
+                    .msg-img
+                      .online.off
+                      = image_tag("avatar5.png")
+                    %p.msg-name Emma Green
+                    %p.msg-text Let's meet!
+                    %p.msg-time 56 minutes ago
+                %li
+                  %a{:href => "#"}
+                    .msg-img
+                      .online.on
+                      = image_tag("avatar3.png")
+                    %p.msg-name Nick Doe
+                    %p.msg-text Nice to meet you
+                    %p.msg-time 2 hours ago
+                %li
+                  %a{:href => "#"}
+                    .msg-img
+                      .online.on
+                      = image_tag("avatar2.png")
+                    %p.msg-name Michael Lewis
+                    %p.msg-text Yeah science!
+                    %p.msg-time 5 hours ago
+                %li
+                  %a{:href => "#"}
+                    .msg-img
+                      .online.off
+                      = image_tag("avatar1.png")
+                    %p.msg-name John Doe
+                    %p.msg-text Hi Nick
+                    %p.msg-time 9 hours ago
+            %li.drop-all
+              %a.text-center{:href => "#"} All Messages
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            %i.icon-bell
+            %span.badge.badge-danger.pull-right 3
+          %ul.dropdown-menu.title-caret.dropdown-lg{:role => "menu"}
+            %li
+              %p.drop-title You have 3 pending tasks!
+            %li.dropdown-menu-list.slimscroll.tasks
+              %ul.list-unstyled
+                %li
+                  %a{:href => "#"}
+                    .task-icon.badge.badge-success
+                      %i.fa.fa-user
+                    %span.badge.badge-roundless.badge-default.pull-right 1m
+                    %p.task-details New user registered
+                %li
+                  %a{:href => "#"}
+                    .task-icon.badge.badge-primary
+                      %i.fa.fa-refresh
+                    %span.badge.badge-roundless.badge-default.pull-right 24m
+                    %p.task-details 3 Charts refreshed
+                %li
+                  %a{:href => "#"}
+                    .task-icon.badge.badge-danger
+                      %i.fa.fa-phone
+                    %span.badge.badge-roundless.badge-default.pull-right 24m
+                    %p.task-details 2 Missed calls
+            %li.drop-all
+              %a.text-center{:href => "#"} All Tasks
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            %span.user-name
+              = current_user.email
+              %i.fa.fa-angle-down
+                %img.img-circle.avatar{:alt => "", :height => "40", :src => "#{image_path("avatar1.png")}", :width => "40"}/
+          %ul.dropdown-menu.dropdown-list{:role => "menu"}
+            %li{:role => "presentation"}
+              = link_to  edit_user_path(current_user) do
+                %i.icon-user>
+                Profile
+            %li{:role => "presentation"}
+              %a{:href => "inbox.html"}
+                %i.icon-envelope-open>
+                Inbox
+                %span.badge.badge-success.pull-right 4
+            %li.divider{:role => "presentation"}
+            %li{:role => "presentation"}
+              //%a{:href => "login.html"}
+              = link_to logout_path, method: "delete" do
+                %i.icon-key.m-r-xs>
+                Log out
+        %li
+          %a#showRight{:href => "javascript:void(0);"}
+            %i.icon-bubbles
+           
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+      

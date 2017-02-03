@@ -22,8 +22,11 @@ gem 'activemerchant'
 gem 'jquery-turbolinks'
 gem "cocoon"
 gem "smart_listing"
+gem 'font-awesome-rails'
+gem 'simple-line-icons-rails'
 gem 'jquery-sortable-rails'
 gem 'pg',             '0.17.1'
+gem 'sqlite3'
 gem 'best_in_place', git: 'git://github.com/bernat/best_in_place.git'
 gem 'jquery-ui-rails'
 gem 'active_link_to'

@@ -5,7 +5,7 @@ class Ability
     user ||= User.new
     if user.admin?
         #for the start let him manage all, otherwise you won't be able to do anything
-        can :manage, All
+        can :manage, :all
     else
         can [:update, :destroy], Event, user_id: user.id
         #this thing would not work because you don't have proper dependency on your Ticket model, it doesn't know about the user at all

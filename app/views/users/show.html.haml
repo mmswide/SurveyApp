@@ -1,0 +1,30 @@
+- provide(:title, @user.first_name)
+/ User Navigation
+.page-inner
+  .page-title
+    %h3.breadcrumb-header= @user.first_name
+    .page-breadcrumb
+      %ol.breadcrumb.breadcrumb-with-header
+        %li
+          %a{:href => "index.html"} Home
+/ User Navigation
+.container.col-md-12
+  .col-md-3.list-group.pt100
+  .col-md-9
+    / Tab panes
+    .row
+      / Overview
+      .tab-content.col-sm-12
+        #overview.tab-pane.active
+          = render(:partial => 'users/user_overview')
+        / Orders
+        #order.tab-pane
+          = render(:partial => 'users/user_orders')
+    .row
+      .col-sm-12
+        = render partial: 'subscription/plans', locals: {plans: @plans}
+
+
+
+
+

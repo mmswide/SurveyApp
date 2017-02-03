@@ -1,32 +1,84 @@
-- provide(:title, "New Ticket")
-.row
-  .panel-body.col-md-6.col-lg-offset-1
-    = simple_form_for @ticket, :url => {:action => 'create'} do |f|
-      .form-inline
-        = f.input :ticket_name, class: 'form-control', placeholder: "Ticket Name", label: false
-        .input-group.col-lg-3
-          %span.input-group-addon $
-          = f.text_field :ticket_price, class: 'form-control'
-          %span.input-group-addon USD
-        .input-group.col-lg-3
-          = f.text_field :quantity, class: 'form-control'
-          %span.input-group-addon Quantity
-        = f.hidden_field :event_id, :value => @event.id
-        .input-group.col-lg-2
-          = submit_tag("Create Ticket", class: "btn btn-primary")
-  .panel-body.col-md-6.col-lg-offset-1
-    %h2 Tickets
-    %table.table.table-bordered
-      %thead
-        %tr
-          %th Ticket Name
-          %th Ticket Price
-          %th Quanitity
-      %tbody
-      - @event.tickets.each do |ticket|
-        %tr
-          %td= ticket.ticket_name
-          %td= ticket.ticket_price
-          %td= ticket.quantity
+- provide(:title, "Tickets")
+- provide(:title, "Event")
+.page-inner
+  .page-title
+    %h3.breadcrumb-header
+      = current_user.first_name
+    .page-breadcrumb
+      %ol.breadcrumb.breadcrumb-with-header
+        %li
+          = link_to "Home", root_path
+        %li
+          = link_to "All Events", events_path
+        %li
+          = link_to "#{@event.event_name}", event_path(@event.id)
+        %li.active Tickets
+  #main-wrapper
+  .row
+    .col-md-12
+      .panel.panel-white
+        .panel-heading.clearfix
+          %h4.panel-title Create a Ticket
+        .panel-body
+          = simple_form_for @ticket, :url => {:action => 'create'} do |f|
+            .form-group
+              .row
+              .col-sm-10
+                %label.col-md-2.control-label{:for => "input-help-block"} Ticket Name
+                .col-md-6
+                  = f.input :ticket_name, class: 'form-control', placeholder: "Ticket Name", label: false
+                  %p.help-block Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.
+            .form-group
+              .row
+              .col-sm-10
+                %label.col-sm-2.control-label{:for => "input-help-block"} Ticket Price
+                .col-md-6
+                  .input-group.m-b-sm
+                    %span#basic-addon1.input-group-addon $
+                    = f.input :ticket_price, class: 'form-control', label: false, placeholder: "Ticket Price"
+                  %p.help-block Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.
+            .form-group
+              .row
+              .col-sm-10
+                %label.col-sm-2.control-label{:for => "input-help-block"} Quantity
+                .col-md-6
+                  = f.input :quantity, class: 'form-control',  label: false, placeholder: "Quanitity"
+                  = f.hidden_field :event_id, :value => @event.id
+                  %p.help-block Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.
+            .form-group
+              .row
+              .col-sm-10
+                %label.col-sm-2.control-label{:for => "input-help-block"} Description
+                .col-md-6
+                  = f.input :ticket_description, class: 'form-control', label: false
+                  = f.hidden_field :event_id, :value => @event.id
+                  %p.help-block Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.
+                  = submit_tag("Create Ticket", class: "btn btn-primary")
+  .row
+    .col-md-12
+      .panel.panel-white
+        .panel-heading.clearfix
+          %h4.panel-title 
+          = @event.event_name
+          Tickets
+        .panel-body
+          %table.table.table-bordered
+            %thead
+              %tr
+                %th Ticket Name
+                %th Ticket Price
+                %th Quanitity
+                %th Actions
+            %tbody
+            - @event.tickets.each do |ticket|
+              %tr
+                %td
+                  = ticket.ticket_name
+                %td
+                  = number_to_currency(ticket.ticket_price)
+                %td
+                  = ticket.quantity
+                %td
+                  Edit | Delete
 
 
