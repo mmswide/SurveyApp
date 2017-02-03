@@ -1,57 +1,75 @@
 <%= form_tag(managed_accounts_path, method: 'post', class: 'bank-account-form') do |f|%>
-  
-  <%= label_tag :country, 'Country' %>
-  <%= select_tag :country, options_for_select(@countries), class: 'form-control country' %>
-  
-  <%= label_tag :currency, 'Currency' %>
-  <%= select_tag :currency, options_for_select(@currencies), class: 'form-control currency' %>
-  
-  <%= label_tag :routing_number, 'Routing Number' %>
-  <%= text_field_tag :routing_number, "110000000", class: 'form-control routing-number' %>
-  
-  <%= label_tag :account_number, 'Account Number' %>
-  <%= text_field_tag :account_number, "000123456789", class: 'form-control account-number' %>
-  
-  <%= label_tag :account_holder_name, 'Account Holder Name' %>
-  <%= text_field_tag :account_holer_name, "Jane Austen", class: 'form-control account-holder-name' %>
-  
-  <%= label_tag :account_holder_type, 'Account Holder Type' %>
-  <%= select_tag :account_holder_type, options_for_select(@account_holder_types), class: 'form-control account-holder-type' %>
+  <div class="form-group">
+    <%= label_tag :country, 'Country' %>
+    <%= select_tag :country, options_for_select(@countries), class: 'form-control country' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :currency, 'Currency' %>
+    <%= select_tag :currency, options_for_select(@currencies), class: 'form-control currency' %>
+  </div>
 
+  <div class="form-group">
+    <%= label_tag :routing_number, 'Routing Number' %>
+    <%= text_field_tag :routing_number, "110000000", class: 'form-control routing-number' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :account_number, 'Account Number' %>
+    <%= text_field_tag :account_number, "000123456789", class: 'form-control account-number' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :account_holder_name, 'Account Holder Name' %>
+    <%= text_field_tag :account_holer_name, "Jane Austen", class: 'form-control account-holder-name' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :account_holder_type, 'Account Holder Type' %>
+    <%= select_tag :account_holder_type, options_for_select(@account_holder_types), class: 'form-control account-holder-type' %>
+  </div>
   <%= hidden_field_tag :bank_account_token, "", class: "bank-account-token" %>
-  <%= label_tag :legal_entity_dob_month, 'Month' %>
-  <%= number_field_tag "legal_entity[dob][month]", "5", class: 'form-control legal-entity-dob-month' %>
-
-  <%= label_tag :legal_entity_dob_day, 'Day' %>
-  <%= number_field_tag "legal_entity[dob][day]", "5", class: 'form-control legal-entity-dob-day' %>
-
-  <%= label_tag :legal_entity_dob_year, 'Year' %>
-  <%= number_field_tag "legal_entity[dob][year]", "1970", class: 'form-control legal-entity-dob-year' %>
-
-  <%= label_tag :legal_entity_first_name, "Legal First Name" %>
-  <%= text_field_tag "legal_entity[first_name]", "Jane", class: 'form-control legal-entity-first-name' %>
-
-  <%= label_tag :legal_entity_last_name, "Legal last Name" %>
-  <%= text_field_tag "legal_entity[last_name]", "Austen", class: 'form-control legal-entity-last-name' %>
-
-  <%= label_tag :legal_entity_type, 'Legal Entity Type' %>
-  <%= select_tag "legal_entity[type]", options_for_select(@account_holder_types), class: 'form-control legal-entity-type' %>
-
-  <%= label_tag :legal_entity_address_city, 'City' %>
-  <%= text_field_tag "legal_entity[address][city]", "Washington", class: 'form-control legal-entity-address-city' %>
-
-  <%= label_tag :legal_entity_address_line1, 'Line1' %>
-  <%= text_field_tag "legal_entity[address][line1]", "701 9th St NW", class: 'form-control legal-entity-address-line1' %>
-
-  <%= label_tag :legal_entity_address_postal_code, 'Postal Code' %>
-  <%= text_field_tag "legal_entity[address][postal_code]", "20001", class: 'form-control legal-entity-address-postal-code' %>
-
-  <%= label_tag :legal_entity_address_state, 'State' %>
-  <%= text_field_tag "legal_entity[address][state]", "DC", class: 'form-control legal-entity-address-state' %>
-
-  <%= label_tag :legal_entity_ssn_last_4, 'SSN LAST 4' %>
-  <%= text_field_tag "legal_entity[ssn_last_4]", "0000", class: 'form-control legal-entity-ssn-last-4' %>
-
+  <div class="form-group">
+    <%= label_tag :legal_entity_dob_month, 'Month' %>
+    <%= number_field_tag "legal_entity[dob][month]", "5", class: 'form-control legal-entity-dob-month' %>
+  </div>
+  
+  <div class="form-group">
+    <%= label_tag :legal_entity_dob_day, 'Day' %>
+    <%= number_field_tag "legal_entity[dob][day]", "5", class: 'form-control legal-entity-dob-day' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :legal_entity_dob_year, 'Year' %>
+    <%= number_field_tag "legal_entity[dob][year]", "1970", class: 'form-control legal-entity-dob-year' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :legal_entity_first_name, "Legal First Name" %>
+    <%= text_field_tag "legal_entity[first_name]", "Jane", class: 'form-control legal-entity-first-name' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :legal_entity_last_name, "Legal last Name" %>
+    <%= text_field_tag "legal_entity[last_name]", "Austen", class: 'form-control legal-entity-last-name' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :legal_entity_type, 'Legal Entity Type' %>
+    <%= select_tag "legal_entity[type]", options_for_select(@account_holder_types), class: 'form-control legal-entity-type' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :legal_entity_address_city, 'City' %>
+    <%= text_field_tag "legal_entity[address][city]", "Washington", class: 'form-control legal-entity-address-city' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :legal_entity_address_line1, 'Line1' %>
+    <%= text_field_tag "legal_entity[address][line1]", "701 9th St NW", class: 'form-control legal-entity-address-line1' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :legal_entity_address_postal_code, 'Postal Code' %>
+    <%= text_field_tag "legal_entity[address][postal_code]", "20001", class: 'form-control legal-entity-address-postal-code' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :legal_entity_address_state, 'State' %>
+    <%= text_field_tag "legal_entity[address][state]", "DC", class: 'form-control legal-entity-address-state' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :legal_entity_ssn_last_4, 'SSN LAST 4' %>
+    <%= text_field_tag "legal_entity[ssn_last_4]", "0000", class: 'form-control legal-entity-ssn-last-4' %>
+  </div>
   <%= submit_tag("Submit", class:'btn btn-primary submit-button') %>
 <% end %>
 
