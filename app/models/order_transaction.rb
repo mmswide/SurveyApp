@@ -3,11 +3,20 @@ class OrderTransaction < ActiveRecord::Base
   serialize :params
   
   def response=(response)
-    self.success       = response.success?
-    self.authorization = response.authorization
-    self.message       = response.message
-    self.params        = response.params
-  rescue ActiveMerchant::ActiveMerchantError => e
+  #   self.success       = response.success?
+  #   self.authorization = response.authorization
+  #   self.message       = response.message
+  #   self.params        = response.params
+  # rescue ActiveMerchant::ActiveMerchantError => e
+  #   self.success       = false
+  #   self.authorization = nil
+  #   self.message       = e.message
+  #   self.params        = {}
+    self.success = response.paid
+    self.authorization = response.id
+    self.message = response.outcome.seller_message
+    self.params = response.source
+  rescue => e
     self.success       = false
     self.authorization = nil
     self.message       = e.message

@@ -39,25 +39,27 @@
       <h2> Credit Card Information </h2>
     </div> 
       <div class="form-group col-md-5">
-      <%= f.text_field :card_number, class:'form-control', placeholder: 'Card Number' %>
+      <%= f.text_field :card_number, class:'form-control', placeholder: 'Card Number', data: {stripe: 'number'} %>
       </div>
       <div class="form-group col-md-4">
           <%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], 
           ["Discover", "discover"], ["American Express", "american_express"]], class: 'dropdown' %>
       </div>
       <div class="form-group col-md-3">
-      <%= f.text_field :card_cvv, class:'form-control', placeholder: 'CVV' %>
+      <%= f.text_field :card_cvv, class:'form-control', placeholder: 'CVV', data: {stripe: 'cvc'}  %>
       </div>
       <div class="form-group col-md-4">
           <%= f.label "Expiration Month" %>
           <%= f.select :card_expires_month, 1..12, class:'form-control' %>
+          <input type='hidden' value='1' data-stripe='exp_month' class='exp-month'>
       </div>
-    <div class="form-group col-md-4">
-       <%= f.label "Year" %>
-      <%= f.select :card_expires_year, Date.today.year..(Date.today.year+10), 
-          class:'form-control' %>
+      <div class="form-group col-md-4">
+        <%= f.label "Year" %>
+        <%= f.select :card_expires_year, Date.today.year..(Date.today.year+10), 
+          class: 'form-control' %>
+        <input type='hidden' value='<%=Date.today.year%>' data-stripe='exp_year' class='exp-year'>
       </div>
-
+      <input type='hidden' name='order[source_token]' class='source-token'>
     <div class='col-md-12'>
       <h2> Ticket Information </h2>
        <center><h5>We need to collect name of the attendee for each ticket.</h5> </center>
@@ -83,6 +85,45 @@
 
   </div>
 <% end %>
+<<<<<<< HEAD
 </div>
 </div>
 </div>
+=======
+
+
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+  Stripe.setPublishableKey('<%= Rails.application.secrets.TEST_PUBLISHABLE_KEY%>');
+  $(function() {
+    var $form = $('#new_order');
+    $form.submit(function(event) {
+      // Disable the submit button to prevent repeated clicks:
+      $form.find('.submit').prop('disabled', true);
+
+      // Request a token from Stripe:
+      Stripe.card.createToken($form, stripeResponseHandler);
+
+      // Prevent the form from being submitted:
+      return false;
+    });
+  });
+  function stripeResponseHandler(status, response) {
+    if (response.error) {
+      console.log("error----------------", response.error);
+    }
+    else {
+      console.log(response);
+      $('.source-token').val(response.id);
+      $('#new_order')[0].submit();
+    }
+
+  };
+  $('#order_card_expires_month').on('change', function(e){
+    $('.exp-month').val(this.value);
+  });
+  $('#order_card_expires_year').on('change', function(e){
+    $('.exp-year').val(this.value);
+  });
+</script>
+>>>>>>> c91e9fcb6f564b932399b20c7faece76f2f37940

@@ -1,0 +1,122 @@
+<%= form_tag(managed_accounts_path, method: 'post', class: 'bank-account-form') do |f|%>
+  <div class="form-group">
+    <%= label_tag :country, 'Country' %>
+    <%= select_tag :country, options_for_select(@countries), class: 'form-control country' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :currency, 'Currency' %>
+    <%= select_tag :currency, options_for_select(@currencies), class: 'form-control currency' %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :routing_number, 'Routing Number' %>
+    <%= text_field_tag :routing_number, "110000000", class: 'form-control routing-number' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :account_number, 'Account Number' %>
+    <%= text_field_tag :account_number, "000123456789", class: 'form-control account-number' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :account_holder_name, 'Account Holder Name' %>
+    <%= text_field_tag :account_holer_name, "Jane Austen", class: 'form-control account-holder-name' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :account_holder_type, 'Account Holder Type' %>
+    <%= select_tag :account_holder_type, options_for_select(@account_holder_types), class: 'form-control account-holder-type' %>
+  </div>
+  <%= hidden_field_tag :bank_account_token, "", class: "bank-account-token" %>
+  <div class="form-group">
+    <%= label_tag :legal_entity_dob_month, 'Month' %>
+    <%= number_field_tag "legal_entity[dob][month]", "5", class: 'form-control legal-entity-dob-month' %>
+  </div>
+  
+  <div class="form-group">
+    <%= label_tag :legal_entity_dob_day, 'Day' %>
+    <%= number_field_tag "legal_entity[dob][day]", "5", class: 'form-control legal-entity-dob-day' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :legal_entity_dob_year, 'Year' %>
+    <%= number_field_tag "legal_entity[dob][year]", "1970", class: 'form-control legal-entity-dob-year' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :legal_entity_first_name, "Legal First Name" %>
+    <%= text_field_tag "legal_entity[first_name]", "Jane", class: 'form-control legal-entity-first-name' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :legal_entity_last_name, "Legal last Name" %>
+    <%= text_field_tag "legal_entity[last_name]", "Austen", class: 'form-control legal-entity-last-name' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :legal_entity_type, 'Legal Entity Type' %>
+    <%= select_tag "legal_entity[type]", options_for_select(@account_holder_types), class: 'form-control legal-entity-type' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :legal_entity_address_city, 'City' %>
+    <%= text_field_tag "legal_entity[address][city]", "Washington", class: 'form-control legal-entity-address-city' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :legal_entity_address_line1, 'Line1' %>
+    <%= text_field_tag "legal_entity[address][line1]", "701 9th St NW", class: 'form-control legal-entity-address-line1' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :legal_entity_address_postal_code, 'Postal Code' %>
+    <%= text_field_tag "legal_entity[address][postal_code]", "20001", class: 'form-control legal-entity-address-postal-code' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :legal_entity_address_state, 'State' %>
+    <%= text_field_tag "legal_entity[address][state]", "DC", class: 'form-control legal-entity-address-state' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :legal_entity_ssn_last_4, 'SSN LAST 4' %>
+    <%= text_field_tag "legal_entity[ssn_last_4]", "0000", class: 'form-control legal-entity-ssn-last-4' %>
+  </div>
+  <%= submit_tag("Submit", class:'btn btn-primary submit-button') %>
+<% end %>
+
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script>
+alert();
+Stripe.setPublishableKey('pk_test_2EGWoFJPE26IJfFuipiFEV1M');
+
+function stripeResponseHandler(status, response) {
+    if (response.error) {
+        // re-enable the submit button
+        $('.submit-button').removeAttr("disabled");
+        // show the errors on the form
+        console.log(response.error);
+        $(".payment-success").html("");
+        $(".payment-errors").html(response.error.message);
+    } else {
+        var $form = $(".bank-account-form");
+        // token contains id, last4, and card type
+        var token = response['id'];
+        // insert the token into the form so it gets submitted to the server
+        $('.bank-account-token').val(token);
+        // and submit
+        $(".bank-account-form")[0].submit();
+        // just for this example:
+        console.log(response);
+        $(".payment-success").html(token);
+        $(".payment-errors").html("");
+        $('.submit-button').removeAttr("disabled");
+    }
+}
+
+$(document).ready(function () {
+    $(".bank-account-form").submit(function (event) {
+        // disable the submit button to prevent repeated clicks
+        alert('submit');
+        $('.submit-button').attr("disabled", "disabled");
+        // createToken returns immediately - the supplied callback submits the form if there are no errors
+        Stripe.bankAccount.createToken({
+            country: $('.country').val(),
+            currency: $('.currency').val(),
+            routing_number: $('.routing-number').val(),
+            account_number: $('.account-number').val(),
+            account_holder_name: $('.account-holder-name').val(),
+            account_holder_type: $('.account-holder-type').val()
+        }, stripeResponseHandler);
+        return false; // submit from callback
+    });
+});
+</script>
