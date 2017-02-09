@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170126025848) do
+ActiveRecord::Schema.define(version: 20170203062053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,7 +110,11 @@ ActiveRecord::Schema.define(version: 20170126025848) do
     t.integer  "total_price"
     t.string   "ip_address"
     t.integer  "event_id"
+<<<<<<< HEAD
     t.integer  "coupon_id"
+=======
+    t.string   "source_token"
+>>>>>>> c91e9fcb6f564b932399b20c7faece76f2f37940
   end
 
   add_index "orders", ["coupon_id"], name: "index_orders_on_coupon_id", using: :btree
@@ -151,13 +155,13 @@ ActiveRecord::Schema.define(version: 20170126025848) do
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "email"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.string   "password_digest"
     t.string   "remember_digest"
-    t.boolean  "admin",               default: false
+    t.boolean  "admin",                 default: false
     t.string   "activation_digest"
-    t.boolean  "activated",           default: false
+    t.boolean  "activated",             default: false
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
@@ -171,6 +175,12 @@ ActiveRecord::Schema.define(version: 20170126025848) do
     t.string   "alias"
     t.string   "event_contact_phone"
     t.string   "event_contact_email"
+    t.string   "currency"
+    t.string   "stripe_account_type"
+    t.string   "stripe_user_id"
+    t.string   "secret_key"
+    t.string   "publishable_key"
+    t.string   "stripe_account_status"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
