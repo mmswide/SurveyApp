@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20170203062053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "hstore"
 
   create_table "coupons", force: :cascade do |t|
     t.integer  "event_id"
@@ -110,11 +109,8 @@ ActiveRecord::Schema.define(version: 20170203062053) do
     t.integer  "total_price"
     t.string   "ip_address"
     t.integer  "event_id"
-<<<<<<< HEAD
     t.integer  "coupon_id"
-=======
     t.string   "source_token"
->>>>>>> c91e9fcb6f564b932399b20c7faece76f2f37940
   end
 
   add_index "orders", ["coupon_id"], name: "index_orders_on_coupon_id", using: :btree

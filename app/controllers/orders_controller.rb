@@ -30,8 +30,8 @@ class OrdersController < ApplicationController
   #if success - redirecting to users profile
   #otherwise - re-rendering #new template and displaying errors
   def create
-    byebug
-    params[:order][:user_id] = current_user.id 
+    # byebug
+    params[:order][:user_id] = current_user.id
     params[:order][:ip_address] = request.remote_ip
     @order = Order.new(order_params)
     if @order.save
@@ -52,13 +52,13 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:coupon_id, :card_type, :card_number, 
+    params.require(:order).permit(:coupon_id, :card_type, :card_number,
                                   :card_cvv, :card_expires_month, :event_id,
-                                  :card_expires_year, :buyer_first_name, 
+                                  :card_expires_year, :buyer_first_name,
                                   :buyer_last_name, :user_id, :ip_address,
-                                  :ticket_amount, :address1, :city, :state, :zip, 
+                                  :ticket_amount, :address1, :city, :state, :zip,
                                   :source_token, entitlements_attributes: [
-                                                             :first_name, 
+                                                             :first_name,
                                                              :last_name, :email,
                                                              :ticket_id
                                   ]
@@ -73,7 +73,7 @@ class OrdersController < ApplicationController
   def sign_up_user
     unless current_user.present?
       store_location
-      @user = User.new(activated: true) 
+      @user = User.new(activated: true)
       render 'users/new', object: @user
     end
   end

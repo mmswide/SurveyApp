@@ -2,8 +2,8 @@ class Order < ActiveRecord::Base
   PROCENT_FEE = 0.025
   CENTS_FEE = 99
   DOLLAR_FEE = 0.99
-  STRIPE_PROCENT_FEE = 0.029 
-  STRIPE_DOLLAR_FEE = 0.30 
+  STRIPE_PROCENT_FEE = 0.029
+  STRIPE_DOLLAR_FEE = 0.30
 
   belongs_to :user
   belongs_to :ticket
@@ -17,7 +17,7 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :entitlements
 
   validate :validate_credit_card, on: :create
-  validates :buyer_first_name, :buyer_last_name, :address1, :city, :state, 
+  validates :buyer_first_name, :buyer_last_name, :address1, :city, :state,
             :zip, :event_id, presence: true
 
   after_save :set_money
@@ -25,7 +25,7 @@ class Order < ActiveRecord::Base
   #returns true if payment went successfully
   #also recalculates available tickets that left
   def purchase_order
-    byebug
+    # byebug
     # response = GATEWAY.purchase(total_price, credit_card, purchase_options)
     event_owner = self.event.user;
     begin
@@ -45,10 +45,10 @@ class Order < ActiveRecord::Base
     charge.paid
   end
 
-  private 
+  private
 
   def purchase_options
-    @purchase_options = { 
+    @purchase_options = {
       ip: ip_address,
       billing_address: {
         name:      "#{buyer_first_name} #{buyer_last_name}",
@@ -86,7 +86,7 @@ class Order < ActiveRecord::Base
     entitlements.each do |ordered_ticket|
       ticket_price += ordered_ticket.ticket.ticket_price
     end
-    raw_price_in_cents = (ticket_price * 100).round 
+    raw_price_in_cents = (ticket_price * 100).round
     fee = (raw_price_in_cents * Order::PROCENT_FEE + Order::CENTS_FEE).round
     raw_price_in_cents -= discount(raw_price_in_cents)
     total_price_in_cents = (raw_price_in_cents + fee).round

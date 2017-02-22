@@ -1,14 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/alex/cp/sample_app/config/environment.rb": [
+      "/Users/Me/Documents/upwork/sample_app/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/home/alex/cp/sample_app/config/application.rb": [
+      "/Users/Me/Documents/upwork/sample_app/config/application.rb": [
         1,
         null,
         1,
@@ -36,12 +36,12 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/config/boot.rb": [
+      "/Users/Me/Documents/upwork/sample_app/config/boot.rb": [
         1,
         null,
         1
       ],
-      "/home/alex/cp/sample_app/config/environments/test.rb": [
+      "/Users/Me/Documents/upwork/sample_app/config/environments/test.rb": [
         1,
         null,
         null,
@@ -90,21 +90,11 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/config/initializers/assets.rb": [
+      "/Users/Me/Documents/upwork/sample_app/config/initializers/assets.rb": [
         null,
         null,
         null,
         1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/home/alex/cp/sample_app/config/initializers/backtrace_silencers.rb": [
-        null,
         null,
         null,
         null,
@@ -113,18 +103,28 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/config/initializers/cookies_serializer.rb": [
+      "/Users/Me/Documents/upwork/sample_app/config/initializers/backtrace_silencers.rb": [
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/Me/Documents/upwork/sample_app/config/initializers/cookies_serializer.rb": [
         null,
         null,
         1
       ],
-      "/home/alex/cp/sample_app/config/initializers/filter_parameter_logging.rb": [
+      "/Users/Me/Documents/upwork/sample_app/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/home/alex/cp/sample_app/config/initializers/inflections.rb": [
+      "/Users/Me/Documents/upwork/sample_app/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -142,18 +142,18 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/config/initializers/mime_types.rb": [
+      "/Users/Me/Documents/upwork/sample_app/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/home/alex/cp/sample_app/config/initializers/session_store.rb": [
+      "/Users/Me/Documents/upwork/sample_app/config/initializers/session_store.rb": [
         null,
         null,
         1
       ],
-      "/home/alex/cp/sample_app/config/initializers/simple_form.rb": [
+      "/Users/Me/Documents/upwork/sample_app/config/initializers/simple_form.rb": [
         null,
         1,
         null,
@@ -320,7 +320,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/config/initializers/simple_form_bootstrap.rb": [
+      "/Users/Me/Documents/upwork/sample_app/config/initializers/simple_form_bootstrap.rb": [
         null,
         1,
         1,
@@ -471,7 +471,25 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/config/initializers/wrap_parameters.rb": [
+      "/Users/Me/Documents/upwork/sample_app/config/initializers/stripe.rb": [
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1
+      ],
+      "/Users/Me/Documents/upwork/sample_app/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -487,7 +505,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/spec/factories/coupon.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/factories/coupon.rb": [
         1,
         1,
         1,
@@ -499,7 +517,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/spec/factories/days.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/factories/days.rb": [
         1,
         1,
         1,
@@ -508,7 +526,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/spec/factories/entitlements.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/factories/entitlements.rb": [
         1,
         1,
         1,
@@ -518,7 +536,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/spec/factories/events.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/factories/events.rb": [
         1,
         1,
         1,
@@ -528,20 +546,20 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/spec/factories/orders.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/factories/orders.rb": [
         1,
         1,
         1,
         1,
-        35,
-        35,
+        34,
+        34,
         1,
         1,
         1,
-        35,
-        35,
-        35,
-        35,
+        34,
+        34,
+        34,
+        34,
         1,
         1,
         1,
@@ -560,14 +578,14 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/spec/factories/rooms.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/factories/rooms.rb": [
         1,
         1,
         23,
         null,
         null
       ],
-      "/home/alex/cp/sample_app/spec/factories/sub_events.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/factories/sub_events.rb": [
         1,
         1,
         1,
@@ -575,7 +593,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/spec/factories/tickets.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/factories/tickets.rb": [
         1,
         1,
         1,
@@ -586,7 +604,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/spec/factories/users.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/factories/users.rb": [
         1,
         1,
         238,
@@ -597,7 +615,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/spec/factories/workshops.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/factories/workshops.rb": [
         1,
         1,
         5,
@@ -609,7 +627,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/config/routes.rb": [
+      "/Users/Me/Documents/upwork/sample_app/config/routes.rb": [
         1,
         null,
         1,
@@ -634,117 +652,143 @@
         1,
         1,
         1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
         null,
         1,
         1,
         1,
         1,
+        null,
+        null,
+        null,
         1,
         1,
+        null
+      ],
+      "/Users/Me/Documents/upwork/sample_app/app/helpers/account_activations_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Me/Documents/upwork/sample_app/app/helpers/application_helper.rb": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
         null,
         null,
         1,
-        1,
-        1,
-        1,
+        null,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null
       ],
-      "/home/alex/cp/sample_app/app/helpers/account_activations_helper.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/helpers/coupons_helper.rb": [
         1,
         null
       ],
-      "/home/alex/cp/sample_app/app/helpers/application_helper.rb": [
-        1,
-        1,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        null,
-        0,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        0,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/home/alex/cp/sample_app/app/helpers/coupons_helper.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/helpers/days_helper.rb": [
         1,
         null
       ],
-      "/home/alex/cp/sample_app/app/helpers/days_helper.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/helpers/events_helper.rb": [
         1,
         null
       ],
-      "/home/alex/cp/sample_app/app/helpers/events_helper.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/helpers/managed_accounts_helper.rb": [
         1,
+        1,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
         null
       ],
-      "/home/alex/cp/sample_app/app/helpers/orders_helper.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/helpers/orders_helper.rb": [
         1,
         1,
         0,
@@ -764,19 +808,19 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/app/helpers/password_resets_helper.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/helpers/password_resets_helper.rb": [
         1,
         null
       ],
-      "/home/alex/cp/sample_app/app/helpers/public_helper.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/helpers/public_helper.rb": [
         1,
         null
       ],
-      "/home/alex/cp/sample_app/app/helpers/rooms_helper.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/helpers/rooms_helper.rb": [
         1,
         null
       ],
-      "/home/alex/cp/sample_app/app/helpers/sessions_helper.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/helpers/sessions_helper.rb": [
         1,
         null,
         null,
@@ -798,8 +842,8 @@
         null,
         null,
         1,
-        57,
-        53,
+        28,
+        24,
         4,
         0,
         0,
@@ -840,28 +884,28 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/app/helpers/static_pages_helper.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/helpers/static_pages_helper.rb": [
         1,
         null
       ],
-      "/home/alex/cp/sample_app/app/helpers/sub_events_helper.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/helpers/sub_events_helper.rb": [
         1,
         null
       ],
-      "/home/alex/cp/sample_app/app/helpers/tickets_helper.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/helpers/tickets_helper.rb": [
         1,
         null
       ],
-      "/home/alex/cp/sample_app/app/helpers/users_helper.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/helpers/users_helper.rb": [
         1,
         null,
         null
       ],
-      "/home/alex/cp/sample_app/app/helpers/workshops_helper.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/helpers/workshops_helper.rb": [
         1,
         null
       ],
-      "/home/alex/cp/sample_app/app/controllers/coupons_controller.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/controllers/coupons_controller.rb": [
         1,
         1,
         1,
@@ -950,7 +994,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/app/controllers/application_controller.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -977,14 +1021,14 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/spec/controllers/days_controller_spec.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/controllers/days_controller_spec.rb": [
         1,
         null,
         1,
         null,
         null
       ],
-      "/home/alex/cp/sample_app/app/controllers/days_controller.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/controllers/days_controller.rb": [
         1,
         1,
         0,
@@ -1011,7 +1055,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/spec/controllers/orders_controller_spec.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/controllers/orders_controller_spec.rb": [
         1,
         null,
         1,
@@ -1062,15 +1106,15 @@
         3,
         null,
         1,
-        1,
-        1,
+        0,
+        0,
         null,
         null,
         1,
-        1,
+        0,
         null,
         1,
-        1,
+        0,
         null,
         null,
         1,
@@ -1123,33 +1167,13 @@
         null,
         1,
         1,
-        1,
+        0,
         null,
         null,
         1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
+        0,
+        0,
+        0,
         null,
         null,
         null,
@@ -1159,26 +1183,17 @@
         null,
         1,
         1,
-        1,
+        0,
         null,
         null,
         1,
-        1,
-        1,
-        1,
-        null,
+        0,
         null,
         null,
         1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
+        0,
+        0,
+        0,
         null,
         null,
         null,
@@ -1188,8 +1203,37 @@
         null,
         1,
         1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
         1,
         1,
+        null,
+        null,
+        1,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
         null,
         null,
         null,
@@ -1207,7 +1251,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/app/controllers/orders_controller.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/controllers/orders_controller.rb": [
         1,
         1,
         1,
@@ -1240,14 +1284,15 @@
         null,
         null,
         1,
-        18,
-        18,
-        18,
-        18,
-        14,
-        14,
-        14,
-        14,
+        null,
+        17,
+        17,
+        17,
+        17,
+        13,
+        0,
+        0,
+        0,
         null,
         0,
         0,
@@ -1261,7 +1306,7 @@
         1,
         null,
         1,
-        18,
+        17,
         null,
         null,
         null,
@@ -1288,7 +1333,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/spec/controllers/rooms_controller_spec.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/controllers/rooms_controller_spec.rb": [
         1,
         null,
         1,
@@ -1406,7 +1451,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/app/controllers/rooms_controller.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/controllers/rooms_controller.rb": [
         1,
         1,
         1,
@@ -1450,7 +1495,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/spec/controllers/sub_events_controller_spec.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/controllers/sub_events_controller_spec.rb": [
         1,
         null,
         1,
@@ -1568,7 +1613,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/app/controllers/sub_events_controller.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/controllers/sub_events_controller.rb": [
         1,
         1,
         1,
@@ -1617,7 +1662,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/spec/controllers/workshops_controller_spec.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/controllers/workshops_controller_spec.rb": [
         1,
         null,
         1,
@@ -1736,7 +1781,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/app/controllers/workshops_controller.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/controllers/workshops_controller.rb": [
         1,
         1,
         1,
@@ -1781,7 +1826,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/spec/helpers/coupons_helper_spec.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/helpers/coupons_helper_spec.rb": [
         1,
         null,
         null,
@@ -1798,7 +1843,7 @@
         1,
         null
       ],
-      "/home/alex/cp/sample_app/spec/helpers/days_helper_spec.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/helpers/days_helper_spec.rb": [
         1,
         null,
         null,
@@ -1815,7 +1860,7 @@
         1,
         null
       ],
-      "/home/alex/cp/sample_app/spec/helpers/rooms_helper_spec.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/helpers/rooms_helper_spec.rb": [
         1,
         null,
         null,
@@ -1832,7 +1877,7 @@
         1,
         null
       ],
-      "/home/alex/cp/sample_app/spec/helpers/sub_events_helper_spec.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/helpers/sub_events_helper_spec.rb": [
         1,
         null,
         null,
@@ -1849,7 +1894,7 @@
         1,
         null
       ],
-      "/home/alex/cp/sample_app/spec/helpers/workshops_helper_spec.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/helpers/workshops_helper_spec.rb": [
         1,
         null,
         null,
@@ -1866,7 +1911,7 @@
         1,
         null
       ],
-      "/home/alex/cp/sample_app/spec/models/coupon_spec.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/models/coupon_spec.rb": [
         1,
         null,
         1,
@@ -1966,7 +2011,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/app/models/coupon.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/models/coupon.rb": [
         1,
         1,
         1,
@@ -1989,7 +2034,7 @@
         1,
         null,
         1,
-        31,
+        29,
         null,
         null,
         1,
@@ -2001,8 +2046,8 @@
         null,
         null,
         1,
-        13,
-        12,
+        11,
+        10,
         null,
         1,
         null,
@@ -2023,7 +2068,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/spec/models/day_spec.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/models/day_spec.rb": [
         1,
         null,
         1,
@@ -2038,7 +2083,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/app/models/day.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/models/day.rb": [
         1,
         1,
         1,
@@ -2052,7 +2097,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/spec/models/order_spec.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/models/order_spec.rb": [
         1,
         null,
         1,
@@ -2132,44 +2177,44 @@
         null,
         1,
         1,
+        0,
+        null,
         1,
+        1,
+        1,
+        0,
+        null,
+        1,
+        1,
+        0,
+        null,
+        1,
+        1,
+        0,
+        null,
+        1,
+        1,
+        0,
+        null,
         null,
         1,
         1,
         1,
         1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
+        0,
+        0,
         null,
         1,
         1,
         1,
         1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
+        0,
+        0,
         null,
         null,
         null
       ],
-      "/home/alex/cp/sample_app/app/models/order.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/models/order.rb": [
         1,
         1,
         1,
@@ -2197,16 +2242,30 @@
         null,
         null,
         1,
-        23,
-        23,
-        23,
-        23,
+        null,
+        null,
+        22,
+        22,
+        22,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        22,
+        22,
+        null,
+        22,
+        22,
+        0,
         null,
         null,
         1,
         null,
         1,
-        23,
+        0,
         null,
         null,
         null,
@@ -2218,7 +2277,7 @@
         null,
         null,
         1,
-        42,
+        41,
         8,
         48,
         null,
@@ -2234,65 +2293,65 @@
         null,
         null,
         null,
-        73,
+        49,
         null,
         null,
         null,
         null,
         1,
-        30,
-        30,
+        29,
+        29,
         42,
         null,
-        30,
-        30,
-        30,
-        30,
-        30,
-        30,
-        30,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
         null,
         null,
         1,
-        30,
-        null,
-        null
-      ],
-      "/home/alex/cp/sample_app/spec/models/room_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        2,
-        2,
-        null,
-        1,
-        2,
+        29,
         null,
         null
       ],
-      "/home/alex/cp/sample_app/app/models/room.rb": [
-        1,
-        1,
-        1,
-        null,
-        1,
-        null
-      ],
-      "/home/alex/cp/sample_app/spec/models/sub_event_spec.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/models/room_spec.rb": [
         1,
         null,
         1,
         1,
         2,
+        2,
         null,
         1,
-        2,
         2,
         null,
         null
       ],
-      "/home/alex/cp/sample_app/app/models/sub_event.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/models/room.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null
+      ],
+      "/Users/Me/Documents/upwork/sample_app/spec/models/sub_event_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        2,
+        null,
+        1,
+        2,
+        2,
+        null,
+        null
+      ],
+      "/Users/Me/Documents/upwork/sample_app/app/models/sub_event.rb": [
         1,
         1,
         null,
@@ -2301,7 +2360,18 @@
         40,
         null
       ],
-      "/home/alex/cp/sample_app/spec/models/workshop_spec.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/models/subscription_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/Users/Me/Documents/upwork/sample_app/app/models/subscription.rb": [
+        1,
+        null
+      ],
+      "/Users/Me/Documents/upwork/sample_app/spec/models/workshop_spec.rb": [
         1,
         null,
         1,
@@ -2315,14 +2385,14 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/app/models/workshop.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/models/workshop.rb": [
         1,
         1,
         null,
         1,
         null
       ],
-      "/home/alex/cp/sample_app/spec/views/coupons/index.html.erb_spec.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/views/coupons/index.html.erb_spec.rb": [
         1,
         null,
         1,
@@ -2331,19 +2401,6 @@
         null,
         null,
         null,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/home/alex/cp/sample_app/spec/views/coupons/show.html.erb_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
         null,
         null,
         1,
@@ -2351,7 +2408,20 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/app/models/event.rb": [
+      "/Users/Me/Documents/upwork/sample_app/spec/views/coupons/show.html.erb_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/Me/Documents/upwork/sample_app/app/models/event.rb": [
         1,
         1,
         1,
@@ -2385,7 +2455,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/app/models/user.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/models/user.rb": [
         1,
         1,
         1,
@@ -2480,7 +2550,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/app/models/ticket.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/models/ticket.rb": [
         1,
         1,
         1,
@@ -2488,10 +2558,10 @@
         null,
         1,
         null,
-        39,
-        19,
-        20,
-        20,
+        0,
+        0,
+        0,
+        0,
         null,
         null,
         null,
@@ -2506,7 +2576,7 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/app/models/entitlement.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/models/entitlement.rb": [
         1,
         1,
         1,
@@ -2523,52 +2593,34 @@
         null,
         null
       ],
-      "/home/alex/cp/sample_app/app/models/order_transaction.rb": [
+      "/Users/Me/Documents/upwork/sample_app/app/models/order_transaction.rb": [
         1,
         1,
         1,
         null,
         1,
-        23,
-        23,
-        23,
-        23,
         null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        22,
         0,
         0,
         0,
-        0,
         null,
-        null
-      ],
-      "/home/alex/cp/sample_app/app/mailers/user_mailer.rb": [
-        1,
+        22,
+        22,
+        22,
+        22,
         null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        1,
-        14,
-        14,
-        14,
-        null,
-        null,
-        null
-      ],
-      "/home/alex/cp/sample_app/app/mailers/application_mailer.rb": [
-        1,
-        1,
-        1,
         null
       ]
     },
-    "timestamp": 1484202583
+    "timestamp": 1486622580
   }
 }

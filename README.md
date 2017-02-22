@@ -6,7 +6,7 @@
 ```
 #!ruby
 
-git clone https://frankavila00@bitbucket.org/frankavila00/sample_app.git event_app
+git clone https://github.com/mobileguru121/SurveyApp.git
 ```
 
 ### Run bundle install ###
